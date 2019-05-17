@@ -1,0 +1,41 @@
+// ---css共用區(常用預設值)---
+html, body, header, article, footer{min-width:320px;}
+html, body{ 
+    font-size:18px;
+    width:100%;
+    height:100%;
+    font-family:Arial, Helvetica, "微軟正黑體", sans-serif;
+    -webkit-text-size-adjust:none; // 在 iOS 旋轉畫面鎖定文字不縮放 
+    -webkit-overflow-scrolling:touch; // 安卓和IOS使用滾動回彈效果 
+}
+a{ //手指點連結的顏色變透明
+    display:block;
+    text-decoration:none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.notSelect{user-select: none;} // 不能選取反白的設定
+*{box-sizing:border-box;}
+.img_rwd{
+    width:100%;
+    height:auto;
+}
+// ===== 手機版型區 =====
+@media screen and (max-width: 767px){
+   
+}
+// 手機版拿直的時候 portrait
+@media screen and (max-width: 767px) and (orientation:portrait){
+   
+}
+// 手機版拿橫的時候 Landscape
+@media screen and (max-width: 767px) and (orientation:landscape){
+   
+}
+// ===== 平板版型區 =====
+@media screen and (min-width: 768px) and (max-width: 1019px) {
+   
+}
+// ===== 桌機版型區 =====
+@media screen and (min-width: 1020px) {
+   
+}

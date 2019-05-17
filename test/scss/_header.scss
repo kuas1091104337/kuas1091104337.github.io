@@ -1,0 +1,120 @@
+%m_btn_bar{
+  width: 20px;
+  height: 2px;
+  background-color:#fff;
+  position:absolute;
+  top:0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  margin:auto;
+}
+header{
+  width: 100%;
+  height:$menu-height;
+  background-color:$menu-color;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 7px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  > #logo{
+    color:#666;
+    letter-spacing:1px;
+    line-height: 36px;
+    text-align:center;
+    width: 72px;
+    height: 36px;
+    background-color:rgba(255,255,255,0.65);
+    span{
+      font-size: 14px;
+      line-height: 14px;
+      transform:rotate(90deg) translateY(8px);
+    }
+  }
+  h1{
+    font-weight: lighter;
+    display:flex;
+    align-items:center;
+    margin:0;
+  }
+  > ul{
+    width: 100%;
+    height: 100%;
+    background :$menu-color linear-gradient(135deg, transparent 45%,rgba(255,255,255,0.5) 45%, rgba(255,255,255,0.5) 55%, transparent 55%) 0 0/10px 10px;
+    padding:20px 0;
+    position:fixed;
+    top:0;
+    left:0;
+    transform:translate(100%);
+    transition: .4s;
+  }
+  li + li{margin-top:20px;}
+  a{
+    line-height: 50px;
+    background-color:rgba(255,255,0,0.2);
+    padding:0 16px;
+  }
+  > .m_menu{
+    width:20px;
+    height:20px;
+    background-color:rgba(255,0,255,0.2);
+    border-radius:50%;
+    box-sizing:content-box;
+    padding:12px;
+    position:absolute;
+    top:3px;
+    right:3px;
+    transition:transform .4s;
+    > span{
+      @extend %m_btn_bar;
+      transition:opacity .4s;
+    }
+    &:before, &:after{
+      content:"";
+      @extend %m_btn_bar;
+      transition:width .4s, background-color .4s, transform .4s;
+    }
+    &:before{margin-top:14px;}
+    &:after{margin-bottom:14px;}
+  }
+  &.m_menu--open{
+    > ul{transform:translate(0%);}
+    > .m_menu{
+      transform:rotate(-180deg);
+      > span{opacity:0;}
+      &:before, &:after{
+        width:24px;
+        background-color:#fff;
+      }
+      &:before{
+        margin-top:auto;
+        transform:rotate(45deg);
+      }
+      &:after{
+        margin-bottom:auto;
+        transform:rotate(-45deg);
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px){
+  header{
+    > ul{
+      width:auto;
+      display:flex;
+      justify-content:center;
+      padding: 0;
+      position: relative;
+      transform:translate(0);
+    }
+    li + li{margin:0 0 0 20px;}
+    a{
+      line-height: 36px;
+      padding:0 9px;
+    }
+    > .m_menu{display: none;}
+  }
+}
