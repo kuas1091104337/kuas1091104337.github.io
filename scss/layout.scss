@@ -19,6 +19,19 @@ a{ //手指點連結的顏色變透明
     width:100%;
     height:auto;
 }
+article{
+  > a{
+    color:#ff9;
+    line-height:50px;
+    text-align:center;
+    width: 50%;
+    max-width:300px;
+    border-radius:5px;
+    background-color:#333;
+    margin:0 auto;
+    + a{margin-top:50px;}
+  }
+}
 // ===== 手機版型區 =====
 @media screen and (max-width: 767px){
    
