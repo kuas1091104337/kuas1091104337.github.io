@@ -1,0 +1,973 @@
+//	2014台灣國際旅遊展設計參數
+	$dotA藍綠:#7cbfb4;
+	$tite_洋紅:#e3007f;
+	$tite_綠:#44af35;
+	$tite_黃:#f7aa00;
+
+	$楓葉_橙1:#fe8f00;
+	$楓葉_橙2:#ff6600;
+	$楓葉_橙3:#9b0200;
+	$楓葉_橙4:#c30;
+
+	$楓葉_黃1:#ffff00;
+	$楓葉_黃2:#ffc524;
+	$楓葉_黃3:#fcb000;
+	$楓葉_黃4:#f19501;
+
+	$tite_藍:#1777ac;
+	$tite_藍綠:#72c4d9;
+	$tite_字木色:#91603a;
+
+	$tite_index綠:#61a585;
+	$tite_news藍:#6d97b5;
+	$tite_map黃:#dcaa35;
+	$tite_offer綠:#789643;
+	$tite_love紅:#ce5450;
+
+	$tite_index深綠:#43725c;
+	$tite_news深藍:#4e6c82;
+	$tite_map深黃:#e9832c;
+	$tite_offer深綠:#4f632c;
+	$tite_love深紅:#9b3f3c;
+
+	@include keyframes(titeReload) {
+		0%{
+			left:66.6667%;
+			opacity:0;
+		}
+		20%{
+			left:33.3334%;
+			opacity:1;
+		}
+		80%{
+			left:33.3334%;
+			opacity:1;
+		}
+		100%{
+			left:66.6667%;
+			opacity:0;
+		}
+	}
+	@include keyframes(loadRotate) {
+		0%{@include transform(rotate(0deg));}
+		100%{@include transform(rotate(-360deg));}
+	}
+	// @include keyframes(dotABox3Dtest) {
+		//前1
+		// 0%{transform:translateZ(-100px) rotate3d(0, 0, 0, 0deg);} 		
+		//上2
+		// 17%{transform:translateZ(-100px) rotate3d(1, 0, 0, -90deg);} 	
+		//左3
+		// 33%{transform:translateZ(-100px) rotate3d(0, 1, 0, 90deg);} 	
+		//右4
+		// 20% {transform:translateZ(-100px) rotate3d(0, 1, 0, 270deg);}	
+		//下2
+		// 67% {transform:translateZ(-100px) rotate3d(1, 0, 0, 90deg);}	
+		//後6
+		// 83% {transform:translateZ(-100px) rotate3d(0, 1, 0, 180deg);}	
+		//前1
+		// 100% {transform:translateZ(-100px) rotate3d(0, 0, 0, 0deg);}	
+
+		//0% {transform:translateZ(-100px) rotateY(-45deg) rotateX(-45deg);}  
+		//20% {transform:translateZ(-100px) rotateY(-135deg) rotateX(-45deg);} 
+		//40% {transform:translateZ(-100px)  rotateY(-225deg) rotateX(-45deg);}    
+		//60% {transform:translateZ(-100px) rotateY(-225deg) rotateX(45deg);} 
+		//80% {transform:translateZ(-100px) rotateY(-315deg) rotateX(45deg);} 
+		//100% {transform:translateZ(-100px) rotateY(-405deg) rotateX(45deg);} 
+	// }
+	@include keyframes(dotABox3D) {
+		0% {@include transform(translateZ(-80px) rotate3d(1,1,1,0deg));}
+		25% {@include transform(translateZ(-80px) rotate3d(1,1,1,90deg));}
+		50% {@include transform(translateZ(-80px) rotate3d(1,1,1,180deg));}
+		75% {@include transform(translateZ(-80px) rotate3d(1,1,1,270deg));}
+		100% {@include transform(translateZ(-80px) rotate3d(1,1,1,360deg));}
+	}
+	@include keyframes(dotAlogo) {
+		0% {@include transform(translateX(-50%) translateY(0px));}
+		100% {@include transform(translateX(-50%) translateY(6px));}
+	}
+//	桌機外框
+	.tite2014, .tite2014Bg{height:100%;}
+	#tite2014Wrap{
+		height:100%;
+		> h1{
+			position:absolute;
+			top:0;
+			left:-200%;
+		}
+	}
+	#tite2014Box{
+		@include 背景圖滿版置中設定("TITE/titeBg.jpg");
+		background-color:$tite_藍綠;
+		overflow:hidden;
+		>input{
+			@extend %控制用的input推出畫面;
+		}
+	}
+	#tite2014SlideBox{
+		width:300%;
+		height:100%;
+		@include transition(transform .3s .1s);
+		&:after{
+			@extend %偽元素after_clear_both;
+		}
+		>section{
+			width:33.33%;
+			height:100%;
+			overflow:auto;
+			float:left;
+			position:relative;
+			>input{
+				@extend %控制用的input推出畫面;
+			}
+		}
+	}
+	.tite2014 p{
+		color:#262626;
+		line-height:1.8;
+		text-shadow:0 1px 1px rgba(255,255,255,.3);
+		margin-right:15px;
+		margin-left:15px;
+	}
+//	spriteImg
+	%spriteImg{
+		background-image:image-url("TITE/tite_icon.png");
+		background-repeat:no-repeat;
+		background-size:1960px 113px;
+	}
+//	dotAhref
+	.dotAhref{
+		color:$tite_藍;
+		text-align: center;
+		line-height:1.8;
+		background-color:rgba(255,255,255,0.5);
+		margin-bottom:16px;
+		&:hover{text-decoration:underline;}
+	}
+//	旅遊展主頁
+	#titeIndexH{
+		@include 背景圖等比例伸縮滿版設定(828px,560px,"TITE/titeIndexH.png");
+		>h1{
+			@extend %文字推出畫面;
+			margin:0;
+		}
+	}
+	#titeIndexNav{
+		&:after{
+			@extend %偽元素after_clear_both;
+		}
+		>h3{
+			width:33.333333%;
+			float:left;
+			margin:0 0 5%;
+		}
+		>h3:nth-of-type(1){margin-left:16.666666%;}
+		>h3:nth-of-type(2){margin-right:16.666666%;}
+		label{
+			text-align:center;
+			width:100px;
+			display:block;
+			margin:0 auto;
+			&:before{
+				@extend %spriteImg;
+				content:"";
+				width:100%;
+				height:112px;
+				display:block;
+			}
+		}
+		span{
+			color:#fff;
+			font-size:16px;
+			font-weight:normal;
+			vertical-align:bottom;
+			background-color:rgba(0,0,0,0.6);
+			display:inline-block;
+			border-radius:3px;
+			padding:2px 3px;
+		}
+	}
+	.titeIndexCtrl1{
+		&:before{background-position:-690px 0;}
+		&:hover:before, &:active:before{background-position:-795px 0;}
+	}
+	.titeIndexCtrl2{
+		&:before{background-position:-1320px 0;}
+		&:hover:before, &:active:before{background-position:-1425px 0;}
+	}
+	.titeIndexCtrl3{
+		&:before{background-position:-1110px 0;}
+		&:hover:before, &:active:before{background-position:-1215px 0;}
+	}
+	.titeIndexCtrl4{
+		&:before{background-position:-1530px 0;}
+		&:hover:before, &:active:before{background-position:-1635px 0;}
+	}
+	.titeIndexCtrl5{
+		&:before{background-position:-900px 0;}
+		&:hover:before, &:active:before{background-position:-1005px 0;}
+	}
+	#titeFooter{
+		width:100%;
+		height:50px;
+		position:relative;
+		>p{
+			color:$tite_藍;
+			line-height:1.4;
+			font-weight:bold;
+			margin:0 0 0 10px;
+		}
+		>ul{
+			height:50px;
+			position:absolute;
+			top:0;
+			right:0;
+		}
+		li{
+			width:50px;
+			height:50px;
+			display:inline-block;
+		}
+		li+li{margin:0 15px 0 10px;}
+		#titeReloadBox{
+			@extend %旅展主頁reload畫面固定;
+			background-image:image-url("TITE/titeReloadImg.jpg");
+			background-position:center;
+			background-size:cover;
+			margin:0;
+			left:100%;
+		}
+		.titeReload:focus{
+			outline:none;
+			+ #titeReloadBox{@include animation(titeReload 1s backwards);}
+		} 
+	}
+	.titeReload{
+		@extend %spriteImg;
+		background-position:-1850px 0;
+		&:hover, &:active{background-position:-1905px 0;}
+	}
+	.titeRefresh{
+		width:60%;
+		height:0;
+		padding-bottom:60%;
+		background-color:rgba(0,0,0,.6);
+		border-radius:3%;
+		box-shadow:0 2px 6px rgba(0,0,0,.75), 0 0 2px rgba(0,0,0,.5) inset;
+		margin:auto;
+		position:absolute;
+		top:0;
+		right:0;
+		left:0;
+		bottom:0;
+		&:after{
+			@include 標籤內偽元素SVG背景圖設定(70%,70%,"TITE/refresh.svg");
+			opacity:.6;
+			margin:auto;
+			position:absolute;
+			top:0;
+			right:0;
+			left:0;
+			bottom:0;
+			@include animation(loadRotate 1.2s linear infinite);
+		}
+	}
+	.dotAworksOpen{
+		@extend %spriteImg;
+		background-position:-1740px 0;
+		display:block;
+		height:100%;
+		&:hover, &:active{background-position:-1795px 0;}
+	}
+	#dotALightBox{
+		@extend %旅展主頁reload畫面固定;
+		background-color:#333;
+		display:none;
+		left:33.3334%;
+		h4{
+			color:$dotA藍綠;
+			font-size:28px;
+			font-weight: 100;
+			line-height:2;
+			margin: 15px;
+		}
+		>p{
+			font-size:16px;
+			font-weight:100;
+			text-align:center;
+			text-shadow:none;
+			line-height:42px;
+			width:100%;
+			background-color:$dotA藍綠;
+			margin:0;
+			position:absolute;
+			left:0;
+			bottom:0;
+			> a{color:#fff;}
+		}
+	}
+	.dotALightBoxClose{
+		width:44px;
+		height:44px;
+		background-color:$dotA藍綠;
+		border-radius:5px;
+		position:absolute;
+		top:10px;
+		right:10px;
+		&:before, &:after{
+			content:"";
+			width:32px;
+			height:2px;
+			background-color:#fff;
+			margin:auto;
+			position:absolute;
+			top:0;
+			right:0;
+			left:0;
+			bottom:0;
+		}
+		&:before{@include transform(rotate(45deg));}
+		&:after{@include transform(rotate(-45deg));}
+	}
+	.dotABoxSpace{
+		width:160px;
+		height:160px;
+		margin:80px auto 60px;
+		position:relative;
+		@include perspective(320px);
+	}
+	.dotABox3D{
+		width:100%;
+		height:100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		@include transform(translateZ(-80px) rotateY(45deg) rotateX(45deg));
+		@include transform-style(preserve-3d);
+		// @include animation(dotABox3Dtest 10s linear infinite);
+		@include animation(dotABox3D 8s linear infinite);
+		div{
+			color:#fff;
+			width: 100%;
+			height: 100%;
+			background-color:#fff;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.front{@include transform(rotateY(0deg) translateZ(80px));}
+		.back{@include transform(rotateY(180deg) translateZ(80px));}
+		.up{@include transform(rotateX(90deg) translateZ(80px));}
+		.down{@include transform(rotateX(270deg) translateZ(80px));}
+		.left{@include transform(rotateY(270deg) translateZ(80px));}
+		.right{@include transform(rotateY(90deg) translateZ(80px));}
+	}
+	.dotAlogo{
+		color:#333;
+		font-size:110px;//130
+		font-family:Arial;// font-family:verdana;
+		font-weight:bold;
+		line-height:160px;//18
+		text-align:center;
+		width:140px;
+		height:140px;
+		position:absolute;
+		top:10px;
+		left:10px;
+		z-index:100;
+		@include transform(scale(1));
+		&:before{
+			content:"";
+			width:22px;
+			height:22px;
+			display:block;
+			background-color:#333;
+			border-radius:50%;
+			position: absolute;
+			left: 50%;
+			top:6px;
+			transform: translateX(-50%);
+			@include animation(dotAlogo .5s cubic-bezier(0.5, -0.75, 0.5, 1.75) infinite alternate);
+		}
+	}
+	#dotALightBoxOpen:checked ~ #dotALightBox{display:block;}
+	%旅展主頁reload畫面固定{
+		width:33.3334%;
+		height:100%;
+		position:fixed;
+		top:0;
+	}	
+//	展覽資訊
+	%insideHead{
+		@include 背景圖等比例伸縮滿版設定(828px,114px,"TITE/titeInsideH.png");
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:100;
+	}
+	%insideHeadH2{
+			color:#fff;
+			font-size:21px;
+			font-size:6.5vw;
+			font-weight:normal;
+			text-shadow:1px 1px 1px #784f30, -1px 1px 1px #784f30, 0 1px 1px #784f30;
+			margin:0;
+			position:absolute;
+			top:50%;
+			left:50%;
+			@include transform(translate(-50%, -50%));
+	}
+	%insideTitle{
+		color:$楓葉_橙4;
+		line-height:2;
+		text-align:center;
+		text-shadow:1px 1px 1px rgba(255, 255, 255, 0.3), -1px 1px 1px rgba(255, 255, 255, 0.3);
+		background-color:rgba(255,255,255,0.5);
+	}
+	%回首頁箭頭共用{
+		vertical-align:middle;
+	}
+	%回首頁箭頭的尾{
+		content:"";
+		width:18px;
+		height:8px;
+		display:inline-block;
+	}
+	#titeInfor{
+		>header{@extend %insideHead;}
+		label{
+			width:40px;
+			height:40px;
+			padding:9px 0 0 1px;
+			position:absolute;
+			top:50%;
+			left:10px;
+			@include transform(translateY(-50%));
+			&:before, &:after{
+				@extend %回首頁箭頭共用;
+				@include filter(blur(4px));
+			}
+			&:before{
+				@include 偽元素三角形css設定(11px 16px 11px 0,transparent #784f30 transparent transparent);
+			}
+			&:after{
+				@extend %回首頁箭頭的尾;
+				background-color:#784f30;
+			}
+			span{
+				width: 100%;
+				height: 100%;
+				padding-top:8px;
+				position:absolute;
+				top:0;
+				left:0;
+				z-index:2;
+				&:before, &:after{@extend %回首頁箭頭共用;}
+				&:before{
+					@include 偽元素三角形css設定(11px 16px 11px 0,transparent #fff transparent transparent);
+				}
+				&:after{
+					@extend %回首頁箭頭的尾;
+					background-color:#fff;
+				}
+			}
+		}
+		h2{@extend %insideHeadH2;}
+	}
+	#titeInforContent{
+		padding:13.76812% 0 10px;
+		height:100%;
+		overflow:auto;
+		>h3{
+			font-size:6vw;
+			@extend %insideTitle;
+		}
+		strong{color:$楓葉_橙3;}
+		em{
+			color:#fff;
+			font-style:normal;
+			text-shadow:none;
+			background-color:$楓葉_橙3;
+			border-radius:3px;
+			padding:0 4px;
+		}
+		em:first-of-type{margin-left:5px;}
+		em:last-of-type{margin-right:5px;}
+	}
+	#iframe_box{
+		width:100%;
+		height:0;
+		padding-bottom:56.25%;
+		margin-bottom:20px;
+		position:relative;
+		iframe{
+			width:100%;
+			height:100%;
+			position:absolute;
+		}
+	}
+//	旅遊展內頁
+	#titeInsideMain{
+		padding-bottom:5.1%;
+		padding-top:4.59%;
+		>div{
+			height:0;
+			visibility:hidden;
+			overflow:hidden;
+			@include transition(height .4s, visibility .4s);
+			>header{@extend %insideHead;}
+			h2{@extend %insideHeadH2;}
+		}
+	}
+	#titeBottomNav{
+		@include 背景圖等比例伸縮滿版設定(828px,126px,"TITE/TabBar_BackGround.png");
+		position:absolute;
+		left:0;
+		bottom:0;
+	}
+	.bottomNavBox{
+		width:100%;
+		height:100%;
+		position:absolute;
+		top:0;
+		left:0;
+		>h3{
+			width:20%;
+			height:100%;	
+			margin:0;
+			float:left;
+		}
+		label{
+			color:#fff;
+			font-size:4vw;
+			font-weight:normal;
+			text-align:center;
+			text-shadow:0 1px 0 $tite_字木色, 
+						1px 0 0 $tite_字木色, 
+						0 -1px 0 $tite_字木色, 
+						-1px 0 0 $tite_字木色, 
+						1px 1px 0 $tite_字木色, 
+						-1px 1px 0 $tite_字木色, 
+						1px -1px 0 $tite_字木色, 
+						-1px -1px 0 $tite_字木色, 
+						0 2px 0 $tite_字木色, 
+						2px 0 0 $tite_字木色, 
+						0 -2px 0 $tite_字木色, 
+						-2px 0 0 $tite_字木色, 
+						1px 2px 0 $tite_字木色, 
+						-1px 2px 0 $tite_字木色, 
+						1px -2px 0 $tite_字木色, 
+						-1px -2px 0 $tite_字木色, 
+						2px 1px 0 $tite_字木色, 
+						-2px 1px 0 $tite_字木色, 
+						2px -1px 0 $tite_字木色, 
+						-2px -1px 0 $tite_字木色,
+						2px 2px 0 $tite_字木色, 
+						-2px 2px 0 $tite_字木色, 
+						2px -2px 0 $tite_字木色, 
+						-2px -2px 0 $tite_字木色;
+			display:block;
+			margin-top:7%;
+			&:before{
+				content:"";
+				width:64px;
+				height:34px;
+				@extend %spriteImg;
+				display:block;
+				margin:0 auto;
+			}
+		}
+	}
+	.titeBottomCtrl1{
+		&:before{background-position:0 0;}
+	}
+	.titeBottomCtrl2{
+		&:before{background-position:-414px 0;}
+	}
+	.titeBottomCtrl3{
+		&:before{background-position:-276px 0;}
+	}
+	.titeBottomCtrl4{
+		&:before{background-position:-552px 0;}
+	}
+	.titeBottomCtrl5{
+		&:before{background-position:-138px 0;}
+	}
+//	最新消息
+	.titeNews{
+		h4{
+			line-height:1.6;
+			background:rgba(255,255,255,.5);
+			border-bottom:2px solid $tite_藍;
+			padding:5px 15px;
+			margin:0;
+		}
+		span{
+			font-size:16px;
+			font-weight:normal;
+			text-align:right;
+			line-height:1;
+			display:block;
+			padding-top:5px;
+		}
+		p{
+			font-size:16px;
+			margin-top:0;
+			margin-bottom:35px;
+			position:relative;
+			&:after{
+				content:"more";
+				color:#fff;
+				line-height:1.4;
+				text-shadow:none;
+				background-color:$tite_藍;
+				border-radius:3px;
+				padding:0 4.5px;
+				position:absolute;
+				right:0;
+				bottom:3px;
+			}
+		}
+	}
+//	展覽地圖
+	.titeMap{
+		>h4{
+			font-size:6vw;
+			@extend %insideTitle;
+		}
+		strong > span{
+			color:$楓葉_黃4;
+			text-shadow:0 1px 1px rgba(0,0,0,.3);
+		}
+	}
+	.titeMapTable{
+		background-color:rgba(255,255,255,0.5);
+		border-width:0 2px 2px 2px;
+		border-style:solid;
+		border-color:$楓葉_黃4;
+		margin:0 15px 15px;
+	}
+	.titeTableTr{
+		>div{
+			font-size:16px;
+			line-height:1.6;
+			padding:8px;
+			position:relative;
+			>h5{
+				font-size:18px;
+				font-weight:normal;
+				line-height:63px;
+				margin:0;
+			}
+			>img{
+				width:100px;
+				position:absolute;
+				top:2px;
+				right:0;
+			}
+			>p{margin:0;}
+		}
+		>div:first-of-type{
+			color:#fff;
+			height:79px;
+			background-color:$楓葉_黃4;
+		}
+		b{color:$楓葉_橙4;}
+	}
+//	好康懶人包
+	.titeOffer{
+		>h4{
+			font-size:5.6vw;
+			@extend %insideTitle;
+		}
+		>strong{
+			text-align:center;
+			display:block;
+		}
+	}
+//	我的最愛
+	.titeLove{
+		li{
+			width:86%;
+			background-color:rgba(255,255,255,0.5);
+			border-radius:5px;
+			box-shadow:0 2px 6px rgba(0,0,0,0.4);
+			padding:10px 15px 15px;
+			margin:7% auto;
+		}
+		p{
+			margin:0 0 10px;
+		}
+		h4{
+			font-weight:normal;
+			line-height:1.6;
+			margin:14px 0;
+		}
+		strong{
+			color:$楓葉_橙3;
+			&:before, &:after{
+				color:$楓葉_黃4;
+				font-weight:normal;
+				text-shadow:0 1px 1px rgba(0,0,0,0.3);
+			}
+			&:before{content:"旅展價 : ";}
+			&:after{content:" 元";}
+		}
+	}
+//	跳頁設計
+	#titeNavCtrl0:checked ~ #tite2014SlideBox{@include transform(translateX(-33.33%));}
+	#titeNavCtrl1:checked ~ #tite2014SlideBox{@include transform(translateX(0%));}
+	#titeNavCtrl2:checked ~ #tite2014SlideBox, #titeNavCtrl3:checked ~ #tite2014SlideBox, 
+	#titeNavCtrl4:checked ~ #tite2014SlideBox, #titeNavCtrl5:checked ~ #tite2014SlideBox{
+		@include transform(translateX(-66.66%));
+	}
+	#titeNavCtrl2:checked ~ #tite2014SlideBox > #titeInsideMain > .titeNews,
+	#titeNavCtrl3:checked ~ #tite2014SlideBox > #titeInsideMain > .titeMap,
+	#titeNavCtrl4:checked ~ #tite2014SlideBox > #titeInsideMain > .titeOffer,
+	#titeNavCtrl5:checked ~ #tite2014SlideBox > #titeInsideMain > .titeLove{
+		height:100%;
+		visibility:visible;
+		overflow:auto;
+	}
+	#titeNavCtrl0:checked ~ #tite2014SlideBox > #titeInsideMain .titeBottomCtrl0{
+		color:$tite_index綠;
+		&:before{background-position:-69px 0;}
+	}
+	#titeNavCtrl2:checked ~ #tite2014SlideBox > #titeInsideMain .titeBottomCtrl2{
+		color:$tite_news藍;
+		&:before{background-position:-483px 0;}
+	}
+	#titeNavCtrl3:checked ~ #tite2014SlideBox > #titeInsideMain .titeBottomCtrl3{
+		color:$tite_map黃;
+		&:before{background-position:-345px 0;}
+	}
+	#titeNavCtrl4:checked ~ #tite2014SlideBox > #titeInsideMain .titeBottomCtrl4{
+		color:$tite_offer綠;
+		&:before{background-position:-621px 0;}
+	}
+	#titeNavCtrl5:checked ~ #tite2014SlideBox > #titeInsideMain .titeBottomCtrl5{
+		color:$tite_love紅;
+		&:before{background-position:-207px 0;}
+	}
+	#titeNavCtrl0:checked ~ #tite2014SlideBox > #titeInsideMain .titeBottomCtrl0, 
+	#titeNavCtrl2:checked ~ #tite2014SlideBox > #titeInsideMain .titeBottomCtrl2,
+	#titeNavCtrl3:checked ~ #tite2014SlideBox > #titeInsideMain .titeBottomCtrl3, 
+	#titeNavCtrl4:checked ~ #tite2014SlideBox > #titeInsideMain .titeBottomCtrl4,
+	#titeNavCtrl5:checked ~ #tite2014SlideBox > #titeInsideMain .titeBottomCtrl5{
+		text-shadow:0 1px 0 #fff, 
+					1px 0 0 #fff, 
+					0 -1px 0 #fff, 
+					-1px 0 0 #fff, 
+					1px 1px 0 #fff, 
+					-1px 1px 0 #fff, 
+					1px -1px 0 #fff, 
+					-1px -1px 0 #fff;
+	}
+//	手機禁止橫拿ICON
+	#landscape{
+		width:100%;
+		height:100%;
+		background-color:rgba(#000, .85);
+		display:none;
+		position:fixed;
+		top:0;
+		left:0;
+		> .forbidLandscape{
+			width:56%;
+			height:0;
+			padding-bottom:56%;
+			margin:auto;
+			position:absolute;
+			top:0;
+			right:0;
+			left:0;
+			bottom:0;
+			&:after{
+				@include 標籤內偽元素SVG背景圖設定(100%,100%,"TITE/phoneForbidLandscape.svg");
+				position:absolute;
+				top:0;
+				left:0;
+			}
+		}
+	}
+//	iPhone4、5 手機版
+@include breakpoint(max-width 320px) {
+	#titeIndexNav{
+		label{
+			width:90px;
+			&:before{
+				height:101px;
+				background-size:1764px 102px;
+			}
+		}
+	}
+	.titeIndexCtrl1{
+		&:before{background-position:-621px 0;}
+		&:hover:before{background-position:-715.5px 0;}
+	}
+	.titeIndexCtrl2{
+		&:before{background-position:-1188px 0;}
+		&:hover:before{background-position:-1282.5px 0;}
+	}
+	.titeIndexCtrl3{
+		&:before{background-position:-999px 0;}
+		&:hover:before{background-position:-1093.5px 0;}
+	}
+	.titeIndexCtrl4{
+		&:before{background-position:-1377px 0;}
+		&:hover:before{background-position:-1471.5px 0;}
+	}
+	.titeIndexCtrl5{
+		&:before{background-position:-810px 0;}
+		&:hover:before{background-position:-904.5px 0;}
+	}
+	#titeFooter{
+		li+li{margin:0 10px 0 5px;}
+	}
+	#dotALightBox{
+		h4{font-size:20px;}
+	}
+	.bottomNavBox{
+		label{
+			font-size:13px;
+			letter-spacing:-1px;
+			margin-top:0;
+		}
+	}
+}
+//	===== 手機版拿橫的時候 ===== 
+@include breakpoint((max-width 768px) (orientation landscape)){
+	#landscape{display: block;}
+}
+//	===== 平板「以上」版型區 ===== 
+@include breakpoint(768px) {
+	%titeBgImg{
+		background-repeat:no-repeat;
+		background-position:center;
+	}
+	.tite2014Bg{
+		@extend %titeBgImg;
+		background-color:#fff;
+		background-image:image-url("TITE/titeDeskBg.jpg");
+		background-size:cover;
+	}
+	#tite2014Wrap{
+		@extend %titeBgImg;
+		letter-spacing:0;
+		width:100%;
+		background-image:image-url("TITE/titeDeskIphoneBox.png");
+	}
+	#tite2014Box{
+		width:320px;
+		height:568px;
+		position:absolute;
+		top:0;
+		right:0;
+		left:0;
+		bottom:0;
+		margin:auto;
+	}
+	#tite2014SlideBox{
+		position:absolute;
+		top:0;
+		left:0;
+	}
+	#titeIndexNav{
+		label{
+			width:90px;
+			&:before{
+				height:101px;
+				background-size:1764px 102px;
+			}
+		}
+	}
+	.titeIndexCtrl1{
+		&:before{background-position:-621px 0;}
+		&:hover:before{background-position:-715.5px 0;}
+	}
+	.titeIndexCtrl2{
+		&:before{background-position:-1188px 0;}
+		&:hover:before{background-position:-1282.5px 0;}
+	}
+	.titeIndexCtrl3{
+		&:before{background-position:-999px 0;}
+		&:hover:before{background-position:-1093.5px 0;}
+	}
+	.titeIndexCtrl4{
+		&:before{background-position:-1377px 0;}
+		&:hover:before{background-position:-1471.5px 0;}
+	}
+	.titeIndexCtrl5{
+		&:before{background-position:-810px 0;}
+		&:hover:before{background-position:-904.5px 0;}
+	}
+	#titeFooter{
+		li+li{margin:0 10px 0 5px;}
+	}
+	.bottomNavBox{
+		label{
+			font-size:13px;
+			letter-spacing:-1px;
+			margin-top:0;
+		}
+	}
+	#titeInfor, #titeInsideMain>div{
+		h2{font-size:21px;}
+	}
+	#titeInforContent>h3{font-size:19px;}
+	.titeOffer>h4{font-size:17px;}
+	.titeMap>h4{font-size:21px;}
+	.dotABoxSpace{margin-bottom:55px;}
+	#dotALightBox h4{font-size:24px;}
+}
+@include breakpoint(1680px) {
+	#tite2014Wrap{
+		h1{
+			color:#fff;
+			font-size:48px;
+			line-height:60px;
+			letter-spacing:.5px;
+			text-align: center;
+			text-shadow:0 1px 0 #91603a, 
+						1px 0 0 #91603a, 
+						0 -1px 0 #91603a, 
+						-1px 0 0 #91603a, 
+						1px 1px 0 #91603a, 
+						-1px 1px 0 #91603a, 
+						1px -1px 0 #91603a, 
+						-1px -1px 0 #91603a, 
+						0 2px 0 #91603a, 
+						2px 0 0 #91603a, 
+						0 -2px 0 #91603a, 
+						-2px 0 0 #91603a, 
+						1px 2px 0 #91603a, 
+						-1px 2px 0 #91603a, 
+						1px -2px 0 #91603a, 
+						-1px -2px 0 #91603a, 
+						2px 1px 0 #91603a, 
+						-2px 1px 0 #91603a, 
+						2px -1px 0 #91603a, 
+						-2px -1px 0 #91603a,
+						2px 2px 0 #91603a, 
+						-2px 2px 0 #91603a, 
+						2px -2px 0 #91603a, 
+						-2px -2px 0 #91603a, 
+						2px 3px 6px #69b1bf, 
+						-2px 3px 6px #69b1bf;
+			width:99.6%;
+			position:relative;
+			left:0;
+			@include transform(skew(-6deg));
+			&:before{
+				@include 標籤內偽元素背景圖設定(60px,60px,"TITE/titeIcon.png");
+				display:inline-block;
+				background-size:cover;
+				vertical-align:top;
+				border-radius:6px;
+				box-shadow:0 1px 6px #69b1bf;
+				margin-right:15px;
+				@include transform(skew(6deg));
+			}
+		}
+	}
+}

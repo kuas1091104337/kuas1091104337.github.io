@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant-TW" class="bsGoodStar">
+<head>
+<meta charset="utf-8">
+<title>BS跪求好評五星級 by Dot A works</title>
+<link rel="shortcut icon" href="images/website_logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="address=no">
+<meta name="keywords" content="Dot A works, BrainSport 跪求好評五星級, Amos Chen, kuas1091104337">
+<meta name="description" content="BrainSport 跪求好評五星級活動網頁設計 by Dot A works">
+<meta name="author" content="Dot A, kuas1091104337, Amos Chen">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]><link href="css/IE_layout.css" rel="stylesheet" type="text/css"><![endif]-->
+</head>
+
+<body class="bsGoodStarBg">
+	<div id="goodStarWrap">
+		<header id="goodStarH">
+			<a href="index.html" id="bsLogo" title="回陳宥宏的作品網站 Dot A"></a>
+			<h1>跪求好評五星級</h1>
+			<h2>五星好評送百鑽</h2>
+			<a href="https://play.google.com/store/apps/details?id=com.skym.adr.bs7poker" id="phoneLink" target="_blank"></a>
+		</header>
+		<article id="goodStarMain">
+			<div>
+				<h3>活動時間：</h3>
+				<p>2015/08/03(一) ~ 2015/10/04(日) 23:59</p>
+				<h3>活動方式：</h3>
+				<p>在Google play 商店頁留下「五顆星星+您的遊戲暱稱」，即可獲得鑽石5000顆，就是讓你有省錢! ( 鑽石將在3個工作天內發送至遊戲內信箱，請玩家留意 )</p>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="http://www.brainsportonline.com/" class="bs7poker" target="_blank"></a></li>
+					<li><a href="https://play.google.com/store/apps/details?id=com.skym.adr.bs7poker" class="appLink googlePlay7poker" title="前往下載" target="_blank"></a></li>
+					<li><a href="javascript:alert('BS 7POKER，IOS版即將開放!');" class="appLink appStore7poker" title="BS 7POKER，IOS版即將開放!"></a></li>
+				</ul>
+			</nav>
+		</article>
+	</div>
+	<footer><a href="index.html" title="回陳宥宏的作品網站 Dot A">2017 © Dot A</a></footer>
+	<div id="DArightMenu"></div>
+<!--[if lt IE 9]><div class="IE-bg"><div class="IE-tips"><img src="images/website_logo.png"><p>很抱歉，目前本站瀏覽不支援IE9以下的瀏覽器<br />請升級您的瀏覽器版本。<br />建議您改用 Google Chrome 或 Firefox<br />以取得最佳、最快的瀏覽效果！</p><p><span><a href="http://windows.microsoft.com/zh-tw/internet-explorer/ie-11-worldwide-languages" target="_blank">升級IE瀏覽器</a></span><span><a href="https://www.google.com.tw/intl/zh-TW/chrome/browser/desktop/" target="_blank">下載 Google Chrome</a></span><span><a href="http://mozilla.com.tw/firefox/new/?scene=2#download-fx" target="_blank">下載 Firefox</a></span></p></div></div><![endif]-->
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var $bsGoodStarBg = $('.bsGoodStarBg')
+	$(window).on("resize",screenResize);
+	function screenResize(){
+		switch(true) {
+			case $bsGoodStarBg.innerHeight() < 480 :
+				$bsGoodStarBg.addClass('small')
+				break;
+			case $bsGoodStarBg.innerHeight() > 840 :
+				$bsGoodStarBg.addClass('big')
+				break;
+			default :
+				$bsGoodStarBg.removeClass('small big')
+		}
+	}
+	screenResize();
+});
+</script>
+<script type="text/javascript" src="js/indexOther.js"></script>
+</body>
+</html>

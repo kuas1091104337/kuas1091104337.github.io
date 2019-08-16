@@ -1,0 +1,14 @@
+﻿{
+  "english": {
+    "title": "Hello World",
+    "description": "Today is a Sunny Day"
+  },
+  "chinese": {
+    "title": "你好 世界",
+    "description": "今天天氣晴"
+  },
+  "japanese": {
+    "title": "ハロー・ワールド",
+    "description": "今日の天気は晴れです"
+  }
+}

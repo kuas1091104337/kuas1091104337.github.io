@@ -1,0 +1,77 @@
+﻿body {
+  padding:0;
+  margin:0;
+  background-color: #00001f;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-stripes.png");
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "Microsoft Jhenghei", "sans-serif";
+}
+
+p {
+  padding:0;
+  margin:0;
+}
+
+.bar {
+  padding:3px 25px;
+  background-color:#000;
+  color:#999;
+  box-sizing:border-box;
+}
+
+.bar p {
+  text-align:left;
+}
+
+.bar span {
+  margin-right:15px;
+  cursor:pointer;
+}
+
+.bar span:last-child {
+  margin-right:0;
+}
+
+.bar span:hover {
+  color:white;
+}
+
+.cardBox {
+  width:180px;
+  border-radius:5px;
+  overflow:hidden;
+  margin:20px;
+  cursor:default;
+}
+
+.header {
+  width:100%;
+  height:120px;
+  background-image:url('https://clutterbusting.com/wp-content/uploads/2016/12/Feature3_image2_vitD.jpeg');
+  background-size:100%;
+  background-position:center center;
+}
+
+.content {
+  width:100%;
+  height:150px;
+  padding-top:35px;
+  box-sizing:border-box;
+  overflow-hidden;
+  background-color: #FFFFD5;
+  background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
+}
+
+.content p {
+  text-align:center;
+}
+
+.content p:nth-child(1) {
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:25px;
+  color:#333;
+}
+
+.content p:nth-child(2) {
+  font-size:15px;
+}

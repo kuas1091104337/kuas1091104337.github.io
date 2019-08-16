@@ -1,0 +1,373 @@
+//	rwdTable
+	.rwdTable{
+		width:100%;
+		max-width:1000px;
+		background-color:#fff;
+		border:2px solid #1f4cac;
+		table-layout:fixed;
+		border-collapse:collapse;
+		margin:0 auto;
+		th, td{
+			font-size: 16px;
+			line-height:1.6;
+			padding:8px;
+		}
+	}
+	.rwdThead{display: none;}
+	.rwdTbody{
+		td{
+			text-align: left;
+			display: block;
+			border: none;
+			&:before{
+				content: attr(data-th) " :";
+				width:40%;
+				display: inline-block;
+			}
+			> b{
+				color:#fff;
+				font-weight:normal;
+				line-height:1;
+				display:inline;
+				background-color:#ff1818;
+				border-radius:3px;
+				padding:2px 4px;
+			}
+		}
+		> tr{
+			> td{
+				&:nth-of-type(odd){ background-color: #ebebeb;}
+				&:first-of-type{
+					color: #fff;
+					background-color:#1f4cac;
+				}
+			}
+		}
+	}
+	.rwdTable.three tr > td:first-of-type:before{color:#1f4cac;}
+//	rwdDivTable
+	.rwdDivTable{
+		width:100%;
+		max-width:1000px;
+		background-color:#fff;
+		border:2px solid #1f4cac;
+		margin:0 auto;
+	}
+	.theadTr{display:none;}
+	.theadTr, .tbodyTr{
+		> div{
+			font-size: 16px;
+			line-height: 1.6;
+			padding: 8px;
+		}
+	}
+	.tbodyTr{
+		> div{
+			&:nth-of-type(odd){background-color:#ededed;}
+			&:first-of-type{
+				color: #fff;
+				background-color: #1f4cac;
+			}
+			&:before{
+				content: attr(data-th) " : ";
+				width:40%;
+				display:inline-block;
+			}
+		}
+		b{
+			color:#fff;
+			font-weight: normal;
+			line-height:1;
+			display:inline;
+			background-color:#ff1818;
+			border-radius:3px;
+			padding:2px 4px;
+		}
+	}
+//	神手來找碴 找bug贏獎勵
+	#findBugH{
+		text-align: center;
+		@include 背景圖等比例伸縮滿版設定(720px,1060px,"findBug/findBugPhonePortraitBg.jpg");
+		background-position:center top;
+		position: relative;
+		> #bsLogo{
+			@extend %文字推出畫面;
+			width: 39.722%;
+			height: 0;
+			background-image:image-url("findBug/bsLogo.png");
+			background-size: cover;
+			padding-bottom: 5.7483%;
+			position: absolute;
+			top: 14px;
+			left: 2.7778%;
+		}
+		> h1, > h2{
+			@extend %文字推出畫面;
+			margin:0;
+		}
+		> .date{
+			color: #FFF;
+			font-size: 16px;
+			line-height: 38px;
+			text-shadow: 0 0 1px rgba(255,255,255,0.3);
+			width: 310px;
+			height: 38px;
+			display: inline-block;
+			background-color: #ff1818;
+			border-radius: 6px;
+			box-shadow: 0 2px 6px rgba(130,173,217,0.6);
+			margin:0;
+			position: absolute;
+			left: 50%;
+			bottom: 5px;
+			@include transform(translateX(-50%));
+			> span{display:none;}
+		}
+	}
+	#findBugMain{
+		color:#333;
+		line-height: 1.8;
+		width:100%;
+		background-color:#FFF;
+		padding:1px 0 46px;
+		> div{
+			text-align: left;
+			width: 100%;
+			padding: 0 15px;
+			margin:0;
+		}
+		h3{
+			color: #ff1818;
+			font-size: 21px;
+			margin:5px 0;
+			@include transform(skew(-6deg));
+		}
+		h3 + p{margin:5px 0 10px;}
+		p{
+			text-shadow: 0 0 1px rgba(50,50,50,0.3);
+			margin:15px 0;
+		}
+	}
+	.findBugRanking{
+		@include 背景圖等比例伸縮滿版設定(720px,600px,"findBug/findBugPhoneContentTitle.jpg");
+		> h3, > p{
+			@extend %文字推出畫面;
+			margin:0;
+		}
+	}
+	#findBugFt{
+		font-size: 16px;
+		font-weight:100;
+		text-align: center;
+		line-height: 46px;
+		width: 100%;
+		height:46px;
+		@include 背景圖水平重複設定("findBug/footerBg.jpg",left,top);		
+		> a{color: #fff;}
+	}
+	#findBugTop{
+		-webkit-tap-highlight-color:rgba(0,0,0,0);
+		width:45px;
+		height:45px;
+		cursor:pointer;
+		display:none;
+		background-image:image-url("findBug/footerBg.jpg");
+		border-radius:50%;
+		box-sizing:content-box;
+		box-shadow: 0 2px 4px rgba(0,0,0,.3);
+		position:fixed;
+		right:10px;
+		bottom:10px;
+		z-index:100;
+		&:before, &:after{
+			@extend %偽元素三角形基本設定;
+			border-width:0 13px 11px 13px;
+			display:block;
+			margin:auto;
+		}
+		&:before{
+			border-color:#fff transparent #fff transparent;
+			margin-top:9px
+		}
+		&:after{border-color:#fff  #fff transparent #fff;}
+	}
+
+//	===== 手機版拿橫的時候 ===== 
+@include breakpoint(568px) {
+//	rwdTable
+	.rwdTable{
+		th, td{text-align:center;}
+	}
+	.rwdTable.three th{width:33.333333%;}
+	.rwdTable.five > .rwdThead{
+		th{
+			width:25%;
+			&:first-of-type{width:10%;}
+			&:nth-of-type(4){width:20%;}
+			&:last-of-type{width:20%;}
+		}		
+	}
+	.rwdThead{
+		display:table-header-group;
+		th{
+			color:#fff;
+			font-weight:normal;
+			background-color:#1f4cac;
+		}
+		th + th{border-left:1px solid #6f86b6;}
+	}
+	.rwdTbody{
+		> tr{
+			&:nth-child(even){background-color:#ededed;}
+			&:nth-child(n+2) > td{border-top:1px solid #d1d1d1;}
+			> td{
+				&:nth-of-type(odd){background-color:transparent;}
+				&:first-of-type{
+					color:#000;
+					background-color:transparent;
+				}
+			}
+		}
+		td{
+			display:table-cell;
+			&:before{display:none;}
+		}
+		td + td{border-left:1px solid #d1d1d1;}
+	}
+//	rwdDivTable
+	.rwdDivTable{
+		display:table;
+		> .theadTr{
+			color:#fff;
+			background-color:#1f4cac;
+		}
+		> .tbodyTr{
+			&:nth-child(odd){background-color:#ededed;}
+			&:nth-child(n+3)>div{border-top:1px solid #d1d1d1;}
+		}
+	}
+	.theadTr, .tbodyTr{
+		display:table-row;
+		> div{
+			text-align:center;
+			display:table-cell;
+		}
+	}
+	.theadTr{
+		> div{width:25%;}
+		> div+div{border-left:1px solid #6f86b6;}
+	}
+	.tbodyTr{
+		> div + div{border-left:1px solid #d1d1d1;}
+		>div{
+			&:nth-of-type(odd){background-color:transparent;}
+			&:first-of-type{
+				color:#000;
+				background-color:transparent;
+			}
+			&:before{display:none;}
+		}
+	}
+//	神手來找碴 找bug贏獎勵
+	#findBugH{
+		@include 背景圖等比例伸縮變版設定(1280px,540px,"findBug/findBugPhoneLandscapeBg.jpg");
+		> #bsLogo{
+			width: 19.853%;
+			padding-bottom: 2.8677%;
+			top: 13px;
+			left: 23.3%;
+		}
+		> .date{
+			width: 406px;
+			bottom: 0px;
+			> span{ display:inline;}
+		}
+	}
+}
+// android手機拿橫(640px)，包含平板「以上」版型區
+@include breakpoint(640px) {
+	.findBugRanking{
+		@include 背景圖等比例伸縮變版設定(1000px,200px,"findBug/findBugContentTitle.jpg");
+	}
+}
+//	===== 平板「以上」版型區 ===== 
+@include breakpoint(768px) {
+//	rwdTable
+	.rwdTbody{
+		> tr{
+			> td:first-of-type{
+				color: #1f4cac;
+				background:#b5d1ff;
+			}
+			&:nth-child(2n+2) > td:first-of-type{background: #acc7f2;}
+			&:nth-child(n+2) > td:first-of-type{border-top: 1px solid #dae3f2;}
+		}
+	}
+//	rwdDivTable
+	.tbodyTr>div:first-of-type{
+		background:#b5d1ff;
+		color: #1f4cac;
+	}
+	.rwdDivTable{
+		> .tbodyTr{
+			&:nth-child(2n+1) > div:first-of-type{background: #acc7f2;}
+
+		}
+		> .tbodyTr:nth-child(n+3) > div:first-of-type{border-top: 1px solid #dae3f2;}
+	}
+//	神手來找碴 找bug贏獎勵
+	#findBugH{
+		@include 背景圖等比例伸縮變版設定(1000px,545px,"findBug/findBugPadBg.jpg");
+		> #bsLogo{
+			width: 21.6%;
+			padding-bottom: 3.12%;
+			top: 5%;
+			left: 25.5%;
+		}
+		> .date{
+			font-size: 18px;
+			letter-spacing:1px;
+			width: 484px;
+			height: 40px;
+			line-height: 40px;
+			bottom: 16px;
+		}
+	}
+	#findBugMain{
+		> div{
+			letter-spacing:1px;
+			padding:0 15px;
+		}
+	}
+}
+@include breakpoint(1025px) {
+	.bsFindBug{
+		@include 全背景圖縮寫設定(#a2cefa,"findBug/findBugBg.jpg",no-repeat,center,top);
+	}
+	#findBugWrap{ 
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	#findBugH{
+		height:545px;
+		background-image:none;
+		padding-bottom:0;
+		> #bsLogo{
+			width: 270px;
+			height: 39px;
+			background-size: 270px 39px;
+			top: 15px;
+			left: 160px;
+		}
+	}
+	#findBugMain{
+		> div{
+			max-width: 1000px;
+			margin:0 auto;
+		}
+	}
+	#findBugTop{
+		right:15px;
+		bottom:15px;
+	}
+}

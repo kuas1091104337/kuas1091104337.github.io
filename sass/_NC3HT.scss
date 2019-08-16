@@ -1,0 +1,273 @@
+//	頁首選單區
+	#nc3HsignIn, #nc3H{
+		width:100%;
+		height:110px;
+		@include background-image(linear-gradient(180deg, $NC_藍 4%, #fff 4% , #fff 63.636363% , #4d4d4d 63.636363%));
+		box-shadow:0 0 5px rgba(0,0,0,0.2);
+	}
+	.nc3HD{
+		@extend %桌機版最大寬度設定;
+		height:100%;
+		position:relative;
+		z-index:index($nc3Z-index,nc3HD);
+		> h1{
+			@include 標籤文字推出SVG背景圖設定(136px,46px,"NC3/nc-logo.svg");
+			margin:0;
+			position: absolute;
+			top:13px;
+			left:0;
+		}	
+		> ul{
+			height:32px;
+			position: absolute;
+			margin:4px 0;
+			&:after{@extend %偽元素after_clear_both}
+			> li{
+				float:left;
+				> a, > label{
+					line-height:32px;
+					border-radius:4px;
+					padding:0 10px;
+				}
+			}
+			> .nc3UlInli{
+				> a{border-radius:4px 4px 0 0;}
+			}
+			> li + li{border-left:1px solid rgba(255,255,255,.15);}
+			ul{
+				display: none;
+				position:absolute;
+				top:32px;
+				left:0;
+				box-shadow:0 1px 1px rgba(0,0,0,0.5);
+				a{
+					line-height:40px;
+					white-space:nowrap;
+					padding: 0 26px;
+				}
+			}
+		}
+		a, label{color:#fff;}
+		label{display: block;}
+		>ul:first-of-type{
+			background-color:$NC_藍;
+			box-shadow:0 4px 0 $NC_藍, 0 -4px 0 $NC_藍;
+			top:4px;
+			right:0;
+			&:before{
+				@include 偽元素三角形css設定(20px 16px,$NC_藍 $NC_藍 transparent transparent){
+					@extend %絕對定位設定;
+				};
+				top:-4px;
+				left:-32px;
+			}
+			>li{
+				&:hover{
+					>a, >label{background-color:$NC_橙;}
+				}
+				strong{
+					color:$NC_深灰;
+					background-color:#fff;
+					border-radius:20px;
+					padding: 3px 7px;
+					margin-left: 3px;
+				}
+				time{margin-right:5px;}
+			}
+			.nc3UlInli{
+				&:hover{
+					>a{background-color:$NC_橙;}
+				}
+				>ul{
+					a:hover{color:$NC_橙;}
+				}
+			}
+			ul{background-color:$NC_橙;}		
+		}
+		>ul:last-of-type{
+			left:0;
+			bottom:0;
+			>li{
+				&:hover{
+					>a{background-color:$NC_藍;}
+				}
+			}
+			.nc3UlInli{
+				>ul{
+					a:hover{color:$NC_藍;}
+				}
+			}
+			ul{
+				width:150px;
+				background-color:$NC_藍;
+			}
+		}
+	}
+	.nc3UlInli{
+		position:relative;
+		&:hover{
+			>ul{display: block;}
+			>a{
+				&:after{@include transform(rotate(-90deg));}
+			}
+		}
+		>ul{
+			a{
+				box-shadow:0 -1px 0 rgba(0,0,0,0.2) inset;
+				&:hover{background-color:#fff;}
+			}
+			li:last-of-type{
+				a{box-shadow:none;}
+			}
+		}
+		>a{
+			&:after{
+				@include 偽元素三角形css設定(6px,transparent #fff transparent transparent);
+				@include transition(transform .2s);
+				@include transform-origin(80%,50%);
+			}
+		}
+	}
+	.nc3HD > ul:first-of-type .nc3LangIcon{line-height:1;}
+	.nc3LangIcon{
+		&:before{
+			@include 偽元素icon-font設定("\e9c9","nc3Icomoon");
+			color:#fff;
+			font-size:26px;
+			line-height:32px;
+			position: relative;
+			top:-1px;
+		}
+		&:after{
+			line-height:32px;
+			vertical-align: super;
+		}
+	}
+	.nc3LangIcon+ul{margin-left:-61px;}
+//	頁尾footer、marquee區
+	#nc3F{
+		color:#fff;
+		font-size: 16px;
+		width: 100%;
+		@include background-image(linear-gradient(180deg, $NC_灰 80.4%, $NC_深灰 80.4%));
+		p{
+			font-size: 14px;
+			// line-height:1.8;
+			text-align:center;
+			margin: 0;
+			clear: both;
+			> a{
+				color:#fff;
+				line-height:3.6;
+				&:hover{text-decoration: underline;}
+			}
+		}
+		p:first-of-type{padding-top:8px;}
+		p:last-of-type{padding-bottom:8px;}
+	}
+	.nc3FWrap{
+		@extend %桌機版最大寬度設定;
+		>div{
+			width: 25%;
+			margin-bottom: 18px;
+			float: left;
+			li{line-height:2;}
+		}
+		>div:nth-of-type(n+2){padding-left:100px;}
+		>div:nth-of-type(3){
+			>ul{
+				list-style-type:disc;
+				margin-left:28px;
+			}
+		}
+		h3{
+			color:$NC_淺灰;
+			font-weight:normal;
+		}
+		li a{
+			color:#fff;
+			display:inline;
+			background-color:transparent;
+			border-radius:3px;
+			padding:3px 5px;
+			@include transition(color .3s, background-color .3s);
+			&:hover{
+				color:$NC_灰;
+				background-color:#fff;
+			}
+		}
+		li[class$="Icon"]{
+			&:before{
+				margin:0 8px 0 6px;
+				vertical-align:text-bottom;
+			}
+		}
+		.logoIcon{
+			&:before{@include 偽元素icon-font設定("\e902","nc3Icomoon");}
+		}
+		.mailIcon{
+			&:before{@include 偽元素icon-font設定("\e945","nc3Icomoon");}
+		}
+		.skypeIcon{
+			&:before{@include 偽元素icon-font設定("\eac5","nc3Icomoon");}
+		}
+		.telIcon{
+			&:before{@include 偽元素icon-font設定("\e942","nc3Icomoon");}
+		}
+		.timeIcon{
+			&:before{@include 偽元素icon-font設定("\e94e","nc3Icomoon");}
+		}
+		.faxIcon{
+			&:before{@include 偽元素icon-font設定("\e954","nc3Icomoon");}
+		}
+		.facebookIcon{
+			&:before{
+				@include 偽元素icon-font設定("\ea90","nc3Icomoon");
+				background-color:$facebook藍;
+			}
+		}
+		.twitterIcon{
+			&:before{
+				@include 偽元素icon-font設定("\ea96","nc3Icomoon");
+				background-color:$twitter藍;
+			}
+		}
+		li.facebookIcon, li.twitterIcon{
+			&:before{
+				border-radius:2px;
+				padding:5px;
+				margin-left:0;
+			}
+		}
+		.searchIcon{
+			&:before{@include 偽元素icon-font設定("\e986","nc3Icomoon");}
+		}
+	}
+//	goTop區
+	#nc3GoTop{
+		-webkit-tap-highlight-color:rgba(0,0,0,0);
+		width:28px;
+		height:22px;
+		cursor:pointer;
+		display:none;
+		border-width:8px 6px 10px 6px;
+		border-style:solid;
+		border-color:$NC_透明黑;
+		border-radius:3px;
+		box-sizing: content-box;
+		position:fixed;
+		right:25px;
+		bottom:25px;
+		z-index:index($nc3Z-index, nc3GoTop);
+		&:before, &:after{
+			@extend %偽元素三角形基本設定;
+			border-width:0 14px 11px 14px;
+			display: block;
+		}
+		&:before{
+			border-color: transparent $NC_透明黑 transparent $NC_透明黑;
+		}
+		&:after{
+			border-color:transparent  transparent $NC_透明黑 transparent;
+		}
+	}

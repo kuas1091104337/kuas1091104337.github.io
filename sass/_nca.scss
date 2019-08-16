@@ -1,0 +1,1716 @@
+// NC網頁設計變數
+$NCA_淡藍:#37d7f0;
+$NCA_藍:#009fb7;
+$NCA_深藍:#0d7585;
+// $NCA_首頁大標深藍:#077485;
+// $NCA_searchBar深藍:#055e6b;
+$NCA_淡橙:#ffbb73;
+$NCA_橙:#ffa94c;
+$NCA_深橙:#e58d2e;
+// $NCA_深深橙:#cc7314;
+$NCA_紅:#ff005c; 
+$NCA_淡灰:#f7f7f7;		//W-97%
+$NCA_check勾勾灰:#ccc;	//W-80%
+$NCA_input灰:#b3b3b3;	//W-70%
+$NCA_icon灰:#7a7a7a;	//W-48%
+$NCA_灰:#666;			//W-40%
+$NCA_透明白:rgba(#fff, .4); 
+$NCA_透明黑:rgba(#000, .8);
+$NCA_桌機版_灰字陰影:rgba(#666, .3);
+$NCA_桌機版_藍字陰影:rgba(#009fb7, .3);
+$NCA_桌機版_橙字陰影:rgba(#ffa94c, .3);
+
+$NCA_header_logo手機版_寬度:35px;
+$NCA_header_logo手機版_高度:38px;
+$NCA_header_logo桌機版_寬度:136px;
+$NCA_header_logo桌機版_高度:46px;
+$NCA_header_語言選擇_桌機版_高度:140px;	//兩個語言選項時用96px
+//	z-index:N  最後面最大
+$ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, domainSearchBar, ulSecondBG, header, ncaLogo, ncaGoTop, ncUlFirstMemberCtrl, ncaMemberLogIn;
+@font-face {
+	font-family:"ncaIcomoon";
+	src:url("../ncaFonts/icomoon.eot?weunha");
+	src:url("../ncaFonts/icomoon.eot?weunha#iefix") format("embedded-opentype"),url("../ncaFonts/icomoon.ttf?weunha") format("truetype"),url("../ncaFonts/icomoon.woff?weunha") format("woff"),url("../ncaFonts/icomoon.svg?weunha#icomoon") format("svg");
+	font-weight:normal;
+	font-style:normal;
+}
+.ncaBg, .nca{
+	font-size:18px;
+	height:100%;
+	background-color:#fff;
+	-webkit-overflow-scrolling:touch;
+}
+.ncaBg.EN{font-size:16px;}
+.ncaBg{
+	> input{@extend %控制用的input推出畫面;}
+	button, label{cursor: pointer;}
+}
+//	首頁banner區 (首頁banner區、最新優惠活動區、bannerFrame共用區)
+	#ncaBannerContainer{
+		background-color:$NCA_淡灰;
+		box-shadow:0 1px 1px rgba(0,0,0,.25);
+		padding:10px 0;
+		margin:50px 0 36px;
+		>.owl-stage-outer{
+			&:before, &:after{
+				content:"";
+				width: 50px;
+				height: 100%;
+				position:absolute;
+				top:0;
+			}
+			&:before{
+				left:0;
+				@include background-image(linear-gradient(90deg, rgba(255,255,255,.15) 0%, rgba(255,255,255,0) 100%));
+				z-index:index($ncaZ-index, bannerContainerBefore);
+			}
+			&:after{
+				right:0;
+				@include background-image(linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.15) 100%));
+			}
+		}
+		h3{margin:0;}
+	//	nav(Next & Prev) & dots
+		.owl-prev, .owl-next{
+			@include owl套件上下張箭頭icon外框設定(32px, 50px, $NCA_灰){
+				box-shadow:0 0 1px rgba(0,0,0,.3);
+			};
+		}
+		.owl-prev{
+			@extend %靠左prev設定;
+			border-radius:0 5px 5px 0;
+			&:before{
+				@include owl套件上下張箭頭icon偽元素設定(12px 13px 12px 0, $NCA_灰 #fff $NCA_灰 transparent){
+					margin-left:-2px;
+				};
+			}
+			&:after{
+				@include owl套件上下張箭頭icon偽元素設定(12px 13px 12px 0, transparent $NCA_灰 transparent transparent);
+			}
+		}
+		.owl-next{
+			@extend %靠右next設定;
+			border-radius:5px 0 0 5px;
+			&:before{
+				@include owl套件上下張箭頭icon偽元素設定(12px 0 12px 13px, $NCA_灰 transparent $NCA_灰 #fff){
+					margin-left:2px;
+				};
+			}
+			&:after{
+				@include owl套件上下張箭頭icon偽元素設定(12px 0 12px 13px, transparent transparent transparent $NCA_灰);
+			}
+		}
+	// Styling dots
+		.owl-dots{
+			background-color:$NCA_淡灰;
+			border-radius:0 0 13px 13px;
+			box-shadow:1px 1px 1px rgba(0,0,0,0.15), -1px 1px 1px rgba(0,0,0,0.15);
+			padding:0 8px;
+			position:absolute;
+			left:50%;
+			bottom:-26px;
+			@include transform(translateX(-50%));
+		}
+		.owl-dot{
+			margin:8px;
+			span{box-shadow:0 0 2px rgba(0,0,0,0.5);}
+		}
+	}
+	#ncaBannerContainer, #ncaDomainActiveBox, #ncaBannerFrame{
+		>.owl-dots{
+			font-size:0;
+			text-align: center;
+			white-space:nowrap;
+		}
+		.owl-dot{
+			width:10px;
+			height:10px;
+			background-color:rgba(0,0,0,.25);
+			display:inline-block;
+			border-radius: 50%;
+			position: relative;
+			>span{
+				width: 10px;
+				height: 10px;
+				background-color:#fff;
+				border-radius: 50%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				@include transition(transform .6s);
+				@include transform(translate(-50%, -50%) scale(0));
+			}
+			&.active, &:hover{
+				>span{@include transform(translate(-50%, -50%) scale(1));}
+			}
+		}
+	}
+//	域名目錄表
+	#domainsSearchContainer{
+		height:calc(100% - 50px);
+		background-color:#fff;
+		position:relative;
+	}
+	.toDomainsSearch{
+		position:absolute;
+		top:-50px;
+		left:0;
+	}
+	.domainsSearchBg{
+		width:100%;
+		height:70%;
+		overflow:hidden;
+		position:absolute;
+		top:9%;
+		left:0;
+		@include transform(skewY(-10deg));
+		@include transform-origin(100%, 0%);
+		&:after{
+			content:"";
+			width:100%;
+			height:200%;
+			@extend %固定全景背景圖預設值;
+			background-image:image-url("nca/nc_bg.jpg",false,false);
+			display: block;
+			@include transform(skewY(10deg));
+			@include transform-origin(100%, 0%);
+		}
+	}
+	#domainsSearchBox{
+		text-align: center;
+		width:100%;
+		height:100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		h2{
+			color:$NCA_灰;
+			font-size:25px;
+			line-height:1.15;
+			text-shadow:1px 1px 0 rgba(255,255,255,0.8), 1px 0 20px rgba(255,255,255,0.4);
+			width: 98%;
+			display: block;
+			margin-top:-2em;
+			position: relative;
+			top:50%;
+			left: 1%;
+			@include transform(skew(-6deg));
+			strong{color:$NCA_藍;}
+		}
+	}
+	#domainSearchBar{
+		font-size:0;
+		width:90%;
+		height:60px;
+		background-color:#fff;
+		border-radius:5px;
+		box-shadow:0 2px 10px rgba(0,0,0,0.45);
+		padding:10px;
+		position:absolute;
+		top:50%;
+		left:5%;
+		z-index:index($ncaZ-index, domainSearchBar);
+		@include transition(width .3s, top .3s, left .3s);
+		>span{
+			vertical-align:top;
+			width:calc(100% - 70px);
+			height:40px;
+			display: inline-block;
+			margin-right:10px;
+			position: relative;
+			&:after{
+				content:"";
+				height:1px;
+				background-color:$NCA_input灰;
+				position:absolute;
+				left:0;
+				bottom:0;
+				@include animation(domainSearchBarReady 5.5s linear infinite both);
+			}
+		}
+		#domainSearchInput{
+			color:#333;
+			font-size:16px;
+			font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+			background-color:transparent;
+			width: 100%;
+			height: 100%;
+			@include input的placeholder值css設定{
+				color:$NCA_input灰;
+				font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+			}
+		}
+		>button{
+			color:#fff;
+			font-size:28px;
+			text-indent:50px;
+			white-space:nowrap;
+			vertical-align:top;
+			width:50px;
+			height:44px;
+			background-color:$NCA_藍;
+			border-radius:5px;
+			box-shadow:0 2px 4px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.1);
+			margin-top:-2px;
+			overflow: hidden;
+			position:relative;
+			@include transition(box-shadow .3s, text-shadow .3s);
+			&:hover{
+				text-shadow:0 0 1px rgba(255,255,255,.75);
+				box-shadow:0 2px 5px rgba(0,0,0,0.5), 0 2px 12px rgba(0,0,0,0.3), 0 -1px 0 rgba(255,255,255,0.25) inset;
+			}
+			&:before{
+				@include 偽元素icon-font設定("\e909","ncaIcomoon");
+				text-indent:0;
+				position: absolute;
+				top:8px;
+				left:11px;
+			}
+		}
+	}
+	#domainSearchBar.domainSearchReady{
+		>span{
+			&:after{
+				width:100%;
+				height:2px;
+				background-color:$NCA_藍;//$NCA_橙
+				box-shadow:0 1px 2px rgba(0,0,0,0.2), 0 1px 4px rgba(0,0,0,0.1);
+				@include animation-name(none);
+			}
+		}
+	}
+	@include keyframes(domainSearchBarReady) {
+		0% {width:0%;}
+		10% {width:0%;}
+		100% {width:100%;}
+	}
+	.searchReady > #domainSearchBar{
+		width:100%;
+		background-color:$NCA_透明白;
+		box-shadow:none;
+		border-radius:0;
+		top:0;
+		left:0;
+	}
+	#domainsList{
+		width: 100%;
+		height: 100%;
+		background-color:$NCA_透明黑;
+		padding-top:60px;
+		position: absolute;
+		top:0;
+		left:-100%;
+		z-index:index($ncaZ-index, domainsList);
+	}
+	.searchReady > #domainsList{left:0%;}
+	.toSearchResult{
+		position:absolute;
+		left:0;
+		bottom:50px;
+	}
+//	域名目錄選單區
+	.domainsListBox{
+		@extend %桌機版最大寬度設定;
+		height:100%;
+		overflow: hidden;
+	}
+	#domainsListZone{
+		width: 100%;
+		height: 50px;
+		.slideTips{
+			width: 50px;
+			height: 50px;
+			background-color:#fff;
+			border-style: solid;
+			border-color:#fff;
+			border-radius:5px 0 0 5px;
+			position:absolute;
+			top:0;
+			right:0;
+			@include animation(slideTips 1.4s infinite both);
+			&:after{
+				@include 偽元素三角形css設定(10px 0 10px 20px, transparent transparent transparent $NCA_藍);
+			}
+		}
+	}
+	@include keyframes(slideTips){
+		0% {border-width: 15px 16px 15px 14px;}
+		20% {border-width: 15px 16px 15px 14px;}
+		100% {border-width: 15px 10px 15px 20px;}
+	}
+	.domainsListZoneSlideBox{
+		font-size:0;
+		white-space:nowrap;
+		background-color:$NCA_透明白;
+		padding-right:50px;
+		// box-sizing:content-box;
+		overflow-x:auto;
+		overflow-y:hidden;
+		>h3{
+			font-weight: normal;
+			display:inline-block;
+		}
+		label{
+			color:#fff;
+			font-size: 18px;
+			line-height:50px;
+			height: 50px;
+			display: inline-block;
+			padding:0 15px;
+		}
+	}
+	.EN .domainsListZoneSlideBox{
+		label{font-size:16px;}
+	}
+//	域名目錄選單區 + 域名目錄全部內容區，共用區
+	.domainsListBox{
+		position:relative;
+		> input{@extend %控制用的input推出畫面;}
+	}
+	%zoneIcontent{
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
+	%zoneItype{
+		background-color:$NCA_透明白;
+		box-shadow:0 2px 0 #fff inset, 0 -2px 0 #fff inset;
+		overflow:hidden;
+	}
+	%zoneItypeLabel{
+		color:#fff;
+		line-height:50px;
+		width:50%;
+		height:50px;
+		display:block;
+		box-shadow:0 0 0 1px #fff inset, 0 0 0 1px #fff;
+		float:left;
+	}
+	%zoneItypeEm{font-style:normal;}
+	#domainsListZoneContent{
+		height:calc(100% - 50px);
+		overflow:hidden;
+		position:relative;
+	}
+	%zoneItypeContentDiv{
+		height:0;
+		background-color:rgba(255,255,255,0);
+		box-shadow:0px -5px 5px -4px rgba(0,0,0,0.2) inset;
+		visibility:hidden;
+		@include transition(height .4s, background-color .4s, visibility .4s);
+	}
+	%zoneAndZoneType{
+		color:$NCA_藍;
+		background-color:#fff;
+	}
+	%zoneItypeJcontent{
+		height:100%;
+		background-color:#fff;
+		visibility:visible;
+		padding:10px 0;
+	}
+	@for $i from 0 through 7{
+		#zone#{$i}Content{
+			@extend .domainsListBox;
+			@extend %zoneIcontent;
+			> input{@extend %控制用的input推出畫面;}
+		}
+		#zone#{$i}Type{
+			@extend %zoneItype;
+			>label{@extend %zoneItypeLabel;}
+			em{@extend %zoneItypeEm;}
+		}
+		#zone#{$i}TypeContent{
+			@extend #domainsListZoneContent;
+			>div{
+				@extend %zoneItypeContentDiv;
+				@extend %zoneIcontent;
+			}
+		}
+		#zone#{$i}Ctrl:checked ~ #domainsListZone .zone#{$i}{
+			@extend %zoneAndZoneType;
+		}
+		#zone#{$i}Ctrl:checked ~ #domainsListZoneContent > .domainsListZoneContentSlideBox{
+			@include transform(translateX($i * -12.5%));
+		}
+		@for $j from 0 through 20{
+			#zone#{$i}Type#{$j}:checked ~ #zone#{$i}Type .zone#{$i}Type#{$j}{
+				@extend %zoneAndZoneType;
+			}
+			//第0~7區滑塊內容移動
+			#zone#{$i}Type#{$j}:checked ~ #zone#{$i}TypeContent > #zone#{$i}Type#{$j}Content{
+				@extend %zoneItypeJcontent;
+			}
+		}
+	}
+//	域名目錄全部內容區 - 類內容的checkbox
+	.domainsListZoneContentSlideBox{
+		text-align:center;
+		width:800%;
+		height:100%;
+		position:absolute;
+		top:0;
+		left:0;
+		@include transition(transform .4s);
+		>div{
+			width:12.5%;
+			height:100%;
+			float:left;
+		}
+		.suffixLabel{
+			font-size:0;
+			width:50%;
+			height:60px;
+			float: left;
+			overflow: hidden;
+			position: relative;
+			>input{
+				position:absolute;
+				top:-20px;
+				left:-20px;
+			}
+			>label{
+				-webkit-tap-highlight-color:rgba(0,0,0,0);
+				color:$NCA_藍;
+				font-size:18px;
+				text-align:center;
+				line-height:40px;
+				vertical-align:middle;
+				width:120px;
+				background-color:transparent;
+				display: inline-block;
+				box-shadow:0 0 0 2px $NCA_藍 inset;
+				border-radius:20px;
+				margin:10px 38px 10px 0;
+				@include transition(background-color .3s, color .3s);
+				&:after{
+					@extend %iconFont基本設定;
+					font-family:"ncaIcomoon";
+				}
+			}
+			>.small{font-size: 14px;}
+			>input:checked + label{
+				color:#fff;
+				background-color:$NCA_藍;
+			}
+		}
+		.quMessage{
+			text-decoration:none;
+			vertical-align:middle;
+			width: 30px;
+			height: 30px;
+			display: inline-block;
+			cursor:pointer;
+			margin-left:-30px;
+			&:after{
+				@include 偽元素icon-font設定("\e906","ncaIcomoon");
+				color:$NCA_icon灰;
+				font-size:30px;
+			}
+			&:hover, &:focus{
+				&:after{color:$NCA_橙;}
+			}
+		}
+	}
+//	域名查詢結果
+	#ncaSearchResult{
+		background-color:$NCA_透明黑;
+		display: none;
+		position: relative;
+		z-index:index($ncaZ-index, searchResult);
+	}
+	.ncaSearchResultWrap{
+		@extend %桌機版最大寬度設定;
+		background-color:#fff;
+		position: relative;
+		>p{
+			color:$NCA_藍;
+			line-height:40px;
+			border-bottom:2px solid $NCA_藍;
+			padding-top:5px;
+			margin:0 20px;
+			&:before{
+				@include 偽元素icon-font設定("\e909","ncaIcomoon");
+				font-size:24px;
+				vertical-align:text-bottom;
+				margin-right:8px;
+			}
+		}
+		em{font-style: normal;}
+		> .inalized{
+			text-align: center;
+			height: 70px;
+			background-color:#fff;
+			>a{
+				color:#fff;
+				line-height:37px;
+				vertical-align:middle;
+				display: inline-block;
+				@include 按鈕CSS設定預設值($NCA_橙,4px,(0 0 0 1px rgba(0,0,0,.2) inset,0 2px 0 rgba(255,255,255,.05) inset,0 2px 1px $NCA_淡橙 inset,0 -4px 0 $NCA_深橙 inset,0 2px 4px 2px rgba(0,0,0,.1)),0 15px 3px 15px,15px 0);
+				&:active, &:focus{
+					@include 按鈕按下時CSS設定預設值((0 0 0 1px rgba(0,0,0,.2) inset, 0 2px 0 rgba(255,255,255,.05) inset, 0 2px 1px $NCA_淡橙 inset, 0 0 0 $NCA_深橙 inset, 0 2px 4px 2px rgba(0,0,0,.05)),18px);
+				}
+			}
+		}
+		#checkOut{
+			margin-left:20px;
+			&:before{
+				@include 偽元素icon-font設定("\e903","ncaIcomoon");
+				font-size:28px;
+				line-height:0.9;
+				margin-right:6px;
+				position: relative;
+				top:5px;
+			}
+			>strong{
+				color:$NCA_橙;
+				background-color:#fff;
+				border-radius:15px;
+				padding:1px 3px;
+				margin-right:6px;
+			}
+			>span{display: none;}
+		}
+	}
+	.ncaSearchResultBox{
+		>li{
+			color:$NCA_灰;
+			line-height:50px;
+			box-shadow: 0 -1px 0 #ccc inset;
+			padding:0 20px;
+		}
+		>li:nth-of-type(even){background-color:#fafafa;}
+		.domainName{@extend %文字超過變點點;}
+		> .half{
+			> .domainName{
+				width:calc(100% - 74px);
+				float: left;
+			}
+		}
+		.priceAndAction, > .half{
+			overflow:hidden;
+			>button{
+				@extend %iconFont基本設定;
+				font-family:"ncaIcomoon";
+				text-align: center;
+				width:50px;
+				border-radius:4px;
+				float:right;
+				&:before{
+					font-size:24px;
+					display: inline-block;
+				}
+			}
+			>a{float:right;}
+		}
+		.yearPrice{
+			float:left;
+			>ins{text-decoration:none;}
+			>.contactBuy, >.specialPrice{color:$NCA_紅;}
+			>.noPrice{text-decoration: line-through;}
+			>.originPrice{display: none;}
+			>.specialPrice:after{
+				color:$NCA_灰;
+				content:" / 1年";
+			}
+			>.twoYears:after{content:" / 2年";}
+		}
+		.addToCart{
+			background-color:$NCA_藍;
+			height:37px;
+			box-sizing:content-box;
+			box-shadow:0 0 0 1px rgba(0,0,0,.2) inset, 0 2px 0 rgba(255,255,255,.05) inset, 0 2px 1px $NCA_淡藍 inset, 0 -3px 0 $NCA_深藍 inset, 0 2px 4px 2px rgba(0,0,0,.1);
+			padding:0 0 3px 0;
+			margin:5px 0;
+			@include transition(padding-bottom .3s, margin-top .3s, box-shadow .3s);
+			&:before{
+				content:"\e90a";
+				color:#fff;
+				line-height:38px;
+			}
+			&:active{
+				box-shadow:0 0 0 1px rgba(0,0,0,.2) inset, 0 2px 0 rgba(255,255,255,.05) inset, 0 2px 1px $NCA_淡藍 inset, 0 0 0 $NCA_深藍 inset, 0 2px 4px 2px rgba(0,0,0,.05);
+				padding-bottom:0;
+				margin-top:8px;
+			}
+		}
+		.actionRemove{
+			height:40px;
+			background-color:#dedede;
+			margin:5px 0;
+			&:before{
+				content:"\e90b";
+				color:$NCA_icon灰;
+				line-height:40px;
+			}
+		}
+		a.contactBuy, .contactBuyBtn, a.noPrice, .noPriceBtn{
+			&:before{
+				@extend %iconFont基本設定;
+				font-family:"ncaIcomoon";
+				line-height:1;
+				vertical-align:sub;
+				margin-right:6px;
+			}
+		}
+		a.contactBuy, .contactBuyBtn{
+			color:$NCA_橙;
+			&:before{
+				content:"\e907";
+				color:#fff;
+				font-size:20px;
+				border-radius:4px;
+				background-color:$NCA_橙;
+				padding:4px;
+			}
+		}
+		a.noPrice, .noPriceBtn{
+			color:$NCA_灰;
+			&:before{
+				content:"\e906";
+				font-size:28px;
+			}
+		}
+		.contactBuyBtn, .noPriceBtn{
+			>span{display: none;}
+		}
+	}
+//	最新優惠活動區、域名百科、我們的優勢、合作夥伴、marquee，共用區
+	.ncaMain{
+		padding-top:55px;
+		marquee{
+			@extend %桌機版最大寬度設定;
+			display: block;
+			padding-bottom:25px;
+			position: relative;
+			img{height:50px;}
+		}
+	}
+	#domainActive, #domainNews, #ncaOurAdvantage, #ncaOurPartner{padding:1px 0 60px 0;}
+//	最新優惠活動區、bannerFrame
+	%區域標題{
+		font-size: 24px;
+		font-weight: normal;
+		text-align: center;
+	}
+	%區域標題內的em{
+		font-style: normal;
+		display: inline-block;
+		@include transform(skew(-4deg));
+	}
+	#domainActive, #ncaOurPartner{
+		position: relative;
+		&:before{
+			content:"";
+			width:100%;
+			height:100%;
+			background-color:$NCA_藍;
+			@include background-image(linear-gradient(0deg, $NCA_藍 2%,#fff 2%,#fff 3%,$NCA_藍 3%,$NCA_藍 97%,#fff 97%,#fff 98%,$NCA_藍 98%));
+			@include transform(skewY(-10deg));
+			position:absolute;
+			top:-15px;
+			left:0;
+		}
+		>h2{
+			color:#fff;
+			@extend %區域標題;
+			>em{
+				@extend %區域標題內的em;
+				text-shadow:1px 1px 0 rgba(0,0,0,0.2);
+			}
+		}
+	}
+	#ncaDomainActiveBox{
+		@extend %桌機版最大寬度設定;
+		.item{
+			max-width: 320px;
+			margin:0 auto 1px;
+			>div{
+				overflow: hidden;
+				position: relative;
+				&:before{
+					content:"";
+					width: 100%;
+					height: 100%;
+					background:linear-gradient(45deg, rgba(0,0,0,0) 30%,rgba(255,255,255,0.15) 30%,rgba(255,255,255,0.15) 70%,rgba(0,0,0,0) 70%);
+					background-size: 3px 3px;
+					position:absolute;
+					top:0;
+					left:0;
+				}
+			}
+			img{@include transition(transform .2s);}
+			>h3{
+				@extend %文字超過變點點;
+				color:$NCA_灰;
+				font-size:16px;
+				font-weight: normal;
+				line-height:48px;
+				width:100%;
+				background-color:#fff;
+				padding:0 10px;
+				margin:0;
+				position: relative;
+				&:after{
+					content:"";
+					width:0;
+					height:0;
+					border-width:7px;
+					border-style:solid;
+					border-color:$NCA_橙 transparent transparent $NCA_橙;
+					position:absolute;
+					top:0;
+					left:0;
+				}
+			}
+			&:hover{
+				img{@include transform(scale(1.05));}
+			}
+		}
+		.owl-prev, .owl-next{
+			@include owl套件上下張箭頭icon外框設定(36px, 80px, #fff){
+				box-shadow:0 0 1px rgba(0,0,0,.4), 0 0 6px rgba(0,0,0,.2);
+			};
+		}
+		.owl-prev{
+			@extend %靠左prev設定;
+			border-radius:0 5px 5px 0;
+			&:before{
+				@include owl套件上下張箭頭icon偽元素設定(16px 12px 16px 0, $NCA_灰 transparent $NCA_灰 transparent){
+					margin-left:6px;
+				};
+			}
+			&:after{
+				@include owl套件上下張箭頭icon偽元素設定(16px 12px 16px 0, transparent $NCA_灰 transparent transparent){
+					margin-left:-6px;
+				};
+			}
+		}
+		.owl-next{
+			@extend %靠右next設定;
+			border-radius:5px 0 0 5px;
+			&:before{
+				@include owl套件上下張箭頭icon偽元素設定(16px 0 16px 12px, $NCA_灰 transparent $NCA_灰 transparent){
+					margin-left:-6px;
+				};
+			}
+			&:after{
+				@include owl套件上下張箭頭icon偽元素設定(16px 0 16px 12px, transparent transparent transparent $NCA_灰){
+					margin-left:6px;
+				};
+			}
+		}
+		>.owl-dots{
+			margin:10px 0;
+			>.owl-dot:first-child{margin-left:0;}
+			>.owl-dot:last-child{margin-right:0;}
+		}
+	}
+	#ncaBannerFrame{
+		@extend %桌機版最大寬度設定;
+		display:none;
+	}
+	#ncaDomainActiveBox, #ncaBannerFrame{
+		.owl-dot + .owl-dot{margin-left:12px;}
+	}
+//	域名百科、我們的優勢
+	#domainNews{
+		position: relative;
+		&:before{
+			content:"";
+			width:100%;
+			height:84%;
+			background-color:$NCA_淡灰;
+			@include transform(skewY(-10deg));
+			position:absolute;
+			top:15%;
+			left:0;
+			z-index:-1;
+		}
+	}
+	#domainNews, #ncaOurAdvantage{
+		>h2{
+			@extend %區域標題;
+			color:$NCA_灰;
+			position: relative;
+			&:before{
+				width:100%;
+				height:2px;
+				background-color:$NCA_灰;
+				content:"";
+				position:absolute;
+				top:50%;
+				left:0;
+				@include transform(translateY(-50%) skewY(-10deg));
+			}
+			>em{
+				@extend %區域標題內的em;
+				background-color:#fff;
+				box-shadow:10px 0 0 8px #fff, -10px 0 0 8px #fff;
+			}
+		}
+	}
+	.ncaNewsListBox{
+		@extend %桌機版最大寬度設定;
+		padding:15px 15px 0;		
+		>input{
+			@extend %控制用的input推出畫面;
+		}
+	}
+	#ncaNewsListZone{
+		background-color:#c6e5ea;
+		position: relative;
+		z-index:index($ncaZ-index, newsListZone);
+		&:after{@extend %偽元素after_clear_both;}
+		>.cursor{
+			width: 33.33%;
+			height: 50px;
+			background-color:$NCA_藍;
+			position:absolute;
+			top:0;
+			left:0;
+			@include transition(transform .5s);
+			&:before{
+				@include 偽元素三角形css設定(10px, $NCA_藍 transparent transparent transparent){
+					@extend %絕對定位設定;
+				};
+				bottom:-22px;
+				left:50%;
+				@include transform(translateX(-50%));
+			}
+		}
+		>h3{
+			color:$NCA_灰;
+			font-size:18px;
+			font-weight:normal;
+			text-align:center;
+			line-height:50px;
+			width:33.33%;
+			height:50px;
+			float:left;
+			margin:0;
+			position:relative;
+		}
+		label{
+			display: block;
+			@include transition(color .5s);
+		}	
+	}
+	%newsListI{color:#fff;}
+	%newsListContentI{
+		height:360px;
+		background-color:#fff;
+		visibility:visible;
+		padding:10px;
+	}
+	@for $i from 0 through 2{
+		#news#{$i}Ctrl:checked ~ #ncaNewsListZone .news#{$i}{@extend %newsListI;}
+		#news#{$i}Ctrl:checked ~ #ncaNewsListZone .cursor{@include transform(translateX($i * 100%));}
+		#news#{$i}Ctrl:checked ~ #ncaNewsListContentZone > #news#{$i}Content{@extend %newsListContentI;}
+	}
+	#ncaNewsListContentZone{
+		background-color:$NCA_藍;
+		border:2px solid $NCA_藍;
+		>div{
+			height:0;
+			visibility:hidden;
+			overflow:hidden;
+			position:relative;
+			@include transition(height .5s, background-color .5s, visibility .5s);
+			>a{
+				color:$NCA_藍;
+				text-align: center;
+				line-height:42px;
+				width:94%;
+				height:42px;
+				background-color:transparent;
+				box-shadow:0 0 0 2px $NCA_藍 inset;
+				border-radius:21px;
+				margin-top:10px;
+				position:absolute;
+				right:3%;
+				bottom:10px;
+				@include transition(background-color .4s, color .4s);
+				&:hover{
+					color: #fff;
+					background-color:$NCA_藍;
+				}
+			}
+		}
+		li{
+			line-height:1.6;
+			box-shadow:0 -1px 0 0 rgba(0,0,0,0.15) inset;
+			padding:10px 0 10px 6px;
+			overflow: hidden;
+			&:hover{background-color:$NCA_淡灰;}
+			>a{
+				@extend %文字超過變點點;
+				color:#666;
+				width:75%;
+				float: left;
+			}
+			>em{
+				color:#fff;
+				font-style:normal;
+				text-align:center;
+				text-indent:-4px;
+				width:21%;
+				background-color:$NCA_藍;
+				float:right;
+				position:relative;
+				&:before{
+					@include 偽元素三角形css設定(14px 8px 14px, transparent $NCA_藍 $NCA_藍 transparent){
+						@extend %絕對定位設定;
+					};
+					bottom:0;
+					left:-16px;
+				}
+			}
+			span{display: none;}
+		}
+	}
+	.ncaOurAdvantageBox{
+		@extend %桌機版最大寬度設定;
+		>figure{
+			width:300px;
+			text-align:center;
+			padding:5px 0;
+			margin:0 auto;
+			&:before{
+				@extend %iconFont基本設定;
+				font-family:"ncaIcomoon";
+				font-size:100px;
+			}
+		}
+		>figure:nth-of-type(1){
+			&:before{content:"\e904";}
+		}
+		>figure:nth-of-type(2){
+			&:before{content:"\e908";}
+		}
+		>figure:nth-of-type(3){
+			&:before{content:"\e91a";}
+		}
+		h3{
+			color:#333;
+			font-size:20px;
+			line-height:1.4;
+			@include transform(skew(-4deg));
+		}
+		p{
+			color:$NCA_灰;
+			line-height:1.8;
+			text-align: left;
+		}
+	}
+//	合作夥伴
+	#ncaOurPartnerBox{
+		@extend %桌機版最大寬度設定;
+		padding:0 30px;
+		>.owl-stage-outer{margin-bottom:10px;}
+		.item{border:10px solid #fff;}
+		.owl-prev, .owl-next{
+			@include owl套件上下張箭頭icon外框設定(30px, 100%, $NCA_灰);
+		}
+		.owl-prev{
+			@extend %靠左prev設定;
+			&:before{
+				@include owl套件上下張箭頭icon偽元素設定(14px 14px 14px 0, $NCA_灰 #fff $NCA_灰 transparent){
+					margin-left:-2px;
+				};
+			}
+			&:after{
+				@include owl套件上下張箭頭icon偽元素設定(14px 14px 14px 0, transparent $NCA_灰 transparent transparent);
+			}
+		}
+		.owl-next{
+			@extend %靠右next設定;
+			&:before{
+				@include owl套件上下張箭頭icon偽元素設定(14px 0 14px 14px, $NCA_灰 transparent $NCA_灰 #fff){
+					margin-left:2px;
+				};
+			}
+			&:after{
+				@include owl套件上下張箭頭icon偽元素設定(14px 0 14px 14px, transparent transparent transparent $NCA_灰);
+			}
+		}
+	}
+// ===== 只有iPhone4、5 手機版拿直的時候 ===== 
+@include breakpoint(max-width 320px){
+//	域名目錄表
+	#domainsSearchBox{
+		h2{font-size:22px;}
+	}
+//	最新優惠活動區
+	#ncaDomainActiveBox{
+		.item{max-width:300px;}
+	}
+//	域名百科
+	#ncaNewsListContentZone{
+		li>em{text-indent:0;}
+	}
+}
+// ===== iPhone4拿橫時(480px)「以上」版型區 ===== 
+@include breakpoint(480px){
+//	最新優惠活動區、bannerFrame、合作夥伴
+	#domainActive, #ncaOurPartner{
+		&:before{
+			height:110%;
+			top:-8%;
+		}
+	}
+	#ncaDomainActiveBox{
+		.owl-prev, .owl-next{
+			width:12.5%;
+			height:100%;
+			background-color:rgba(255,255,255,0.85); // background-color:rgba(128,128,128,0.9); // background-color:rgba(115,115,115,0.82);
+			top:-10px;
+			@include transform(none);
+		}
+		.owl-prev{
+			border-radius:0 10px 10px 0;
+			&:before, &:after{border-width:22px 16px 22px 0;}
+			&:before{margin-left:8px;}
+			&:after{margin-left:-8px;}
+		}
+		.owl-next{
+			border-radius:10px 0 0 10px;
+			&:before, &:after{border-width:22px 0 22px 16px;}
+			&:before{margin-left:-8px;}
+			&:after{margin-left:8px;}
+		}
+	}
+	#ncaBannerFrame{
+		display:block;
+		margin:22px 0 15px;
+		padding:0 15px;
+		position: relative;
+		.item{
+			>.big{display: none;}
+		}
+		>.owl-dots{
+			font-size:0;
+			text-align:right;
+			position:absolute;
+			right:20px;
+			bottom:5px;
+		}
+	}
+}
+// ===== 一般手機拿橫時(640px)「以上」版型區 ===== 
+@include breakpoint(640px){
+//	域名百科、我們的優勢
+	#domainNews{
+		margin-bottom:20px;
+		&:before{height:88%}
+	}
+	#ncaNewsListContentZone{
+		>div{
+			>a{
+				width:50%;
+				right:15px;
+				bottom:10px;
+			}
+		}
+		li{
+			span{display:inline;}
+		}
+	}
+	%newsListContentLandscape{padding:10px 15px;}
+	@for $i from 0 through 2{
+		#news#{$i}Ctrl:checked ~ #ncaNewsListContentZone > #news#{$i}Content{@extend %newsListContentLandscape;}
+	}
+//	我們的優勢
+	.ncaOurAdvantageBox{
+		overflow:hidden;
+		padding:0 2%;
+		>figure{
+			width:32%;
+			margin-right:2%;
+			float: left;
+		}
+		>figure:nth-of-type(3){margin-right:0;}
+		h3{
+			span{display:none;}
+		}
+	}
+//	合作夥伴
+	#ncaOurPartnerBox{
+		>.owl-stage-outer{margin-bottom:16px;}
+	}
+//	marquee區
+	.ncaMain{
+		marquee{padding-bottom:35px;}
+	}
+}
+// ===== 只有iPhone5、6、7拿橫 ===== 
+@include breakpoint(568px (max-width 768px) (orientation landscape)){
+//	域名目錄選單區 + 域名目錄全部內容區，共用區
+	#domainsListZone{height:44px;}
+	// %zoneItypeLabelLandscape{
+	// 	line-height:44px;
+	// 	height:44px;
+	// }
+	// %zoneItypeContent{height:calc(100% - 44px);}
+	.domainsListZoneSlideBox label{
+		line-height:44px;
+		height:44px
+	}
+	#domainsListZoneContent{height:calc(100% - 44px);}
+	@for $i from 0 through 7{
+		#zone#{$i}Type{
+			label{
+				line-height:44px;
+				height:44px
+			}
+		} 
+		#zone#{$i}TypeContent{height:calc(100% - 44px);}
+	}
+//	區-類內容的checkbox
+	.domainsListZoneContentSlideBox{
+		.suffixLabel{width:33.333333%;}
+	}
+//	域名查詢結果
+	.ncaSearchResultBox{
+		.domainName{line-height:40px;}
+		.half > .domainName{line-height:50px;}
+	}
+}
+// ===== iPhone6拿橫時(667px)「以上」版型區 ===== 
+@include breakpoint(667px){
+//	區-類內容的checkbox
+	.domainsListZoneContentSlideBox{
+		.suffixLabel{width:25%;}
+	}
+}
+// ===== 平板版(768px)「以上」版型區 ===== 
+@include breakpoint(768px){
+//	域名目錄表
+	.domainsSearchBg{top:8%;}
+	#domainsListZone{
+		.slideTips{
+			display:none;
+			@include animation-name(none);
+		}
+	}
+	#ncaBannerFrame{display:block;}
+//	首頁banner區
+	#ncaBannerContainer{
+		>.owl-stage-outer{
+			&:before, &:after{width:60px;}
+		}
+		.owl-prev, .owl-next{
+			width:42px;
+			height:76px;
+		}
+		.owl-prev{
+			&:before, &:after{border-width:16px 18px 16px 0;}
+		}
+		.owl-next{
+			&:before, &:after{border-width:16px 0 16px 18px;}
+		}
+	}
+//	我們的優勢
+	.ncaOurAdvantageBox{padding-top:30px;}
+}
+// ===== 桌機、平板(1000px)「以上」版型區 ===== 
+@include breakpoint(1017px){
+	.ncaBg, .nca{letter-spacing:1px;}
+	.ncaBg.EN{letter-spacing:0px;}
+//	共用CSS樣式區
+	.ncaMain{padding-top:50px;}
+//	首頁banner區
+	#ncaBannerContainer{margin-top:60px;}
+	#ncaDomainActiveBox{
+		.item{
+			>div{
+				img{@include transition(transform 1s);}
+			}
+		}
+	}
+//	域名目錄表
+	#domainsSearchContainer{height:580px;}
+	.toDomainsSearch{top:-60px;}
+	.toSearchResult{bottom:60px;}
+	.domainsSearchBg{top:0;}
+	#domainsSearchBox{
+		h2{font-size:42px;}
+	}
+	#domainSearchBar{
+		width:800px;
+		background-color:#fff;
+		padding:10px 20px;
+		margin-left:-400px;
+		left:50%;
+		&:before{
+			content:"www.";
+			color:$NCA_藍;
+			font-size:36px;
+			text-align: left;
+			line-height:1;
+			display: inline-block;
+			width:150px;
+			height:40px;
+		}
+		>span{
+			width:450px;
+			margin-right:58px;
+		}
+		#domainSearchInput{
+			font-size:18px;
+			letter-spacing:1px;
+		} 
+		>button{
+			font-size:18px;
+			font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+			text-indent:25px;
+			width:auto;
+			padding:0 10px;
+			&:before{
+				text-indent:0;
+				position: absolute;
+				top:12px;
+				left:10px;
+			}
+		}
+	}
+	.EN #domainSearchBar{
+		#domainSearchInput{
+			font-size:17px;
+			letter-spacing:0px;
+		} 
+	}
+	.searchReady > #domainSearchBar{
+		background-color: #fff;
+		margin-left:0;
+	}
+//	域名目錄選單區
+	#domainsListZone{
+		width:150px;
+		height:100%;
+		float: left;
+	}
+//	域名目錄選單區 + 域名目錄全部內容區，共用區
+	%zoneAndZoneTypeDesk{box-shadow:0 -3px 0 $NCA_藍 inset;}
+	%domainsListZoneSlideBox{background-color:transparent;}
+	%zoneItypeDesk{
+		text-align:left;
+		width: 160px;
+		height: 100%;
+		box-shadow: none;
+		overflow:auto;
+		float:left;
+	}
+	%zoneItypeLabelDesk{
+		white-space:nowrap;
+		width:auto;
+		display: block;
+		box-shadow: none;
+		padding:0 15px;
+		float: none;
+	}
+	%zoneItypeContentPad{
+		height:100%;
+		box-shadow:0 -3px 0 #009fb7 inset;
+		margin-left: 160px;
+	}
+	.domainsListZoneSlideBox{@extend %domainsListZoneSlideBox;} 
+	@for $i from 0 through 7{
+		#zone#{$i}Ctrl:checked ~ #domainsListZone .zone#{$i}{
+			@extend %zoneAndZoneTypeDesk;
+		}
+		#zone#{$i}Type{
+			@extend %domainsListZoneSlideBox;
+			@extend %zoneItypeDesk;
+			> label{@extend %zoneItypeLabelDesk;}
+		} 
+		#zone#{$i}TypeContent{@extend %zoneItypeContentPad;}
+		@for $j from 0 through 20{
+			#zone#{$i}Type#{$j}:checked ~ #zone#{$i}Type .zone#{$i}Type#{$j}{
+				@extend %zoneAndZoneTypeDesk;
+			}
+		}
+	}
+//	域名目錄全部內容區
+	#domainsListZoneContent{
+		height:100%;
+		margin-left: 150px;
+	}
+	.domainsListZoneSlideBox{
+		text-align:left;
+		white-space:normal;
+		padding-right:0;
+		overflow:hidden;
+		>h3{display:block;}
+		label{display: block;}
+	}
+	#zone1Ctrl:checked ~ #domainsListZone .zone0,
+	#zone2Ctrl:checked ~ #domainsListZone .zone0,#zone2Ctrl:checked ~ #domainsListZone .zone1,
+	#zone3Ctrl:checked ~ #domainsListZone .zone0,#zone3Ctrl:checked ~ #domainsListZone .zone1,#zone3Ctrl:checked ~ #domainsListZone .zone2,
+	#zone4Ctrl:checked ~ #domainsListZone .zone0,#zone4Ctrl:checked ~ #domainsListZone .zone1,#zone4Ctrl:checked ~ #domainsListZone .zone2,#zone4Ctrl:checked ~ #domainsListZone .zone3,
+	#zone5Ctrl:checked ~ #domainsListZone .zone0,#zone5Ctrl:checked ~ #domainsListZone .zone1,#zone5Ctrl:checked ~ #domainsListZone .zone2,#zone5Ctrl:checked ~ #domainsListZone .zone3,#zone5Ctrl:checked ~ #domainsListZone .zone4,
+	#zone6Ctrl:checked ~ #domainsListZone .zone0,#zone6Ctrl:checked ~ #domainsListZone .zone1,#zone6Ctrl:checked ~ #domainsListZone .zone2,#zone6Ctrl:checked ~ #domainsListZone .zone3,#zone6Ctrl:checked ~ #domainsListZone .zone4,#zone6Ctrl:checked ~ #domainsListZone .zone5,
+	#zone7Ctrl:checked ~ #domainsListZone .zone0,#zone7Ctrl:checked ~ #domainsListZone .zone1,#zone7Ctrl:checked ~ #domainsListZone .zone2,#zone7Ctrl:checked ~ #domainsListZone .zone3,#zone7Ctrl:checked ~ #domainsListZone .zone4,#zone7Ctrl:checked ~ #domainsListZone .zone5,#zone7Ctrl:checked ~ #domainsListZone .zone6,
+	//#zone0Type(1~20):checked ~ #zone0Type .zone0Type(0~19) 
+	#zone0Type1:checked ~ #zone0Type .zone0Type0,
+	#zone0Type2:checked ~ #zone0Type .zone0Type0,#zone0Type2:checked ~ #zone0Type .zone0Type1,
+	#zone0Type3:checked ~ #zone0Type .zone0Type0,#zone0Type3:checked ~ #zone0Type .zone0Type1,#zone0Type3:checked ~ #zone0Type .zone0Type2,
+	#zone0Type4:checked ~ #zone0Type .zone0Type0,#zone0Type4:checked ~ #zone0Type .zone0Type1,#zone0Type4:checked ~ #zone0Type .zone0Type2,#zone0Type4:checked ~ #zone0Type .zone0Type3,
+	#zone0Type5:checked ~ #zone0Type .zone0Type0,#zone0Type5:checked ~ #zone0Type .zone0Type1,#zone0Type5:checked ~ #zone0Type .zone0Type2,#zone0Type5:checked ~ #zone0Type .zone0Type3,#zone0Type5:checked ~ #zone0Type .zone0Type4,
+	#zone0Type6:checked ~ #zone0Type .zone0Type0,#zone0Type6:checked ~ #zone0Type .zone0Type1,#zone0Type6:checked ~ #zone0Type .zone0Type2,#zone0Type6:checked ~ #zone0Type .zone0Type3,#zone0Type6:checked ~ #zone0Type .zone0Type4,#zone0Type6:checked ~ #zone0Type .zone0Type5,
+	#zone0Type7:checked ~ #zone0Type .zone0Type0,#zone0Type7:checked ~ #zone0Type .zone0Type1,#zone0Type7:checked ~ #zone0Type .zone0Type2,#zone0Type7:checked ~ #zone0Type .zone0Type3,#zone0Type7:checked ~ #zone0Type .zone0Type4,#zone0Type7:checked ~ #zone0Type .zone0Type5,#zone0Type7:checked ~ #zone0Type .zone0Type6,
+	#zone0Type8:checked ~ #zone0Type .zone0Type0,#zone0Type8:checked ~ #zone0Type .zone0Type1,#zone0Type8:checked ~ #zone0Type .zone0Type2,#zone0Type8:checked ~ #zone0Type .zone0Type3,#zone0Type8:checked ~ #zone0Type .zone0Type4,#zone0Type8:checked ~ #zone0Type .zone0Type5,#zone0Type8:checked ~ #zone0Type .zone0Type6,#zone0Type8:checked ~ #zone0Type .zone0Type7,
+	#zone0Type9:checked ~ #zone0Type .zone0Type0,#zone0Type9:checked ~ #zone0Type .zone0Type1,#zone0Type9:checked ~ #zone0Type .zone0Type2,#zone0Type9:checked ~ #zone0Type .zone0Type3,#zone0Type9:checked ~ #zone0Type .zone0Type4,#zone0Type9:checked ~ #zone0Type .zone0Type5,#zone0Type9:checked ~ #zone0Type .zone0Type6,#zone0Type9:checked ~ #zone0Type .zone0Type7,#zone0Type9:checked ~ #zone0Type .zone0Type8,
+	#zone0Type10:checked ~ #zone0Type .zone0Type0,#zone0Type10:checked ~ #zone0Type .zone0Type1,#zone0Type10:checked ~ #zone0Type .zone0Type2,#zone0Type10:checked ~ #zone0Type .zone0Type3,#zone0Type10:checked ~ #zone0Type .zone0Type4,#zone0Type10:checked ~ #zone0Type .zone0Type5,#zone0Type10:checked ~ #zone0Type .zone0Type6,#zone0Type10:checked ~ #zone0Type .zone0Type7,#zone0Type10:checked ~ #zone0Type .zone0Type8,#zone0Type10:checked ~ #zone0Type .zone0Type9,
+	#zone0Type11:checked ~ #zone0Type .zone0Type0,#zone0Type11:checked ~ #zone0Type .zone0Type1,#zone0Type11:checked ~ #zone0Type .zone0Type2,#zone0Type11:checked ~ #zone0Type .zone0Type3,#zone0Type11:checked ~ #zone0Type .zone0Type4,#zone0Type11:checked ~ #zone0Type .zone0Type5,#zone0Type11:checked ~ #zone0Type .zone0Type6,#zone0Type11:checked ~ #zone0Type .zone0Type7,#zone0Type11:checked ~ #zone0Type .zone0Type8,#zone0Type11:checked ~ #zone0Type .zone0Type9,#zone0Type11:checked ~ #zone0Type .zone0Type10,
+	#zone0Type12:checked ~ #zone0Type .zone0Type0,#zone0Type12:checked ~ #zone0Type .zone0Type1,#zone0Type12:checked ~ #zone0Type .zone0Type2,#zone0Type12:checked ~ #zone0Type .zone0Type3,#zone0Type12:checked ~ #zone0Type .zone0Type4,#zone0Type12:checked ~ #zone0Type .zone0Type5,#zone0Type12:checked ~ #zone0Type .zone0Type6,#zone0Type12:checked ~ #zone0Type .zone0Type7,#zone0Type12:checked ~ #zone0Type .zone0Type8,#zone0Type12:checked ~ #zone0Type .zone0Type9,#zone0Type12:checked ~ #zone0Type .zone0Type10,#zone0Type12:checked ~ #zone0Type .zone0Type11,
+	#zone0Type13:checked ~ #zone0Type .zone0Type0,#zone0Type13:checked ~ #zone0Type .zone0Type1,#zone0Type13:checked ~ #zone0Type .zone0Type2,#zone0Type13:checked ~ #zone0Type .zone0Type3,#zone0Type13:checked ~ #zone0Type .zone0Type4,#zone0Type13:checked ~ #zone0Type .zone0Type5,#zone0Type13:checked ~ #zone0Type .zone0Type6,#zone0Type13:checked ~ #zone0Type .zone0Type7,#zone0Type13:checked ~ #zone0Type .zone0Type8,#zone0Type13:checked ~ #zone0Type .zone0Type9,#zone0Type13:checked ~ #zone0Type .zone0Type10,#zone0Type13:checked ~ #zone0Type .zone0Type11,#zone0Type13:checked ~ #zone0Type .zone0Type12,
+	#zone0Type14:checked ~ #zone0Type .zone0Type0,#zone0Type14:checked ~ #zone0Type .zone0Type1,#zone0Type14:checked ~ #zone0Type .zone0Type2,#zone0Type14:checked ~ #zone0Type .zone0Type3,#zone0Type14:checked ~ #zone0Type .zone0Type4,#zone0Type14:checked ~ #zone0Type .zone0Type5,#zone0Type14:checked ~ #zone0Type .zone0Type6,#zone0Type14:checked ~ #zone0Type .zone0Type7,#zone0Type14:checked ~ #zone0Type .zone0Type8,#zone0Type14:checked ~ #zone0Type .zone0Type9,#zone0Type14:checked ~ #zone0Type .zone0Type10,#zone0Type14:checked ~ #zone0Type .zone0Type11,#zone0Type14:checked ~ #zone0Type .zone0Type12,#zone0Type14:checked ~ #zone0Type .zone0Type13,
+	#zone0Type15:checked ~ #zone0Type .zone0Type0,#zone0Type15:checked ~ #zone0Type .zone0Type1,#zone0Type15:checked ~ #zone0Type .zone0Type2,#zone0Type15:checked ~ #zone0Type .zone0Type3,#zone0Type15:checked ~ #zone0Type .zone0Type4,#zone0Type15:checked ~ #zone0Type .zone0Type5,#zone0Type15:checked ~ #zone0Type .zone0Type6,#zone0Type15:checked ~ #zone0Type .zone0Type7,#zone0Type15:checked ~ #zone0Type .zone0Type8,#zone0Type15:checked ~ #zone0Type .zone0Type9,#zone0Type15:checked ~ #zone0Type .zone0Type10,#zone0Type15:checked ~ #zone0Type .zone0Type11,#zone0Type15:checked ~ #zone0Type .zone0Type12,#zone0Type15:checked ~ #zone0Type .zone0Type13,#zone0Type15:checked ~ #zone0Type .zone0Type14,
+	#zone0Type16:checked ~ #zone0Type .zone0Type0,#zone0Type16:checked ~ #zone0Type .zone0Type1,#zone0Type16:checked ~ #zone0Type .zone0Type2,#zone0Type16:checked ~ #zone0Type .zone0Type3,#zone0Type16:checked ~ #zone0Type .zone0Type4,#zone0Type16:checked ~ #zone0Type .zone0Type5,#zone0Type16:checked ~ #zone0Type .zone0Type6,#zone0Type16:checked ~ #zone0Type .zone0Type7,#zone0Type16:checked ~ #zone0Type .zone0Type8,#zone0Type16:checked ~ #zone0Type .zone0Type9,#zone0Type16:checked ~ #zone0Type .zone0Type10,#zone0Type16:checked ~ #zone0Type .zone0Type11,#zone0Type16:checked ~ #zone0Type .zone0Type12,#zone0Type16:checked ~ #zone0Type .zone0Type13,#zone0Type16:checked ~ #zone0Type .zone0Type14,#zone0Type16:checked ~ #zone0Type .zone0Type15,
+	#zone0Type17:checked ~ #zone0Type .zone0Type0,#zone0Type17:checked ~ #zone0Type .zone0Type1,#zone0Type17:checked ~ #zone0Type .zone0Type2,#zone0Type17:checked ~ #zone0Type .zone0Type3,#zone0Type17:checked ~ #zone0Type .zone0Type4,#zone0Type17:checked ~ #zone0Type .zone0Type5,#zone0Type17:checked ~ #zone0Type .zone0Type6,#zone0Type17:checked ~ #zone0Type .zone0Type7,#zone0Type17:checked ~ #zone0Type .zone0Type8,#zone0Type17:checked ~ #zone0Type .zone0Type9,#zone0Type17:checked ~ #zone0Type .zone0Type10,#zone0Type17:checked ~ #zone0Type .zone0Type11,#zone0Type17:checked ~ #zone0Type .zone0Type12,#zone0Type17:checked ~ #zone0Type .zone0Type13,#zone0Type17:checked ~ #zone0Type .zone0Type14,#zone0Type17:checked ~ #zone0Type .zone0Type15,#zone0Type17:checked ~ #zone0Type .zone0Type16,
+	#zone0Type18:checked ~ #zone0Type .zone0Type0,#zone0Type18:checked ~ #zone0Type .zone0Type1,#zone0Type18:checked ~ #zone0Type .zone0Type2,#zone0Type18:checked ~ #zone0Type .zone0Type3,#zone0Type18:checked ~ #zone0Type .zone0Type4,#zone0Type18:checked ~ #zone0Type .zone0Type5,#zone0Type18:checked ~ #zone0Type .zone0Type6,#zone0Type18:checked ~ #zone0Type .zone0Type7,#zone0Type18:checked ~ #zone0Type .zone0Type8,#zone0Type18:checked ~ #zone0Type .zone0Type9,#zone0Type18:checked ~ #zone0Type .zone0Type10,#zone0Type18:checked ~ #zone0Type .zone0Type11,#zone0Type18:checked ~ #zone0Type .zone0Type12,#zone0Type18:checked ~ #zone0Type .zone0Type13,#zone0Type18:checked ~ #zone0Type .zone0Type14,#zone0Type18:checked ~ #zone0Type .zone0Type15,#zone0Type18:checked ~ #zone0Type .zone0Type16,#zone0Type18:checked ~ #zone0Type .zone0Type17,
+	#zone0Type19:checked ~ #zone0Type .zone0Type0,#zone0Type19:checked ~ #zone0Type .zone0Type1,#zone0Type19:checked ~ #zone0Type .zone0Type2,#zone0Type19:checked ~ #zone0Type .zone0Type3,#zone0Type19:checked ~ #zone0Type .zone0Type4,#zone0Type19:checked ~ #zone0Type .zone0Type5,#zone0Type19:checked ~ #zone0Type .zone0Type6,#zone0Type19:checked ~ #zone0Type .zone0Type7,#zone0Type19:checked ~ #zone0Type .zone0Type8,#zone0Type19:checked ~ #zone0Type .zone0Type9,#zone0Type19:checked ~ #zone0Type .zone0Type10,#zone0Type19:checked ~ #zone0Type .zone0Type11,#zone0Type19:checked ~ #zone0Type .zone0Type12,#zone0Type19:checked ~ #zone0Type .zone0Type13,#zone0Type19:checked ~ #zone0Type .zone0Type14,#zone0Type19:checked ~ #zone0Type .zone0Type15,#zone0Type19:checked ~ #zone0Type .zone0Type16,#zone0Type19:checked ~ #zone0Type .zone0Type17,#zone0Type19:checked ~ #zone0Type .zone0Type18,
+	#zone0Type20:checked ~ #zone0Type .zone0Type0,#zone0Type20:checked ~ #zone0Type .zone0Type1,#zone0Type20:checked ~ #zone0Type .zone0Type2,#zone0Type20:checked ~ #zone0Type .zone0Type3,#zone0Type20:checked ~ #zone0Type .zone0Type4,#zone0Type20:checked ~ #zone0Type .zone0Type5,#zone0Type20:checked ~ #zone0Type .zone0Type6,#zone0Type20:checked ~ #zone0Type .zone0Type7,#zone0Type20:checked ~ #zone0Type .zone0Type8,#zone0Type20:checked ~ #zone0Type .zone0Type9,#zone0Type20:checked ~ #zone0Type .zone0Type10,#zone0Type20:checked ~ #zone0Type .zone0Type11,#zone0Type20:checked ~ #zone0Type .zone0Type12,#zone0Type20:checked ~ #zone0Type .zone0Type13,#zone0Type20:checked ~ #zone0Type .zone0Type14,#zone0Type20:checked ~ #zone0Type .zone0Type15,#zone0Type20:checked ~ #zone0Type .zone0Type16,#zone0Type20:checked ~ #zone0Type .zone0Type17,#zone0Type20:checked ~ #zone0Type .zone0Type18,#zone0Type20:checked ~ #zone0Type .zone0Type19,
+	//#zone(4~5)Type(1~5):checked ~ #zone(4~5)Type .zone(4~5)Type(0~4) 
+	#zone4Type1:checked ~ #zone4Type .zone4Type0,
+	#zone4Type2:checked ~ #zone4Type .zone4Type0,#zone4Type2:checked ~ #zone4Type .zone4Type1,
+	#zone4Type3:checked ~ #zone4Type .zone4Type0,#zone4Type3:checked ~ #zone4Type .zone4Type1,#zone4Type3:checked ~ #zone4Type .zone4Type2,
+	#zone4Type4:checked ~ #zone4Type .zone4Type0,#zone4Type4:checked ~ #zone4Type .zone4Type1,#zone4Type4:checked ~ #zone4Type .zone4Type2,#zone4Type4:checked ~ #zone4Type .zone4Type3,
+	#zone4Type5:checked ~ #zone4Type .zone4Type0,#zone4Type5:checked ~ #zone4Type .zone4Type1,#zone4Type5:checked ~ #zone4Type .zone4Type2,#zone4Type5:checked ~ #zone4Type .zone4Type3,#zone4Type5:checked ~ #zone4Type .zone4Type4,
+	#zone5Type1:checked ~ #zone5Type .zone5Type0,
+	#zone5Type2:checked ~ #zone5Type .zone5Type0,#zone5Type2:checked ~ #zone5Type .zone5Type1,
+	#zone5Type3:checked ~ #zone5Type .zone5Type0,#zone5Type3:checked ~ #zone5Type .zone5Type1,#zone5Type3:checked ~ #zone5Type .zone5Type2,
+	#zone5Type4:checked ~ #zone5Type .zone5Type0,#zone5Type4:checked ~ #zone5Type .zone5Type1,#zone5Type4:checked ~ #zone5Type .zone5Type2,#zone5Type4:checked ~ #zone5Type .zone5Type3,
+	#zone5Type5:checked ~ #zone5Type .zone5Type0,#zone5Type5:checked ~ #zone5Type .zone5Type1,#zone5Type5:checked ~ #zone5Type .zone5Type2,#zone5Type5:checked ~ #zone5Type .zone5Type3,#zone5Type5:checked ~ #zone5Type .zone5Type4,
+	//#zone6Type(1~20):checked ~ #zone6Type .zone6Type(0~19)
+	#zone6Type1:checked ~ #zone6Type .zone6Type0,
+	#zone6Type2:checked ~ #zone6Type .zone6Type0,#zone6Type2:checked ~ #zone6Type .zone6Type1,
+	#zone6Type3:checked ~ #zone6Type .zone6Type0,#zone6Type3:checked ~ #zone6Type .zone6Type1,#zone6Type3:checked ~ #zone6Type .zone6Type2,
+	#zone6Type4:checked ~ #zone6Type .zone6Type0,#zone6Type4:checked ~ #zone6Type .zone6Type1,#zone6Type4:checked ~ #zone6Type .zone6Type2,#zone6Type4:checked ~ #zone6Type .zone6Type3,
+	#zone6Type5:checked ~ #zone6Type .zone6Type0,#zone6Type5:checked ~ #zone6Type .zone6Type1,#zone6Type5:checked ~ #zone6Type .zone6Type2,#zone6Type5:checked ~ #zone6Type .zone6Type3,#zone6Type5:checked ~ #zone6Type .zone6Type4,
+	#zone6Type6:checked ~ #zone6Type .zone6Type0,#zone6Type6:checked ~ #zone6Type .zone6Type1,#zone6Type6:checked ~ #zone6Type .zone6Type2,#zone6Type6:checked ~ #zone6Type .zone6Type3,#zone6Type6:checked ~ #zone6Type .zone6Type4,#zone6Type6:checked ~ #zone6Type .zone6Type5,
+	#zone6Type7:checked ~ #zone6Type .zone6Type0,#zone6Type7:checked ~ #zone6Type .zone6Type1,#zone6Type7:checked ~ #zone6Type .zone6Type2,#zone6Type7:checked ~ #zone6Type .zone6Type3,#zone6Type7:checked ~ #zone6Type .zone6Type4,#zone6Type7:checked ~ #zone6Type .zone6Type5,#zone6Type7:checked ~ #zone6Type .zone6Type6,
+	#zone6Type8:checked ~ #zone6Type .zone6Type0,#zone6Type8:checked ~ #zone6Type .zone6Type1,#zone6Type8:checked ~ #zone6Type .zone6Type2,#zone6Type8:checked ~ #zone6Type .zone6Type3,#zone6Type8:checked ~ #zone6Type .zone6Type4,#zone6Type8:checked ~ #zone6Type .zone6Type5,#zone6Type8:checked ~ #zone6Type .zone6Type6,#zone6Type8:checked ~ #zone6Type .zone6Type7,
+	#zone6Type9:checked ~ #zone6Type .zone6Type0,#zone6Type9:checked ~ #zone6Type .zone6Type1,#zone6Type9:checked ~ #zone6Type .zone6Type2,#zone6Type9:checked ~ #zone6Type .zone6Type3,#zone6Type9:checked ~ #zone6Type .zone6Type4,#zone6Type9:checked ~ #zone6Type .zone6Type5,#zone6Type9:checked ~ #zone6Type .zone6Type6,#zone6Type9:checked ~ #zone6Type .zone6Type7,#zone6Type9:checked ~ #zone6Type .zone6Type8,
+	#zone6Type10:checked ~ #zone6Type .zone6Type0,#zone6Type10:checked ~ #zone6Type .zone6Type1,#zone6Type10:checked ~ #zone6Type .zone6Type2,#zone6Type10:checked ~ #zone6Type .zone6Type3,#zone6Type10:checked ~ #zone6Type .zone6Type4,#zone6Type10:checked ~ #zone6Type .zone6Type5,#zone6Type10:checked ~ #zone6Type .zone6Type6,#zone6Type10:checked ~ #zone6Type .zone6Type7,#zone6Type10:checked ~ #zone6Type .zone6Type8,#zone6Type10:checked ~ #zone6Type .zone6Type9,
+	#zone6Type11:checked ~ #zone6Type .zone6Type0,#zone6Type11:checked ~ #zone6Type .zone6Type1,#zone6Type11:checked ~ #zone6Type .zone6Type2,#zone6Type11:checked ~ #zone6Type .zone6Type3,#zone6Type11:checked ~ #zone6Type .zone6Type4,#zone6Type11:checked ~ #zone6Type .zone6Type5,#zone6Type11:checked ~ #zone6Type .zone6Type6,#zone6Type11:checked ~ #zone6Type .zone6Type7,#zone6Type11:checked ~ #zone6Type .zone6Type8,#zone6Type11:checked ~ #zone6Type .zone6Type9,#zone6Type11:checked ~ #zone6Type .zone6Type10,
+	#zone6Type12:checked ~ #zone6Type .zone6Type0,#zone6Type12:checked ~ #zone6Type .zone6Type1,#zone6Type12:checked ~ #zone6Type .zone6Type2,#zone6Type12:checked ~ #zone6Type .zone6Type3,#zone6Type12:checked ~ #zone6Type .zone6Type4,#zone6Type12:checked ~ #zone6Type .zone6Type5,#zone6Type12:checked ~ #zone6Type .zone6Type6,#zone6Type12:checked ~ #zone6Type .zone6Type7,#zone6Type12:checked ~ #zone6Type .zone6Type8,#zone6Type12:checked ~ #zone6Type .zone6Type9,#zone6Type12:checked ~ #zone6Type .zone6Type10,#zone6Type12:checked ~ #zone6Type .zone6Type11,
+	#zone6Type13:checked ~ #zone6Type .zone6Type0,#zone6Type13:checked ~ #zone6Type .zone6Type1,#zone6Type13:checked ~ #zone6Type .zone6Type2,#zone6Type13:checked ~ #zone6Type .zone6Type3,#zone6Type13:checked ~ #zone6Type .zone6Type4,#zone6Type13:checked ~ #zone6Type .zone6Type5,#zone6Type13:checked ~ #zone6Type .zone6Type6,#zone6Type13:checked ~ #zone6Type .zone6Type7,#zone6Type13:checked ~ #zone6Type .zone6Type8,#zone6Type13:checked ~ #zone6Type .zone6Type9,#zone6Type13:checked ~ #zone6Type .zone6Type10,#zone6Type13:checked ~ #zone6Type .zone6Type11,#zone6Type13:checked ~ #zone6Type .zone6Type12,
+	#zone6Type14:checked ~ #zone6Type .zone6Type0,#zone6Type14:checked ~ #zone6Type .zone6Type1,#zone6Type14:checked ~ #zone6Type .zone6Type2,#zone6Type14:checked ~ #zone6Type .zone6Type3,#zone6Type14:checked ~ #zone6Type .zone6Type4,#zone6Type14:checked ~ #zone6Type .zone6Type5,#zone6Type14:checked ~ #zone6Type .zone6Type6,#zone6Type14:checked ~ #zone6Type .zone6Type7,#zone6Type14:checked ~ #zone6Type .zone6Type8,#zone6Type14:checked ~ #zone6Type .zone6Type9,#zone6Type14:checked ~ #zone6Type .zone6Type10,#zone6Type14:checked ~ #zone6Type .zone6Type11,#zone6Type14:checked ~ #zone6Type .zone6Type12,#zone6Type14:checked ~ #zone6Type .zone6Type13,
+	#zone6Type15:checked ~ #zone6Type .zone6Type0,#zone6Type15:checked ~ #zone6Type .zone6Type1,#zone6Type15:checked ~ #zone6Type .zone6Type2,#zone6Type15:checked ~ #zone6Type .zone6Type3,#zone6Type15:checked ~ #zone6Type .zone6Type4,#zone6Type15:checked ~ #zone6Type .zone6Type5,#zone6Type15:checked ~ #zone6Type .zone6Type6,#zone6Type15:checked ~ #zone6Type .zone6Type7,#zone6Type15:checked ~ #zone6Type .zone6Type8,#zone6Type15:checked ~ #zone6Type .zone6Type9,#zone6Type15:checked ~ #zone6Type .zone6Type10,#zone6Type15:checked ~ #zone6Type .zone6Type11,#zone6Type15:checked ~ #zone6Type .zone6Type12,#zone6Type15:checked ~ #zone6Type .zone6Type13,#zone6Type15:checked ~ #zone6Type .zone6Type14,
+	#zone6Type16:checked ~ #zone6Type .zone6Type0,#zone6Type16:checked ~ #zone6Type .zone6Type1,#zone6Type16:checked ~ #zone6Type .zone6Type2,#zone6Type16:checked ~ #zone6Type .zone6Type3,#zone6Type16:checked ~ #zone6Type .zone6Type4,#zone6Type16:checked ~ #zone6Type .zone6Type5,#zone6Type16:checked ~ #zone6Type .zone6Type6,#zone6Type16:checked ~ #zone6Type .zone6Type7,#zone6Type16:checked ~ #zone6Type .zone6Type8,#zone6Type16:checked ~ #zone6Type .zone6Type9,#zone6Type16:checked ~ #zone6Type .zone6Type10,#zone6Type16:checked ~ #zone6Type .zone6Type11,#zone6Type16:checked ~ #zone6Type .zone6Type12,#zone6Type16:checked ~ #zone6Type .zone6Type13,#zone6Type16:checked ~ #zone6Type .zone6Type14,#zone6Type16:checked ~ #zone6Type .zone6Type15,
+	#zone6Type17:checked ~ #zone6Type .zone6Type0,#zone6Type17:checked ~ #zone6Type .zone6Type1,#zone6Type17:checked ~ #zone6Type .zone6Type2,#zone6Type17:checked ~ #zone6Type .zone6Type3,#zone6Type17:checked ~ #zone6Type .zone6Type4,#zone6Type17:checked ~ #zone6Type .zone6Type5,#zone6Type17:checked ~ #zone6Type .zone6Type6,#zone6Type17:checked ~ #zone6Type .zone6Type7,#zone6Type17:checked ~ #zone6Type .zone6Type8,#zone6Type17:checked ~ #zone6Type .zone6Type9,#zone6Type17:checked ~ #zone6Type .zone6Type10,#zone6Type17:checked ~ #zone6Type .zone6Type11,#zone6Type17:checked ~ #zone6Type .zone6Type12,#zone6Type17:checked ~ #zone6Type .zone6Type13,#zone6Type17:checked ~ #zone6Type .zone6Type14,#zone6Type17:checked ~ #zone6Type .zone6Type15,#zone6Type17:checked ~ #zone6Type .zone6Type16,
+	#zone6Type18:checked ~ #zone6Type .zone6Type0,#zone6Type18:checked ~ #zone6Type .zone6Type1,#zone6Type18:checked ~ #zone6Type .zone6Type2,#zone6Type18:checked ~ #zone6Type .zone6Type3,#zone6Type18:checked ~ #zone6Type .zone6Type4,#zone6Type18:checked ~ #zone6Type .zone6Type5,#zone6Type18:checked ~ #zone6Type .zone6Type6,#zone6Type18:checked ~ #zone6Type .zone6Type7,#zone6Type18:checked ~ #zone6Type .zone6Type8,#zone6Type18:checked ~ #zone6Type .zone6Type9,#zone6Type18:checked ~ #zone6Type .zone6Type10,#zone6Type18:checked ~ #zone6Type .zone6Type11,#zone6Type18:checked ~ #zone6Type .zone6Type12,#zone6Type18:checked ~ #zone6Type .zone6Type13,#zone6Type18:checked ~ #zone6Type .zone6Type14,#zone6Type18:checked ~ #zone6Type .zone6Type15,#zone6Type18:checked ~ #zone6Type .zone6Type16,#zone6Type18:checked ~ #zone6Type .zone6Type17,
+	#zone6Type19:checked ~ #zone6Type .zone6Type0,#zone6Type19:checked ~ #zone6Type .zone6Type1,#zone6Type19:checked ~ #zone6Type .zone6Type2,#zone6Type19:checked ~ #zone6Type .zone6Type3,#zone6Type19:checked ~ #zone6Type .zone6Type4,#zone6Type19:checked ~ #zone6Type .zone6Type5,#zone6Type19:checked ~ #zone6Type .zone6Type6,#zone6Type19:checked ~ #zone6Type .zone6Type7,#zone6Type19:checked ~ #zone6Type .zone6Type8,#zone6Type19:checked ~ #zone6Type .zone6Type9,#zone6Type19:checked ~ #zone6Type .zone6Type10,#zone6Type19:checked ~ #zone6Type .zone6Type11,#zone6Type19:checked ~ #zone6Type .zone6Type12,#zone6Type19:checked ~ #zone6Type .zone6Type13,#zone6Type19:checked ~ #zone6Type .zone6Type14,#zone6Type19:checked ~ #zone6Type .zone6Type15,#zone6Type19:checked ~ #zone6Type .zone6Type16,#zone6Type19:checked ~ #zone6Type .zone6Type17,#zone6Type19:checked ~ #zone6Type .zone6Type18,
+	#zone6Type20:checked ~ #zone6Type .zone6Type0,#zone6Type20:checked ~ #zone6Type .zone6Type1,#zone6Type20:checked ~ #zone6Type .zone6Type2,#zone6Type20:checked ~ #zone6Type .zone6Type3,#zone6Type20:checked ~ #zone6Type .zone6Type4,#zone6Type20:checked ~ #zone6Type .zone6Type5,#zone6Type20:checked ~ #zone6Type .zone6Type6,#zone6Type20:checked ~ #zone6Type .zone6Type7,#zone6Type20:checked ~ #zone6Type .zone6Type8,#zone6Type20:checked ~ #zone6Type .zone6Type9,#zone6Type20:checked ~ #zone6Type .zone6Type10,#zone6Type20:checked ~ #zone6Type .zone6Type11,#zone6Type20:checked ~ #zone6Type .zone6Type12,#zone6Type20:checked ~ #zone6Type .zone6Type13,#zone6Type20:checked ~ #zone6Type .zone6Type14,#zone6Type20:checked ~ #zone6Type .zone6Type15,#zone6Type20:checked ~ #zone6Type .zone6Type16,#zone6Type20:checked ~ #zone6Type .zone6Type17,#zone6Type20:checked ~ #zone6Type .zone6Type18,#zone6Type20:checked ~ #zone6Type .zone6Type19,
+	{
+		box-shadow:3px 0 0 #fff inset;
+		background-color:$NCA_透明白;
+	}
+//	域名查詢結果
+	#ncaSearchResult{padding-bottom:30px;}
+	.ncaSearchResultWrap{
+		>p{
+			font-size:20px;
+			line-height:50px;
+			padding-top:14px;
+		}
+		> .inalized{
+			text-align:right;
+			width: 370px;
+			height:64px;
+			position:absolute;
+			top:0;
+			right:20px;
+			>a{
+				margin: 12px 0;
+				&:active, &:focus{margin-top:15px;}
+			}
+		}
+		#checkOut{
+			>strong{letter-spacing:0;}
+		}
+	}
+	.ncaSearchResultBox{
+		overflow: hidden;
+		>li{overflow: hidden;}
+		> .half{
+			width: 50%;
+			float: left;
+			>.domainName{width:65%;}
+		}
+		> .half:nth-of-type(even){box-shadow:1px 0 0 #ccc inset, 0 -1px 0 #ccc inset;}
+		> .half:nth-of-type(4n+1), > .half:nth-of-type(4n+2){background-color:#fafafa;}
+		> .half:nth-of-type(4n+3), > .half:nth-of-type(4n+4){background-color:#fff;}
+		.domainName{width:40%;}
+		.priceAndAction{width:60%;}
+		.domainName, .priceAndAction{float:left;}
+		.yearPrice{
+			text-align: right;
+			width:65%;
+			>.originPrice{
+				text-decoration: line-through;
+				display:inline;
+				padding-right:30px;
+			}
+		}
+		.contactBuyBtn, .noPriceBtn{
+			> span{display:inline;}
+		}
+	}
+//	最新優惠活動區、bannerFrame、合作夥伴
+	#domainActive, #ncaOurPartner{
+		&:before{
+			height:130%;
+			top:-18%;
+		}
+	}
+	#ncaDomainActiveBox{
+		.owl-prev, .owl-next{width:120px;}
+	}
+	#ncaBannerFrame{
+		display:block;
+		margin:-20px auto 40px;
+		padding:0 15px;
+		position: relative;
+		.item{
+			>.big{display:inline;}
+			>.small{display:none;}
+		}
+		>.owl-dots{
+			font-size:0;
+			text-align:right;
+			position:absolute;
+			right:20px;
+			bottom:5px;
+		}
+	}
+//	域名百科
+	.ncaNewsListBox {padding-top:20px;}
+	#ncaNewsListContentZone{
+		>div{
+			>a{width:160px;}
+		}
+		li{
+			>a{width:82%;}
+			>em{width:15%;}
+		}
+	}
+//	我們的優勢
+	.ncaOurAdvantageBox{
+		padding:40px 0;
+		>figure{
+			&:before{@include transition(color 1s);}
+			&:hover{
+				&:before{color:$NCA_藍;}
+			}
+		}
+		h3{
+			span{display:inline;}
+		}
+		p{
+			width:320px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+//	marquee區
+	.ncaMain{
+		marquee{padding:30px 0;}
+	}
+}
+@include breakpoint(1024px){
+//	首頁banner區
+	#ncaBannerContainer{
+		>.owl-stage-outer{
+			&:before, &:after{
+				width:46px;
+				@include background-image(linear-gradient(45deg, rgba(255,255,255,0.5) 30%, rgba(255,255,255,1) 30%, rgba(255,255,255,1) 70%, rgba(255,255,255,0.5) 70%));
+				background-size: 3px 3px;
+			}
+		}
+	}
+}
+@include breakpoint(1217px){
+//	域名目錄表
+	.domainsSearchBg{
+		@include transform(skewY(-8deg));
+		&:after{@include transform(skewY(8deg));}
+	}	
+	.searchReady > #domainSearchBar{
+		max-width:$桌機版_最大寬度設定;
+		margin-left:-600px;
+		left:50%;
+	}
+	.domainsListZoneContentSlideBox{
+		.suffixLabel{
+			>label{
+				text-indent:40px;
+				text-align:left;
+				width:150px;
+				position: relative;
+				&:after, &:before{
+					position:absolute;
+					top:6px;
+					left:7px;
+				}
+				&:before{
+					content:"";
+					width: 28px;
+					height: 28px;
+					display: inline-block;
+					border:2px solid $NCA_藍;
+					border-radius:50%;
+				}
+				&:after{
+					content:"\ea10";
+					color:transparent;
+					text-indent:0;
+					font-size:16px;
+					line-height:28px;
+					padding:0 5px;
+				}
+				&:hover{
+					&:after{color:$NCA_check勾勾灰;}
+				}
+			}
+			>.small{text-indent:38px;}
+			>input:checked + label{
+				&:before{border-color:#fff;}
+				&:after{color:#fff;}
+			}
+		}
+	}
+//	最新優惠活動區、bannerFrame、合作夥伴
+	#domainActive, #ncaOurPartner{
+		&:before{@include transform(skewY(-8deg));}
+	}
+	#ncaDomainActiveBox{
+		.owl-prev, .owl-next{width:138px;}
+	}
+	#ncaBannerFrame{padding:0;}
+//	域名百科、我們的優勢
+	#domainNews, #ncaOurAdvantage{
+		>h2{
+			&:before{@include transform(translateY(-50%) skewY(-8deg));}
+		}
+	}
+	#domainNews{
+		&:before{
+			@include transform(skewY(-8deg));
+		}
+	}
+	.ncaNewsListBox{padding:15px 0 0;}
+	#ncaNewsListContentZone{
+		li{
+			>a{width:965px;}
+			>em{width:144px;}
+		}
+	}
+}
+@include breakpoint(1280px){
+//	首頁banner區
+	#ncaBannerContainer{
+		>.owl-stage-outer{
+			&:before, &:after{width:160px;}
+		}
+		.owl-prev, .owl-next{
+			border-radius:5px;
+			box-shadow:0 0 1px rgba(0,0,0,0.6);
+		}
+		.owl-prev{left:59px;}
+		.owl-next{right:59px;}
+	}
+}
+@include breakpoint(1366px){
+//	首頁banner區
+	#ncaBannerContainer{
+		>.owl-stage-outer{
+			&:before, &:after{width:203px;}
+		}
+		.owl-prev{left:80px;}
+		.owl-next{right:80px;}
+	}
+}
+@include breakpoint(1440px){
+//	首頁banner區
+	#ncaBannerContainer{
+		>.owl-stage-outer{
+			&:before, &:after{width:232px;}
+		}
+		.owl-prev{left:95px;}
+		.owl-next{right:95px;}
+	}
+}
+@include breakpoint(1600px){
+//	域名目錄表
+	.domainsSearchBg{
+		@include transform(skewY(-6deg));
+		&:after{@include transform(skewY(6deg));}
+	}
+//	首頁banner區
+	#ncaBannerContainer{
+		>.owl-stage-outer{
+			&:before, &:after{width:25%;}
+		}
+		.owl-prev{left:22%;}
+		.owl-next{right:22%;}
+	}
+//	最新優惠活動區、bannerFrame、合作夥伴
+	#domainActive, #ncaOurPartner{
+		&:before{
+			height:110%;
+			top:-8%;
+			@include transform(skewY(-6deg));
+		}
+	}
+	#ncaBannerFrame{margin:10px auto 20px;}
+//	域名百科
+	#domainNews, #ncaOurAdvantage{
+		>h2{
+			&:before{@include transform(translateY(-50%) skewY(-6deg));}
+		}
+	}
+	#domainNews{
+		&:before{@include transform(skewY(-6deg));}
+	}
+}
+@include breakpoint(1920px){}
+// html>/**/body #XXX, x:-moz-any-link {line-height:80px;}
+html>/**/body .ncaSearchResultBox .noPriceBtn:before, x:-moz-any-link{vertical-align:middle;}
+html>/**/body .ncaSearchResultBox a.noPrice:before, x:-moz-any-link{vertical-align:middle;}
+html>/**/body .ncaSearchResultBox .contactBuyBtn:before, x:-moz-any-link{vertical-align:baseline;}
+html>/**/body .ncaSearchResultBox a.contactBuy:before, x:-moz-any-link{vertical-align:baseline;}
+html>/**/body .ncaSearchResultBox .addToCart:before, x:-moz-any-link{line-height:44px;}
+html>/**/body .ncaSearchResultBox .actionRemove:before, x:-moz-any-link{line-height:44px;}
+html>/**/body .domainsListZoneContentSlideBox .suffixLabel > label:after, x:-moz-any-link{line-height:32px;}
+html>/**/body .domainsListZoneContentSlideBox .quMessage:after, x:-moz-any-link{line-height:38px;}
+html>/**/body #domainSearchBar > button:before, x:-moz-any-link{line-height:36px;}
+html>/**/body .ncaOurAdvantageBox > figure:before, x:-moz-any-link {line-height:.8;}
+// html>/**/body #XXX, x:-moz-any-link, x:default {line-height:80px;}
+html>/**/body .ncaSearchResultBox .noPriceBtn:before, x:-moz-any-link, x:default{vertical-align:middle;}
+html>/**/body .ncaSearchResultBox a.noPrice:before, x:-moz-any-link, x:default{vertical-align:middle;}
+html>/**/body .ncaSearchResultBox .contactBuyBtn:before, x:-moz-any-link, x:default{vertical-align:baseline;}
+html>/**/body .ncaSearchResultBox a.contactBuy:before, x:-moz-any-link, x:default{vertical-align: baseline;}
+html>/**/body .ncaSearchResultBox .addToCart:before, x:-moz-any-link, x:default{line-height:44px;}
+html>/**/body .ncaSearchResultBox .actionRemove:before, x:-moz-any-link, x:default{line-height:44px;}
+html>/**/body .domainsListZoneContentSlideBox .suffixLabel > label:after, x:-moz-any-link, x:default{line-height:32px;}
+html>/**/body .domainsListZoneContentSlideBox .quMessage:after, x:-moz-any-link, x:default{line-height:38px;}
+html>/**/body #domainSearchBar > button:before, x:-moz-any-link, x:default{line-height:36px;}
+html>/**/body .ncaOurAdvantageBox > figure:before, x:-moz-any-link, x:default {line-height:.8;}
+@-moz-document url-prefix(){// #XXX{line-height:80px;}
+	.ncaSearchResultBox .noPriceBtn:before, .ncaSearchResultBox a.noPrice:before{vertical-align:middle;}
+	.ncaSearchResultBox .contactBuyBtn:before, .ncaSearchResultBox a.contactBuy:before{vertical-align:baseline;}
+	.ncaSearchResultBox .addToCart:before, .ncaSearchResultBox .actionRemove:before{line-height:44px;}
+	.domainsListZoneContentSlideBox .suffixLabel > label:after{line-height:32px;}
+	.domainsListZoneContentSlideBox .quMessage:after{line-height:38px;}
+	#domainSearchBar > button::before{line-height:36px;}
+	.ncaOurAdvantageBox > figure:before{line-height:.8;}
+}
+@include breakpoint(1017px){
+	html>/**/body #domainSearchBar > button:before, x:-moz-any-link{line-height:25px;}
+	html>/**/body #domainSearchBar > button:before, x:-moz-any-link, x:default{line-height:25px;}
+	@-moz-document url-prefix(){ 
+		#domainSearchBar > button::before{line-height:25px;}
+	}	
+}

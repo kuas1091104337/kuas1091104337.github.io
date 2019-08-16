@@ -1,0 +1,23 @@
+﻿[
+    {
+        "nc3ActiveHref":"http://hi.taipei/",
+        "nc3ActiveImg":"taipei.jpg",
+        "nc3ActiveTitle":".taipei 台北市新網域",
+        "nc3ActiveContent":".taipei 在地化行銷新利器"
+    },{
+        "nc3ActiveHref":"https://wiki.net-chinese.taipei/cht/%E7%B6%B2%E4%B8%AD%E5%9F%9F%E5%90%8D%E7%B0%A1%E4%BB%8B/xyz",
+        "nc3ActiveImg":".xyz.jpg",
+        "nc3ActiveTitle":".xyz 只要490，是真的！",
+        "nc3ActiveContent":"新申請第一年大優惠"
+    },{
+        "nc3ActiveHref":"https://www.cnnic.net.cn",
+        "nc3ActiveImg":".cn.jpg",
+        "nc3ActiveTitle":".cn 中國網路世界的門牌",
+        "nc3ActiveContent":".cn 西進中國必備網址"
+    },{
+        "nc3ActiveHref":"http://onestop.twnic.net.tw/",
+        "nc3ActiveImg":".tw一站式.gif",
+        "nc3ActiveTitle":".tw一站式，域名註冊服務",
+        "nc3ActiveContent":"域名+網站+信箱 一次擁有！"
+    }
+]

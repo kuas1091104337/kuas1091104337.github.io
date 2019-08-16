@@ -1,0 +1,976 @@
+//	頁首選單區
+	#ncHeader, #signInHeader{
+		width:100%;
+		height:50px;
+		background:#fff; 
+		box-shadow:0 0 5px rgba(0,0,0,0.2);
+		position:fixed;
+		top:0;
+		left: 0;
+		z-index:index($ncaZ-index, header);
+		> div{
+			@extend %桌機版最大寬度設定;
+			font-size:0;
+			letter-spacing:-0.25em;
+			word-spacing:-0.25em;
+			width:100%;
+			height:100%;
+			position: relative;
+			> input{@extend %控制用的input推出畫面;}
+		}
+	}
+	#NC_logo{
+		width:$NCA_header_logo手機版_寬度;
+		height:$NCA_header_logo手機版_高度;
+		margin:0;
+		position:absolute;
+		top:6px;
+		left:6px;
+		z-index:index($ncaZ-index, ncaLogo);
+		>a{
+			white-space:nowrap;
+			width:100%;
+			height:100%;
+			overflow:hidden;
+			&:before{
+				@include 偽元素icon-font設定("\e907","ncaIcomoon");
+				color:$NCA_藍;
+				font-size:28px;
+				line-height:38px;
+				padding:4px;
+			}
+		}
+	}
+	.ncUlFirst, .ncUlSecond{
+		display:block;
+		li{
+			font-size:18px;
+			letter-spacing:0; 
+			word-spacing:0;
+			line-height:50px;
+			height:50px;
+		}
+		.H_A{
+			padding:0 15px;
+			&:hover, &.select{
+				color:$NCA_橙;
+				background-color:#fff;
+			}
+		}
+		>li>.iconA:before{
+			@extend %iconFont基本設定;
+			font-family:"ncaIcomoon";
+		}
+	}
+	#ncHeader .ncUlFirst:before{display: none;}
+	.ncUlFirst{
+		text-align:right;
+		position: relative;
+		&:before{
+			content:"";
+			width: 100%;
+			height: 100%;
+			background-color:#fff;
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:1;
+		}
+		>li{
+			display:inline-block;
+			vertical-align:top;
+		}
+		.H_A{
+			color:$NCA_藍;
+ 			text-align:center;
+		}
+		time{
+			color:$NCA_藍;
+			font-weight:bold;
+			position:relative;
+			z-index:1;
+		}
+		#signIn, #signOut{
+			line-height:36px;
+			border-radius:3px;
+			padding:0 10px;
+			margin:7px;
+			&:hover{
+				color:#fff;
+				background-color:$NCA_藍;
+			}
+		}
+		#signIn{display: block;}
+		#signOut{
+			margin-right:54px;
+			position:relative;
+			z-index:1;
+		}
+	}
+	#ncMemberUser{
+		width:100%;
+		height:auto;
+		position:absolute;
+		top:50px;
+		left:0;
+		>label{
+			text-indent:-3px;
+			width:54px;
+			height:50px;
+			position: absolute;
+			top:-50px;
+			right:50px;
+			z-index:1;
+			&:after{
+				@include 偽元素三角形css設定(10px,transparent transparent $NCA_藍 transparent){
+					@extend %絕對定位設定;
+				};
+				left:17px;
+				bottom:0;
+			}
+			&:before{
+				content:"\e90c";
+				font-size:30px;
+				line-height:40px;
+			}
+			&:hover, &.select{
+				&:after{border-bottom-color:$NCA_橙;}
+			}
+		}
+		>ul{
+			text-align:center;
+			height:0;
+			overflow: hidden;
+			background-color:$NCA_橙;
+			@include transition(transform .4s);
+			@include transform(translateY(-120%));
+		}
+		.memberTitle{
+			color:#fff;
+			box-shadow:0 -1px 0 0 rgba(0,0,0,.15) inset;
+			&:before{content:"hi , ";}
+		}
+		.U1_U_A{
+			color:#fff;
+			box-shadow:0 -1px 0 0 rgba(0,0,0,.15) inset;
+			&:hover{
+				color:$NCA_橙;
+				background-color:#fff;
+			}
+		}
+	}
+	#ncBurgerMenu{
+		width: 50px;
+		position: relative;
+		z-index:1;
+		>label{
+			width:38px;
+			height:38px;
+			background-color:$NCA_藍;
+			border-radius:50%;
+			padding:5px;
+			margin: auto;
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			@include transition(all .3s);
+			>span{
+				@extend %burgerMenuBar;
+			}
+			&:before, &:after{
+				content:"";
+				@extend %burgerMenuBar;
+			}
+		}
+		%burgerMenuBar{
+			width:20px;
+			height:4px;
+			background-color:#fff;
+			display:block;
+			border-radius:2px;
+			margin:4px auto;
+			@include transition(transform .3s, width .3s);
+		}
+	}
+	#ncUlFirstMemberCtrl:checked ~ .ncUlFirst > #ncMemberUser > .H_A{
+		color:$NCA_橙;
+		&:after{border-bottom-color:$NCA_橙;}
+	}
+	#ncUlFirstMemberCtrl:checked ~ .ncUlFirst > #ncMemberUser > ul{
+		height:auto;
+		@include transform(translateY(0%));
+	}
+	#ncUlSecondCtrl:checked + .ncUlFirst > #ncBurgerMenu{
+		>label{
+			width:50px;
+			height:50px;
+			background-color:$NCA_橙;
+			border-radius:0;
+			padding:11px;
+			@include transform(rotate(-180deg));
+			>span{background: transparent;}
+			&:before{
+				@include transform(translateY(8px) rotate(-45deg));
+			}
+			&:after{
+				@include transform(translateY(-8px) rotate(45deg));
+			}
+			&:before, &:after{width:28px;}
+		}
+	}
+	.ncUlSecond{
+		background-color:$NCA_橙;
+		width:80%;
+		height:100%;
+		position:fixed;
+		top:50px;
+		left:100%;
+		@include transition(transform .3s);
+		.H_A, .U2_U_A{
+ 			color:#fff;
+ 			box-shadow:0 -1px 0 0 rgba(0,0,0,.15) inset;
+		}
+		.U2_U_A{
+			background-color:$NCA_深橙;
+			padding:0 15px 0 30px;
+			&:hover{
+				color:$NCA_橙;
+				background-color:#fff;
+			}
+		}
+		.iconA{
+			&:before{
+				line-height:1;
+				margin-right:8px;
+			}
+		}
+	}
+	#ncShoppingCart{
+		strong{
+			color:$NCA_橙;
+			line-height:1;
+			background-color:#fff;
+			border-radius:15px;
+			padding:3px 5px;
+		}
+		&:hover{
+			strong{
+				color:#fff;
+				background-color:$NCA_橙;
+			}
+		}
+		&:after{
+			@include 偽元素icon-font設定("\e90a","ncaIcomoon");
+			font-size:30px;
+			margin-left:8px;
+			position:relative;
+			top:6px;
+		}
+	}
+	.ncFacebook{
+		position: relative;
+		>.iconA{
+			text-indent:38px;
+			&:before{
+				content:"\ea90";
+				font-size:20px;
+				text-indent:0;
+				background-color:#3b5998;
+				border-radius:50%;
+				padding:5px;
+				position:absolute;
+				top:10px;
+				left:15px;
+			}
+			&:hover{
+				&:before{color:#fff;}
+			}			
+		}
+	}
+	#ncLang{
+		height:auto;
+		>.iconA{
+			position: relative;
+			&:before{
+				content:"\e9c9";
+				font-size:30px;
+				vertical-align:sub;
+			}
+			&:after{
+				@include 偽元素三角形css設定(10px 10px 10px 0,transparent #fff transparent transparent){
+					@extend %絕對定位設定;
+				};
+				right:20px;
+				bottom:15px;
+				@include transition(transform .3s);
+			}
+		}
+		>ul{
+			height: 0;
+			overflow: hidden;
+			@include transition(height .2s);
+		}
+		&:hover, &:focus, &:active{
+			>.iconA{
+				color:#fff;
+				background-color:$NCA_橙;
+				&:after{@include transform(rotate(-90deg));}
+			}
+			>ul{
+				height:150px;
+				@include transition(height .5s);
+			}
+		}	
+	}
+	#ncUlSecondCtrl:checked ~ .ncUlSecond{
+		@include transition(transform .5s);
+		@include transform(translateX(-100%));
+	}
+	.ncUlSecondBG{
+		width: 100%;
+		height: 100%;
+		background-color:$NCA_透明黑;
+		display: none;
+		position: fixed;
+		top:0;
+		left:0;
+		z-index:index($ncaZ-index, ulSecondBG);
+	}
+//	owl-carousel-2 套件區
+	.ncaBg{
+		.owl-carousel{
+			display:none;
+			width:100%;
+			-webkit-tap-highlight-color:transparent;
+			//position relative and z-index fix webkit rendering fonts issue
+			position:relative;
+			z-index:1;
+			&.owl-loaded{display:block;}
+			&.owl-loading{
+				opacity:0;
+				display:block;
+			}
+			&.owl-hidden{opacity:0;}
+			&.owl-refresh .owl-item{visibility:hidden;}
+			&.owl-drag .owl-item{@include user-select(none);}
+			&.owl-grab{
+				cursor:move;
+				cursor:grab;
+			}
+			&.owl-rtl{direction:rtl;}
+			&.owl-rtl .owl-item{float:right;}
+			.owl-stage-outer{
+				position: relative;
+				overflow: hidden;
+				//fix for flashing background
+				@include transform(translate3d(0px, 0px, 0px));
+			}
+			.owl-stage{
+				position: relative;
+				-ms-touch-action: pan-Y;
+				//fix firefox animation glitch
+				@include backface-visibility(hidden);
+				&:after{
+					@extend %偽元素after_clear_both;
+				}
+			}
+			.owl-wrapper,.owl-item{
+				@include backface-visibility(hidden);
+				@include transform(translate3d(0,0,0));
+			}
+			.owl-item{
+				position:relative;
+				min-height:1px;
+				float:left;
+				@include backface-visibility(hidden);
+				-webkit-tap-highlight-color:transparent;
+				-webkit-touch-callout:none;
+			}
+			.owl-item img{
+				display:block;
+				width:100%;
+			}
+			>.owl-nav.disabled, >.owl-dots.disabled{display:none;}
+			>.owl-nav .owl-prev, >.owl-nav .owl-next, .owl-dot{
+				cursor:pointer;
+				cursor:hand;
+				@include user-select(none);
+			}
+		}
+		//No Js
+		.no-js .owl-carousel{display:block;}
+		//	Owl Carousel - Animate Plugin
+			// .owl-carousel{
+			// 	.animated{
+			// 		@include animation-duration(1000ms);
+			// 		@include animation-fill-mode(both);
+			// 	}
+			// 	.owl-animated-in{z-index:0;}
+			// 	.owl-animated-out{z-index:1;}
+			// 	.fadeOut{@include animation-name(fadeOut);}
+			// }
+			// @include keyframes(fadeOut){
+			// 	0%{opacity:1;}
+			// 	100%{opacity:0;}
+			// }
+		//	Owl Carousel - Auto Height Plugin
+			// .owl-height{
+			// 	@include transition(height 500ms ease-in-out);
+			// }
+		//	Owl Carousel - Lazy Load Plugin
+			// .owl-carousel{
+			// 	.owl-item{
+			// 		.owl-lazy{
+			// 			opacity:0;
+			// 			@include transition(opacity 400ms ease);
+			// 		}
+			// 		img.owl-lazy{
+			// 			@include transform-style(preserve-3d);
+			// 		}
+			// 	}
+			// }
+		//	Owl Carousel - Video Plugin
+			// .owl-carousel{
+			// 	.owl-video-wrapper{
+			// 		position:relative;
+			// 		height:100%;
+			// 		background:#000;
+			// 	}
+			// 	.owl-video-play-icon{
+			// 		position:absolute;
+			// 		height:80px;
+			// 		width:80px;
+			// 		left:50%;
+			// 		top:50%;
+			// 		margin-left:-40px;
+			// 		margin-top:-40px;
+			// 		background:url("owl.video.play.png") no-repeat;
+			// 		cursor:pointer;
+			// 		z-index:1;
+			// 		@include backface-visibility(hidden);
+			// 		@include transform(hidden);
+			// 		@include transition(transform 100ms ease);
+			// 	}
+			// 	.owl-video-play-icon:hover{@include transform(scale(1.3, 1.3));}
+			// 	.owl-video-playing .owl-video-tn, .owl-video-playing .owl-video-play-icon{display:none;}
+			// 	.owl-video-tn{
+			// 		opacity:0;
+			// 		height:100%;
+			// 		background-position:center center;
+			// 		background-repeat:no-repeat;
+			// 		background-size:contain;
+			// 		@include transition(opacity 400ms ease);
+			// 	}
+			// 	.owl-video-frame{
+			// 		position:relative;
+			// 		z-index:1;
+			// 		height:100%;
+			// 		width:100%;
+			// 	}
+			// }
+	}
+//	ncaGoTop、signIn區
+	#ncaGoTop{
+		-webkit-tap-highlight-color:rgba(0,0,0,0);
+		width:32px;
+		height:26px;
+		cursor:pointer;
+		display:none;
+		border-width:10px 8px 12px 8px;
+		border-style:solid;
+		border-color:$NCA_透明黑;
+		border-radius:8px;
+		box-sizing: content-box;
+		position:fixed;
+		right:15px;
+		bottom:15px;
+		z-index:index($ncaZ-index, ncaGoTop);
+		&:before, &:after{
+			@extend %偽元素三角形基本設定;
+			border-width:0 16px 13px 16px;
+			display: block;
+		}
+		&:before{
+			border-color: transparent $NCA_透明黑 transparent $NCA_透明黑;
+		}
+		&:after{
+			border-color:transparent  transparent $NCA_透明黑 transparent;
+		}
+	}
+//	頁尾footer區
+	#ncFooter{
+		color:#fff;
+		font-size:16px;
+		width:100%;
+		background-color:$NC_灰;
+		padding-top:15px;
+		> p{
+			font-size: 14px;
+			line-height:50px;
+			text-align:center;
+			background-color:#333;
+			margin:15px 0 0 0;
+			> a{color:#fff;}
+		}
+	}
+	.ncFWrap{
+		@extend %桌機版最大寬度設定;
+		overflow:hidden;
+		> div{
+			padding:15px 30px;
+			li{line-height:2;}
+		}
+		> .ncaInfor{
+			>ul{
+				list-style-type:disc;
+				margin-left:28px;
+			}
+		}
+		h3{
+			color:$NC_淺灰;
+			font-weight:normal;
+			margin:0 0 .35em 0;
+		}
+		a{
+			color:#fff;
+			display:inline;
+			background-color:transparent;
+			border-radius:5px;
+			padding:3px 5px;
+			@include transition(color .3s, background-color .3s);
+			&:hover{
+				color:$NC_灰;
+				background-color:#fff;
+			}
+		}
+		li[class$="Icon"]{
+			&:before{margin:0 8px 0 6px;}
+		}
+		.logoIcon{
+			&:before{@include 偽元素icon-font設定("\e902","nc3Icomoon");}
+		}
+		.mailIcon{
+			&:before{@include 偽元素icon-font設定("\e945","nc3Icomoon");}
+		}
+		.skypeIcon{
+			&:before{@include 偽元素icon-font設定("\eac5","nc3Icomoon");}
+		}
+		.telIcon{
+			&:before{@include 偽元素icon-font設定("\e942","nc3Icomoon");}
+		}
+		.timeIcon{
+			&:before{@include 偽元素icon-font設定("\e94e","nc3Icomoon");}
+		}
+		.faxIcon{
+			&:before{@include 偽元素icon-font設定("\e954","nc3Icomoon");}
+		}
+		.facebookIcon{
+			&:before{
+				@include 偽元素icon-font設定("\ea90","nc3Icomoon");
+				background-color:$facebook藍;
+			}
+		}
+		.twitterIcon{
+			&:before{
+				@include 偽元素icon-font設定("\ea96","nc3Icomoon");
+				background-color:$twitter藍;
+			}
+		}
+		li.facebookIcon, li.twitterIcon{
+			&:before{
+				border-radius:5px;
+				padding:5px;
+				margin-left:0;
+			}
+		}
+		.searchIcon{
+			&:before{@include 偽元素icon-font設定("\e986","nc3Icomoon");}
+		}
+	}
+//	lightBox 登入+loading
+	#ncaLightBoxClose:checked ~ #ncaMemberLogIn{
+		opacity:0;
+		z-index:-1;
+	}
+	#ncaLightBoxOpen:checked ~ #ncaMemberLogIn{
+		opacity:1;
+		z-index:index($ncaZ-index, ncaMemberLogIn);
+		.ncaLogInBox{@include transform(scale(1));}
+	}
+	#ncaMemberLogIn{
+		width:100%;
+		height:100%;
+		background-color:$NCA_透明黑;
+		position:fixed;
+		top:0;
+		left:0;
+		@include transition(opacity .4s);
+	}
+	.ncaLogInBox{
+		color:#4d4d4d;
+		text-align:center;
+		width:90%;
+		width:calc(100% - 40px);
+		max-width:500px;
+		height:95%;
+		height:calc(100% - 40px);
+		max-height:600px;
+		background-color:#fff;
+		border-top:4px solid $NCA_藍;
+		border-bottom:4px solid $NCA_藍;
+		box-shadow:0 2px 10px $NCA_透明黑;
+		padding:15px 0 0;
+		margin:auto;
+		overflow:auto;
+		position:absolute;
+		top:0;
+		right:0;
+		left:0;
+		bottom:0;
+		@include transform(scale(.8));
+		@include transition(transform .4s cubic-bezier(0.5, -0.5, 0.5, 1.5));
+		> h3{
+			color:$NCA_灰;
+			font-size:1.8em;
+			width:94%;
+			margin:.3em 0 -.1em;
+			position:relative;
+			left:3%;
+			@include transform(skew(-6deg));
+		}
+		> .XbackPage{
+			width:38px;
+			height:38px;
+			background-color:$NCA_藍;
+			border-radius:50%;
+			position:absolute;
+			top:12px;
+			right:12px;
+			@include transition(background-color .4s);
+			&:before, &:after{
+				content:"";
+				width:28px;
+				height:4px;
+				background-color:#fff;
+				display:block;
+				border-radius:2px;
+				margin:auto;
+				position:absolute;
+				top:0;
+				right:0;
+				left:0;
+				bottom:0;
+			}
+			&:before{@include transform(rotate(-45deg));}
+			&:after{@include transform(rotate(45deg));}
+			&:hover{background-color:$NCA_橙;}
+		}
+	}
+	#ncaLogIn{
+		width:90%;
+		max-width:420px;
+		margin:0 auto;
+		> .inputBox{text-align:left;}
+		label, ins{display:block;}
+		label{
+			width:50%;
+			margin:1.2em 10px .2em;
+		}
+		input, > .LogInBtn > a, > .NC2LogInBtn > a{
+			padding:10px;
+			border-radius:3px;
+		}
+		input{
+			@include input的placeholder值css設定{
+				color:#fff;
+				font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+				@include transition(color .4s);
+			}
+			width:100%;
+			background-color:$NCA_check勾勾灰;
+			@include transition(background-color .4s);
+			&:focus{
+				background-color:$NCA_淡灰;
+				box-shadow:0 0 0 1px $NCA_check勾勾灰;
+				@include input的placeholder值css設定{color:$NCA_灰;}
+			}
+		}
+		ins{
+			color:$NCA_紅;
+			text-align: center;
+			text-decoration:none;
+			margin:1.2em 0;
+			&:after, &:before{content:"*";}
+		}
+		ins:empty{
+			&:after, &:before{content:"";}
+		}
+		> .LogInBtn, > .NC2LogInBtn{
+			> a{
+				color:#fff;
+				@include transition(box-shadow .3s cubic-bezier(0.5, -0.5, 0.5, 1.5), transform .4s cubic-bezier(0.5, -0.5, 0.5, 1.5));				
+			}
+		}
+		> .LogInBtn{
+			a{
+				background-color:$NCA_橙;
+				box-shadow:0px 3px 0px 0px $NCA_深橙;				
+			}
+			+ p{
+				padding:1.1em 0 1em;
+				margin:0;
+			}
+			&:hover{
+				a{
+					box-shadow:0px 30px 25px -14px $NCA_深橙;
+					@include transform(translateY(-8px));
+				}
+			}
+		}
+		> .NC2LogInBtn{
+			a{
+				background-color:$NCA_藍;
+				box-shadow:0px 3px 0px 0px $NCA_深藍;
+				position: relative;
+				&:before{
+					@include 偽元素icon-font設定("\e907","ncaIcomoon");
+					color:$NCA_藍;
+					font-size:20px;
+					background-color:#fff;
+					border-radius:3px;
+					padding:4px;
+					position:absolute;
+					top:5px;
+					left:5px;
+				}
+			}
+			&:hover{
+				a{
+					box-shadow:0px 30px 25px -14px $NCA_深藍;
+					@include transform(translateY(-8px));
+				}
+			}
+		}
+		> .inlineA{
+			color:$NCA_藍;
+			text-shadow: 0 1px 1px rgba(0,0,0,.25);
+			display:inline-block;
+			padding:1.1em 0 0;
+			&:hover{text-decoration:underline;}
+		}
+		> p:last-of-type{
+			>a{
+				color:$NCA_橙;
+				text-shadow: 0 1px 1px rgba(0,0,0,.25);
+				display:inline;
+				margin-left:10px;
+				&:hover{text-decoration:underline;}
+			}
+		}
+	}
+// ===== 只有iPhone4、5 手機版拿直的時候 ===== 
+@include breakpoint(max-width 320px){
+//	lightBox 登入+loading
+	.ncaLogInBox{font-size:16px;}
+}
+// ===== iPhone4拿橫時(480px)「以上」版型區 ===== 
+@include breakpoint(568px){
+	.ncFWrap{
+		> div{
+			width:50%;
+			padding:15px;
+			float:left;
+		}
+	}
+}
+// ===== 一般手機拿橫時(640px)「以上」版型區 ===== 
+@include breakpoint(640px){
+	.ncFWrap > div{padding:15px 30px;}
+}
+// ===== 平板版(768px)「以上」版型區 ===== 
+@include breakpoint(768px){
+	.ncFWrap > div{padding:15px 50px;}
+//	lightBox 登入+loading
+	.ncaLogInBox{
+		&:before{
+			@include breakpoint標籤內偽元素SVG背景圖設定(170px,60px,"nca/nc-logo.svg");
+			display:inline-block;
+		}
+	}
+}
+// ===== 桌機、平板(1000px)「以上」版型區 ===== 
+@include breakpoint(1017px){
+//	頁首選單區
+	#ncHeader, #signInHeader{
+		height:60px;
+		div{text-align:right;}
+	}
+	#NC_logo{
+		width:$NCA_header_logo桌機版_寬度;
+		height:$NCA_header_logo桌機版_高度;
+		position:absolute;
+		top:7px;
+		left:7px;
+		>a{
+			text-indent:$NCA_header_logo桌機版_寬度;
+			background-image:image-url("nca/nc-logo.svg",false,false);
+			background-position:center;
+			background-size:cover;
+			&:before{content:"";}
+		}
+	}
+	.ncUlFirst, .ncUlSecond{
+		display:inline-block;
+		vertical-align:top;
+		>li{
+			line-height:60px;
+			height:60px;
+		}
+	}
+	.ncUlFirst{
+		&:before{
+			height:60px;
+			left:30px;
+		}
+		#signIn, #signOut{margin:12px 7px;}
+	}
+	#ncMemberUser{
+		width:60px;
+		position:static;
+		>label{
+			text-indent:-1px;
+			width:100%;
+			height:60px;
+			display: block;
+			position:relative;
+			top:0;
+			right:0;
+			&:after{left:20px;}
+			&:before{line-height:60px;}
+		}
+		>ul{
+			width:110px;
+			margin-left:-25px;
+		}
+		.memberTitle{display:none;}
+	}
+	.EN #ncMemberUser{
+		>ul{
+			width:176px;
+			margin-left:-58px;
+		}
+	}
+	#ncBurgerMenu{display:none;}
+	.ncUlSecond{
+		background-color:transparent;
+		width:auto;
+		height:auto;
+		position:static;
+		> li{
+			text-align:center;
+			display:inline-block;
+			vertical-align:top;
+		}
+		> li:first-of-type{
+			position:relative;
+			z-index:1;
+		}
+		.H_A{
+ 			color:$NCA_藍;
+ 			box-shadow:none;
+		}
+		.U2_U_A{
+			background-color:$NCA_橙;
+			padding:0;
+		}
+	}
+	#ncShoppingCart{
+		strong{
+			color:#fff;
+			background-color:$NCA_藍; //購物車清單為0時
+			background-color:$NCA_橙; //購物車清單不為0時，$('strong').addClass('nonzero')
+			border-radius:17px;
+			padding:5px 7px;
+			@include transition(background-color  .5s);
+		}
+		.nonzero{background-color:$NCA_橙;}
+		&:after{margin-left:5px;}
+	}
+	.ncFacebook{
+		white-space:nowrap;
+		width: 60px;
+		overflow:hidden;
+		>.iconA{
+			text-indent:45px;
+			&:before{
+				color:#fff;
+				padding:7px;
+				top:13px;
+				left:13px;
+			}	
+		}
+	}
+	#ncLang{
+		width:60px;
+		>.iconA{
+			text-indent: 1px;
+			white-space:nowrap;
+			height: 60px;
+			overflow:hidden;
+			&:before{
+				line-height:60px;
+				margin-right:15px;
+			}
+			&:after{
+				border-width:0 10px 10px 10px;
+				border-bottom-color:$NCA_藍;
+				right:20px;
+				bottom:0;
+			}
+		}
+		&:hover, &:focus{
+			>.iconA{
+				color:$NCA_橙;
+				background-color:#fff;
+				&:after{
+					border-bottom-color:$NCA_橙;
+					@include transform(rotate(0deg));
+				}
+			}
+			>ul{
+				width: 100px;
+				margin-left:-20px;
+			}
+		}	
+	}
+	#ncUlSecondCtrl:checked ~ .ncUlSecond{
+		@include transition-duration(0s);
+		@include transform(none);
+	}
+	.ncUlSecondBG{display:none !important;}
+}
+@include breakpoint(1017px (max-width 1240px)){
+//	頁首選單區
+	#ncLang{
+		&:hover, &:focus{
+			>ul{margin-left:-40px;}
+		}
+	}
+}
+@include breakpoint(1220px) {
+	.ncFWrap{
+		> div{
+			width:25%;
+			padding:15px 0;
+		}
+		> div:nth-of-type(n+2){padding-left:100px;}
+		h3{margin-bottom:1em;}
+	}
+	.ncaInfor{
+		margin-right:-100%;
+		margin-left:25%;
+	}
+	.ncaQuTool{margin-right:25%;}
+}
