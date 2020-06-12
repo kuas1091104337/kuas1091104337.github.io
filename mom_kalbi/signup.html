@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>註冊會員 - Mom's Kalbi</title>
+
+<link rel="shortcut icon" href="images/website_logo.png">
+<meta name="keywords" content="媽咪佳肋比 Mom's Kalbi 韓式傳統料理">
+<meta name="description" content="媽咪佳肋比 Mom's Kalbi 韓式傳統料理">
+<meta name="author" content="kuas1091104337_amos_chen">
+<meta name="copyright" content="Mom's Kalbi 韓品國際行銷股份有限公司">
+
+<!-- 社群網站分享顯示優化：facebook、google plus、twitter -->
+<!-- 寫給facebook看的，分享到facebook上會正確顯示
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="網站名稱" />
+<meta property="og:title" content="網站名稱或標題" >
+<meta property="og:url" content="網址 http://www.xxxxx.com.tw/index.html">
+<meta property="og:image" content="要顯示的縮圖網址_圖片尺寸要超過200*200，圖片要用絕對路徑 http://www.xxxxx.com/img/fb-pic1.jpg">
+<meta property="og:description" content="網頁描述" >
+<meta name="og:description" content="網站要呈現的敘述設定" />
+ --><!-- ※更新完這些資訊後，到 https://developers.facebook.com/tools/debug/#_=_ ，輸入網址來刷新頁面資訊 -->
+    
+<!-- 寫給google plus看的，分享到google plus上會正確顯示
+<meta itemprop="name" content="網站名稱或標題">
+<meta itemprop="image" content="要顯示的縮圖網址">
+<meta itemprop="description" content="網頁描述">
+ -->
+
+<!-- 寫給twitter看的，分享到twitter上會正確顯示
+<meta name="twitter:card" content="Twitter Card的類型" />
+<meta name="twitter:site" content="@填入Twitter帳號" />
+<meta name="twitter:creator" content="@用戶名" />
+<meta name="twitter:domain" content="網址" />
+<meta name="twitter:title" content="網頁標題或是顯示內容的標題" />
+<meta name="twitter:description" content="網頁簡介_200字以內的說明文字" />
+<meta name="twitter:image" content="分享的縮圖，圖片尺寸要超過280*150" />
+ -->
+
+<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Mom's Kalbi">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="address=no">
+
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+
+<!--[if lt IE 9]>
+    <link href="css/IE_layout.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+</head>
+
+<body>
+    <div id="loading">
+        <div class="up_left_triangle"></div>
+        <div class="up_right_triangle"></div>
+        <div class="down_right_triangle"></div>
+        <div class="down_left_triangle"></div>
+        <div id="red_line"></div>
+        <div id="blue_line"></div>
+        <h2 id="L1">媽咪佳肋比</h2>
+        <h3>Mom's Kalbi</h3>
+        <p id="L2">韓式傳統料理</p>
+        <div id="Moms_Kalbi_logo">
+            <img src="images/moms-kalbi-loading-logo.png" width="100%" height="auto" alt="媽咪佳助比 mom's kalbi">
+        </div>
+    </div>
+
+    <main class="redBackgroundGo">
+        <div class="signOutPageBox whiteBackgroundGo">
+            <h1 class="lightSignOutTitle"><em>註冊會員</em></h1>
+            <a href="index.html" class="goToIndex"></a>
+            <form id="logOut" method="post" action="">
+                <ul>
+                    <li>
+                        <div class="inputBox">
+                            <input id="MKmemberAccount" type="text" placeholder="中文5個字、英數組合10個字以內"/>
+                            <label class="MKlabel" for="MKmemberAccount">
+                                <span class="MKlabelText">帳號</span>
+                            </label>
+                        </div>
+                        <ins>帳號已被使用 / 格式不對</ins>
+                    </li>
+                    <li>
+                        <div class="inputBox">
+                            <input id="MKmemberPassword" type="text" placeholder="4~10位英數組合"/>
+                            <label class="MKlabel" for="MKmemberPassword">
+                                <span class="MKlabelText">密碼</span>
+                            </label>
+                        </div>
+                        <ins>密碼格式不對</ins>
+                    </li>
+                    <!-- <li>
+                        <div class="inputBox">
+                            <input id="MKmemberEmail" type="text" placeholder="若忘記帳密將由信箱找回"/>
+                            <label class="MKlabel" for="MKmemberEmail">
+                                <span class="MKlabelText">電子信箱</span>
+                            </label>
+                        </div>
+                        <ins>信箱已被使用 / 格式不對</ins>
+                    </li> -->
+                    <li>
+                        <div class="inputBox">
+                            <input id="MKmemberPhoneNumber" type="text" placeholder="若忘記帳密將由手機找回"/>
+                            <label class="MKlabel" for="MKmemberPhoneNumber">
+                                <span class="MKlabelText">手機</span>
+                            </label>
+                        </div>
+                        <ins>手機號碼已被使用</ins>
+                    </li>
+                    <li>
+                        <div id="residence" class="inputBox">
+                            <span>居住地</span>
+                            <select id="CityCounty" class="" name="">
+                                <option value="Taipei" id="Taipei">臺北市</option>
+                                <option value="NewTaipeiCity" id="NewTaipeiCity">新北市</option>
+                                <option value="Keelung" id="Keelung">基隆市</option>
+                                <option value="Taoyuan" id="Taoyuan">桃園市</option>
+                                <option value="HsinchuCounty" id="HsinchuCounty">新竹縣</option>
+                                <option value="HsinchuCity" id="HsinchuCity">新竹市</option>
+                                <option value="Yilan" id="Yilan">宜蘭縣</option>
+                                <option value="Miaoli" id="Miaoli">苗栗縣</option>
+                                <option value="Taichung" id="Taichung">臺中市</option>
+                                <option value="Changhua" id="Changhua">彰化縣</option>
+                                <option value="Hualien" id="Hualien">花蓮縣</option>
+                                <option value="Nantou" id="Nantou">南投縣</option>
+                                <option value="Yunlin" id="Yunlin">雲林縣</option>
+                                <option value="ChiayiCounty" id="ChiayiCounty">嘉義縣</option>
+                                <option value="ChiayiCity" id="ChiayiCity">嘉義市</option>
+                                <option value="Tainan" id="Tainan">臺南市</option>
+                                <option value="Kaohsiung" id="Kaohsiung">高雄市</option>
+                                <option value="Pingtung" id="Pingtung">屏東縣</option>
+                                <option value="Taitung" id="Taitung">臺東縣</option>
+                                <option value="Penghu" id="Penghu">澎湖縣</option>
+                            </select>
+                            <select id="Area" class="" name="">
+                                <option value="Jhongjheng" id="Jhongjheng">中正區</option>
+                                <option value="Datong" id="Datong">大同區</option>
+                                <option value="Jhongshan" id="Jhongshan">中山區</option>
+                                <option value="Songshan" id="Songshan">松山區</option>
+                                <option value="Da-an" id="Da-an">大安區</option>
+                                <option value="Wanhua" id="Wanhua">萬華區</option>
+                                <option value="Sinyi" id="Sinyi">信義區</option>
+                                <option value="Shihlin" id="Shihlin">士林區</option>
+                                <option value="Beitou" id="Beitou">北投區</option>
+                                <option value="Neihu" id="Neihu">內湖區</option>
+                                <option value="Nangang" id="Nangang">南港區</option>
+                                <option value="Wunshan" id="Wunshan">文山區</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inputBox">
+                            <input id="MKmemberRecommender" type="text"/>
+                            <label class="MKlabel" for="MKmemberRecommender">
+                                <span class="MKlabelText">推薦人<small> (非必填)</small></span>
+                            </label>
+                        </div>
+                        <ins>無此推薦人</ins>
+                    </li>
+                    <li class="goToBtnBox">
+                        <a href="javascript:;" class="goToBtn">
+                            <div class="wordBox">
+                                <span data-title="註冊">註冊</span>
+                            </div>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </main>
+
+    <!--[if lte IE 9]>
+        <div class="IE-bg">
+            <div class="IE-tips">
+                <img src="images/apple-touch-icon.png" alt="媽咪佳肋比 Mom's Kalbi 韓式傳統料理">
+                <p>很抱歉，目前本站瀏覽不支援IE9以下的瀏覽器<br />請升級您的瀏覽器版本。<br />建議您改用 Google Chrome 或 Firefox<br />以取得最佳、最快的瀏覽效果！</p>
+                <p><a href="http://windows.microsoft.com/zh-tw/internet-explorer/ie-11-worldwide-languages" target="_blank">升級IE瀏覽器</a><a href="https://www.google.com.tw/intl/zh-TW/chrome/browser/desktop/" target="_blank">下載 Google Chrome</a><a href="http://mozilla.com.tw/firefox/new/?scene=2#download-fx" target="_blank">下載 Firefox</a></p>
+                <p class="small-font">www.momskalbi.com</p>
+            </div>
+        </div>
+    <![endif]-->
+</body>
+</html>
+
+<script type="text/javascript" src="js/jquery.2.1.4.min.js"></script>
+<script type="text/javascript" src="js/core.js"></script>
