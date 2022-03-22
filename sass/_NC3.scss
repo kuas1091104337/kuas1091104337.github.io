@@ -476,7 +476,7 @@ $nc3Z-index:nc3HD, nc3GoTop, lightBox; //最後面最大
 	// .priceAndAction, .half{
 	// 	overflow:hidden;
 	// 	>button{
-	// 		@extend %iconFont基本設定;
+	// 		@extend %iconFont_setup;
 	// 		text-align: center;
 	// 		width:50px;
 	// 		border-radius:4px;
@@ -531,7 +531,7 @@ $nc3Z-index:nc3HD, nc3GoTop, lightBox; //最後面最大
 	// }
 	// a.contactBuy, .contactBuyBtn, a.noPrice, .noPriceBtn{
 	// 	&:before{
-	// 		@extend %iconFont基本設定;
+	// 		@extend %iconFont_setup;
 	// 		line-height:1;
 	// 		vertical-align:sub;
 	// 		margin-right:6px;

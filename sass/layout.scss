@@ -231,7 +231,7 @@ $DAborderRadius:5px;
 			}
 			&:after{
 				@include 偽元素三角形css設定(10px 10px 10px 0,transparent #fff transparent transparent){
-					@extend %絕對定位設定;
+					@extend %pos_a;
 				};
 				right:20px;
 				bottom:15px;
@@ -1224,7 +1224,7 @@ $DAborderRadius:5px;
 			};
 		}
 		> #BNshowNext{
-			@extend %靠右next設定;
+			@extend %r_0;
 			border-radius:5px 0 0 5px;
 			&:before{
 				@include owl套件上下張箭頭icon偽元素設定(14px 0 14px 10px, $dotA灰 transparent $dotA灰 transparent){
@@ -1239,7 +1239,7 @@ $DAborderRadius:5px;
 		}
 		> #BNshowPrev{
 			left:0;
-			@extend %靠左prev設定;
+			@extend %l_0;
 			border-radius:0 5px 5px 0;
 			&:before{
 				@include banner上下張箭頭icon偽元素設定(14px 10px 14px 0, $dotA灰 transparent $dotA灰 transparent){

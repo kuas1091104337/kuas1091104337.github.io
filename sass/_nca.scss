@@ -77,7 +77,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 			};
 		}
 		.owl-prev{
-			@extend %靠左prev設定;
+			@extend %l_0;
 			border-radius:0 5px 5px 0;
 			&:before{
 				@include owl套件上下張箭頭icon偽元素設定(12px 13px 12px 0, $NCA_灰 #fff $NCA_灰 transparent){
@@ -89,7 +89,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 			}
 		}
 		.owl-next{
-			@extend %靠右next設定;
+			@extend %r_0;
 			border-radius:5px 0 0 5px;
 			&:before{
 				@include owl套件上下張箭頭icon偽元素設定(12px 0 12px 13px, $NCA_灰 transparent $NCA_灰 #fff){
@@ -484,7 +484,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 				margin:10px 38px 10px 0;
 				@include transition(background-color .3s, color .3s);
 				&:after{
-					@extend %iconFont基本設定;
+					@extend %iconFont_setup;
 					font-family:"ncaIcomoon";
 				}
 			}
@@ -590,7 +590,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 		.priceAndAction, > .half{
 			overflow:hidden;
 			>button{
-				@extend %iconFont基本設定;
+				@extend %iconFont_setup;
 				font-family:"ncaIcomoon";
 				text-align: center;
 				width:50px;
@@ -646,7 +646,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 		}
 		a.contactBuy, .contactBuyBtn, a.noPrice, .noPriceBtn{
 			&:before{
-				@extend %iconFont基本設定;
+				@extend %iconFont_setup;
 				font-family:"ncaIcomoon";
 				line-height:1;
 				vertical-align:sub;
@@ -773,7 +773,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 			};
 		}
 		.owl-prev{
-			@extend %靠左prev設定;
+			@extend %l_0;
 			border-radius:0 5px 5px 0;
 			&:before{
 				@include owl套件上下張箭頭icon偽元素設定(16px 12px 16px 0, $NCA_灰 transparent $NCA_灰 transparent){
@@ -787,7 +787,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 			}
 		}
 		.owl-next{
-			@extend %靠右next設定;
+			@extend %r_0;
 			border-radius:5px 0 0 5px;
 			&:before{
 				@include owl套件上下張箭頭icon偽元素設定(16px 0 16px 12px, $NCA_灰 transparent $NCA_灰 transparent){
@@ -872,7 +872,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 			@include transition(transform .5s);
 			&:before{
 				@include 偽元素三角形css設定(10px, $NCA_藍 transparent transparent transparent){
-					@extend %絕對定位設定;
+					@extend %pos_a;
 				};
 				bottom:-22px;
 				left:50%;
@@ -960,7 +960,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 				position:relative;
 				&:before{
 					@include 偽元素三角形css設定(14px 8px 14px, transparent $NCA_藍 $NCA_藍 transparent){
-						@extend %絕對定位設定;
+						@extend %pos_a;
 					};
 					bottom:0;
 					left:-16px;
@@ -977,7 +977,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 			padding:5px 0;
 			margin:0 auto;
 			&:before{
-				@extend %iconFont基本設定;
+				@extend %iconFont_setup;
 				font-family:"ncaIcomoon";
 				font-size:100px;
 			}
@@ -1013,7 +1013,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 			@include owl套件上下張箭頭icon外框設定(30px, 100%, $NCA_灰);
 		}
 		.owl-prev{
-			@extend %靠左prev設定;
+			@extend %l_0;
 			&:before{
 				@include owl套件上下張箭頭icon偽元素設定(14px 14px 14px 0, $NCA_灰 #fff $NCA_灰 transparent){
 					margin-left:-2px;
@@ -1024,7 +1024,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 			}
 		}
 		.owl-next{
-			@extend %靠右next設定;
+			@extend %r_0;
 			&:before{
 				@include owl套件上下張箭頭icon偽元素設定(14px 0 14px 14px, $NCA_灰 transparent $NCA_灰 #fff){
 					margin-left:2px;

@@ -1,5 +1,5 @@
 // 偽元素三角形基本設定
-%偽元素三角形基本設定{
+%arrow_setup{
 	content:"";
 	width:0;
 	height:0;
@@ -7,33 +7,36 @@
 	border-style:solid;
 }
 // 絕對定位設定
-%絕對定位設定{position:absolute;}
-%靠左prev設定{left:0;}
-%靠右next設定{right:0;}
+%pos_a{position:absolute;}
+// 靠左prev設定
+%l_0{left:0;}
+// 靠右next設定
+%r_0{right:0;}
 %絕對定位垂直置中設定{
-	@extend %絕對定位設定;
+	@extend %pos_a;
 	top:50%;
 	@include transform(translateY(-50%));
 }
 %絕對定位靠左prev垂直置中設定{
-	@extend %絕對定位設定;
-	@extend %靠左prev設定;
+	@extend %pos_a;
+	@extend %l_0;
 	top:50%;
 	@include transform(translateY(-50%));
 }
 %絕對定位靠右next垂直置中設定{
-	@extend %絕對定位設定;
-	@extend %靠右next設定;
+	@extend %pos_a;
+	@extend %r_0;
 	top:50%;
 	@include transform(translateY(-50%));
 }
 %絕對定位水平垂直置中設定{
-	@extend %絕對定位設定;
+	@extend %pos_a;
 	top:50%;
 	left:50%;
 	@include transform(translate(-50%, -50%));
 }
-%iconFont基本設定{
+// iconFont基本設定
+%iconFont_setup{
 	speak:none;
 	font-style:normal;
 	font-weight:normal;
@@ -43,7 +46,7 @@
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
 }
-%icomoonIconFont基本設定{
+%icomooniconFont_setup{
 	speak:none;
 	font-family:"icomoon";
 	font-style:normal;
@@ -54,7 +57,8 @@
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
 }
-%標題或超連不能選取反白{
+// 標題或超連不能選取反白
+%userSelect_none{
 	-webkit-user-select: none;
 	-moz-user-select: -moz-none;
 	-ms-user-select: none;
@@ -111,11 +115,11 @@
 
 //	mixin
 @mixin 偽元素icomoonIconFont設定($icon){
-	@extend %icomoonIconFont基本設定;
+	@extend %icomooniconFont_setup;
 	content:$icon;
 }
 @mixin 偽元素icon-font設定($icon,$fontFamily){
-	@extend %iconFont基本設定;
+	@extend %iconFont_setup;
 	content:$icon;
 	font-family:$fontFamily;
 }
@@ -240,14 +244,14 @@
 // 	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
 // }
 @mixin 偽元素三角形css設定($borderWidth, $borderColor){
-	@extend %偽元素三角形基本設定;
+	@extend %arrow_setup;
 	border-width:$borderWidth;
 	border-color:$borderColor;
 	@content;
 }
 //	@include 偽元素三角形css設定(8px,transparent transparent $網頁_深藍 $網頁_深藍);
 //	@include 偽元素三角形css設定(10px,transparent transparent $NC_藍 transparent){
-//		@extend %絕對定位設定;
+//		@extend %pos_a;
 //	};
 //	1.banner上下張箭頭icon內部偽元素摟空設計
 @mixin 上下左右摟空箭頭icon外框設定($width, $height, $borderWidth, $borderColor, $borderRadius){
@@ -271,7 +275,7 @@
 	// z-index:100;
 //	}
 @mixin 上下摟空箭頭icon偽元素設定($borderWidth, $borderColor){
-	@extend %偽元素三角形基本設定;
+	@extend %arrow_setup;
 	display:block;
 	border-width:$borderWidth;
 	border-color:$borderColor;
@@ -280,7 +284,7 @@
 //	&:before{@mixin 上下摟空箭頭icon偽元素設定(0 16px 13px 16px, transparent $NC_透明黑 transparent $NC_透明黑);}
 //	&:after{@mixin 上下摟空箭頭icon偽元素設定(0 16px 13px 16px, transparent  transparent $NC_透明黑 transparent);}
 @mixin 左右摟空箭頭icon偽元素設定($borderWidth, $borderColor){
-	@extend %偽元素三角形基本設定;
+	@extend %arrow_setup;
 	display:inline-block;
 	border-width:$borderWidth;
 	border-color:$borderColor;
@@ -297,7 +301,7 @@
 }
 //	@include owl套件上下張箭頭icon外框設定(30px, 40px, $NC_灰){box-shadow:0 0 1px rgba(0,0,0,.3);};
 @mixin owl套件上下張箭頭icon偽元素設定($borderWidth, $borderColor){
-	@extend %偽元素三角形基本設定;
+	@extend %arrow_setup;
 	@extend %絕對定位水平垂直置中設定;
 	border-width:$borderWidth;
 	border-color:$borderColor;
@@ -332,7 +336,7 @@
 	@content;
 }
 @mixin banner上下張箭頭icon偽元素設定($borderWidth, $borderColor){
-	@extend %偽元素三角形基本設定;
+	@extend %arrow_setup;
 	@extend %絕對定位水平垂直置中設定;
 	border-width:$borderWidth;
 	border-color:$borderColor;

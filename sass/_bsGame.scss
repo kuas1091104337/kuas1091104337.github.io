@@ -1058,7 +1058,7 @@ $BsGameWrap_最大寬度設定:768px;
 		bottom:15px;
 		z-index:100;
 		&:before, &:after{
-			@extend %偽元素三角形基本設定;
+			@extend %arrow_setup;
 			border-width:0 16px 13px 16px;
 			display:block;
 		}

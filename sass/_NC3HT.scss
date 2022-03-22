@@ -56,7 +56,7 @@
 			right:0;
 			&:before{
 				@include 偽元素三角形css設定(20px 16px,$NC_藍 $NC_藍 transparent transparent){
-					@extend %絕對定位設定;
+					@extend %pos_a;
 				};
 				top:-4px;
 				left:-32px;
@@ -260,7 +260,7 @@
 		bottom:25px;
 		z-index:index($nc3Z-index, nc3GoTop);
 		&:before, &:after{
-			@extend %偽元素三角形基本設定;
+			@extend %arrow_setup;
 			border-width:0 14px 11px 14px;
 			display: block;
 		}

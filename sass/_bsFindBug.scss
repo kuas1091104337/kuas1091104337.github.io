@@ -180,7 +180,7 @@
 		bottom:10px;
 		z-index:100;
 		&:before, &:after{
-			@extend %偽元素三角形基本設定;
+			@extend %arrow_setup;
 			border-width:0 13px 11px 13px;
 			display:block;
 			margin:auto;

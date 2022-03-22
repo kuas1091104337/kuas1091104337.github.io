@@ -1,12 +1,12 @@
 //extend
-%偽元素三角形基本設定{
+%arrow_setup{
 	content:"";
     width:0;
     height:0;
     display:inline-block;
     border-style:solid;
 }
-%偽元素三角形絕對定位設定{position: absolute;}
+%偽元素三角形pos_a{position: absolute;}
 %icon-font基本設定{
 	speak:none;
 	font-family:"icomoon";
@@ -43,7 +43,7 @@
 	left:50%;
 	@include transform(translate(-50%, -50%));
 }
-%標題或超連不能選取反白{
+%userSelect_none{
 	-webkit-user-select: none;
 	-moz-user-select: -moz-none;
 	-ms-user-select: none;
@@ -126,18 +126,18 @@
 	&::-webkit-input-placeholder{@content;}
 }
 @mixin 偽元素三角形css設定($borderWidth, $borderColor){
-	@extend %偽元素三角形基本設定;
+	@extend %arrow_setup;
 	border-width:$borderWidth;
 	border-color:$borderColor;
 	@content;
 }
 // @include 偽元素三角形css設定(8px,transparent transparent $網頁_深藍 $網頁_深藍);
 // @include 偽元素三角形css設定(10px,transparent transparent $NC_藍 transparent){
-// 	@extend %偽元素三角形絕對定位設定;
+// 	@extend %偽元素三角形pos_a;
 // };
 @mixin owl套件左右箭頭icon偽元素設定($borderWidth, $borderColor){
-	@extend %偽元素三角形基本設定;
-	@extend %偽元素三角形絕對定位設定;
+	@extend %arrow_setup;
+	@extend %偽元素三角形pos_a;
 	@extend %owl套件左右箭頭icon偽元素基本設定;
 	border-width:$borderWidth;
 	border-color:$borderColor;

@@ -58,7 +58,7 @@
 			}
 		}
 		>li>.iconA:before{
-			@extend %iconFont基本設定;
+			@extend %iconFont_setup;
 			font-family:"ncaIcomoon";
 		}
 	}
@@ -123,7 +123,7 @@
 			z-index:1;
 			&:after{
 				@include 偽元素三角形css設定(10px,transparent transparent $NCA_藍 transparent){
-					@extend %絕對定位設定;
+					@extend %pos_a;
 				};
 				left:17px;
 				bottom:0;
@@ -300,7 +300,7 @@
 			}
 			&:after{
 				@include 偽元素三角形css設定(10px 10px 10px 0,transparent #fff transparent transparent){
-					@extend %絕對定位設定;
+					@extend %pos_a;
 				};
 				right:20px;
 				bottom:15px;
@@ -488,7 +488,7 @@
 		bottom:15px;
 		z-index:index($ncaZ-index, ncaGoTop);
 		&:before, &:after{
-			@extend %偽元素三角形基本設定;
+			@extend %arrow_setup;
 			border-width:0 16px 13px 16px;
 			display: block;
 		}
