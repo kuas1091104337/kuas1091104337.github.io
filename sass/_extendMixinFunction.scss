@@ -1,5 +1,4 @@
-//	extend
-//	@extend %絕對定位設定;
+// 偽元素三角形基本設定
 %偽元素三角形基本設定{
 	content:"";
 	width:0;
@@ -7,6 +6,7 @@
 	display:inline-block;
 	border-style:solid;
 }
+// 絕對定位設定
 %絕對定位設定{position:absolute;}
 %靠左prev設定{left:0;}
 %靠右next設定{right:0;}
@@ -197,7 +197,7 @@
 	background-repeat:$bgRepeat;
 	background-position:$bgPosX $bgPosY;
 }
-@mixin 背景圖重複設定($img,$bgRepeat:repeat,$bgPosX:left,$bgPosY:top){
+@mixin bg_repeat($img,$bgRepeat:repeat,$bgPosX:left,$bgPosY:top){
 	background-image:image-url($img);
 	background-repeat:$bgRepeat;
 	background-position:$bgPosX $bgPosY;
