@@ -24,6 +24,17 @@ $桌機版_最大寬度設定:1200px;
 @import "_normalize.scss";
 @import "_extendMixinFunction.scss";
 @include border-box-sizing;
+@keyframes DAmenuBox3D{
+	0% {transform:translateZ(-40px) rotate3d(1,1,1,0deg);}
+	25% {transform:translateZ(-40px) rotate3d(1,1,1,90deg);}
+	50% {transform:translateZ(-40px) rotate3d(1,1,1,180deg);}
+	75% {transform:translateZ(-40px) rotate3d(1,1,1,270deg);}
+	100% {transform:translateZ(-40px) rotate3d(1,1,1,360deg);}
+}
+@keyframes DAmenuLogo{
+	0%{transform:translateX(-50%) translateY(0px);}
+	100%{transform:translateX(-50%) translateY(3px);}
+}
 html, body{
 	font-size:18px;
 	// 多國語言版	font-family:"Helvetica Neue",Helvetica,Arial,"微軟正黑體","微软雅黑","メイリオ","맑은 고딕",sans-serif;
@@ -84,14 +95,14 @@ $DAborderRadius:5px;
 			transform:skew(-5deg);
 		}
 	}
-	> div:nth-of-type(even){@include 背景圖重複設定("divBg1.jpg");}
+	> div:nth-of-type(even){@include bg_repeat("divBg1.jpg");}
 }
 .DotAindexBg, .DotAotherBg{padding:5px;}
 .DotAotherBg{
 	> input{@extend %控制用的input推出畫面;}
 }
 //	header & footer
-	#DAhead ,#DAH, #DAfoot, #DArightMenu{@include 背景圖重複設定("HFbg.jpg");}
+	#DAhead ,#DAH, #DAfoot, #DArightMenu{@include bg_repeat("HFbg.jpg");}
 	#DAhead ,#DAH{
 		width:100%;
 		min-width:320px;
@@ -296,9 +307,7 @@ $DAborderRadius:5px;
 
 //	ChenYuHong
 	#ChenYuHong{
-		@include 背景圖重複設定("divBg2.jpg");
-		background-image:-moz-radial-gradient(center, ellipse cover, rgba($dotA深深藍綠,0) 60%,rgba($dotA深深藍綠,.1) 100%), url("../images/divBg2.jpg");
-		background-image:-webkit-radial-gradient(center, ellipse cover, rgba($dotA深深藍綠,0) 60%,rgba($dotA深深藍綠,.1) 100%), url("../images/divBg2.jpg");
+		@include bg_repeat("divBg2.jpg");
 		background-image:radial-gradient(ellipse at center, rgba($dotA深深藍綠,0) 60%,rgba($dotA深深藍綠,.1) 100%), url("../images/divBg2.jpg");
 		box-shadow:0 0 10px 1px rgba(0,0,0,.15) inset, 0 -5px 0 #fff;
 		margin-top:50px;
@@ -405,12 +414,12 @@ $DAborderRadius:5px;
 			top:10px;
 			left:10px;
 		}
-		> .inFront{@include transform(rotateY(0deg) translateZ(70px));}
-		> .inBack{@include transform(rotateY(180deg) translateZ(70px) rotateZ(90deg));}
-		> .inTop{@include transform(rotateX(90deg) translateZ(70px));}
-		> .inBottom{@include transform(rotateX(270deg) translateZ(70px) rotateZ(270deg));}
-		> .inLeft{@include transform(rotateY(270deg) translateZ(70px));}
-		> .inRight{@include transform(rotateY(90deg) translateZ(70px) rotateZ(90deg));}
+		> .inFront{transform:rotateY(0deg) translateZ(70px);}
+		> .inBack{transform:rotateY(180deg) translateZ(70px) rotateZ(90deg);}
+		> .inTop{transform:rotateX(90deg) translateZ(70px);}
+		> .inBottom{transform:rotateX(270deg) translateZ(70px) rotateZ(270deg);}
+		> .inLeft{transform:rotateY(270deg) translateZ(70px);}
+		> .inRight{transform:rotateY(90deg) translateZ(70px) rotateZ(90deg);}
 	}
 	.DAlogo{
 		color:#fff;
@@ -650,9 +659,9 @@ $DAborderRadius:5px;
 			width:100%;
 			height:100%;
 			background:rgba(51,51,51,0.9);
-			@include display-flex;
-			@include flex-direction(column);
-			@include flexbox((justify-content:center));
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
 			padding:15px;
 			position:absolute;
 			top:0;
@@ -731,7 +740,7 @@ $DAborderRadius:5px;
 		margin:20px;
 		position:fixed;
 		z-index:999;
-		@include transform(rotate(-8deg));
+		transform:rotate(-8deg);
 		> .DAmenuLine:nth-of-type(1){
 			top:0;
 			left:0;
@@ -768,7 +777,7 @@ $DAborderRadius:5px;
 		height:80px;
 		margin:20px auto 32px;
 		position:relative;
-		@include perspective(160px);
+		perspective:160px;
 	}
 	.DAmenuBox3D{
 		width:100%;
@@ -776,9 +785,9 @@ $DAborderRadius:5px;
 		position:absolute;
 		top:0;
 		left:0;
-		@include transform(translateZ(-80px) rotateY(45deg) rotateX(45deg));
-		@include transform-style(preserve-3d);
-		@include animation(DAmenuBox3D 8s linear infinite);
+		transform:translateZ(-80px) rotateY(45deg) rotateX(45deg);
+		transform-style:preserve-3d;
+		animation:DAmenuBox3D 8s linear infinite;
 		> div{
 			width:100%;
 			height:100%;
@@ -788,12 +797,12 @@ $DAborderRadius:5px;
 			top:0;
 			left:0;
 		}
-		> .front{@include transform(rotateY(0deg) translateZ(40px));}
-		> .back{@include transform(rotateY(180deg) translateZ(40px));}
-		> .up{@include transform(rotateX(90deg) translateZ(40px));}
-		> .down{@include transform(rotateX(270deg) translateZ(40px));}
-		> .left{@include transform(rotateY(270deg) translateZ(40px));}
-		> .right{@include transform(rotateY(90deg) translateZ(40px));}
+		> .front{transform:rotateY(0deg) translateZ(40px);}
+		> .back{transform:rotateY(180deg) translateZ(40px);}
+		> .up{transform:rotateX(90deg) translateZ(40px);}
+		> .down{transform:rotateX(270deg) translateZ(40px);}
+		> .left{transform:rotateY(270deg) translateZ(40px);}
+		> .right{transform:rotateY(90deg) translateZ(40px);}
 	}
 	.DAmenuLogo{
 		color:$dotA灰;
@@ -809,7 +818,7 @@ $DAborderRadius:5px;
 		top:5px;
 		left:5px;
 		z-index:100;
-		@include transform(scale(1));
+		transform:scale(1);
 		&:before{
 			content:"";
 			width:10px;
@@ -821,19 +830,8 @@ $DAborderRadius:5px;
 			left:50%;
 			top:3px;
 			transform: translateX(-50%);
-			@include animation(DAmenuLogo .5s cubic-bezier(0.5, -0.75, 0.5, 1.75) infinite alternate);
+			animation:DAmenuLogo .5s cubic-bezier(0.5, -0.75, 0.5, 1.75) infinite alternate;
 		}
-	}
-	@include keyframes(DAmenuBox3D) {
-		0% {@include transform(translateZ(-40px) rotate3d(1,1,1,0deg));}
-		25% {@include transform(translateZ(-40px) rotate3d(1,1,1,90deg));}
-		50% {@include transform(translateZ(-40px) rotate3d(1,1,1,180deg));}
-		75% {@include transform(translateZ(-40px) rotate3d(1,1,1,270deg));}
-		100% {@include transform(translateZ(-40px) rotate3d(1,1,1,360deg));}
-	}
-	@include keyframes(DAmenuLogo) {
-		0% {@include transform(translateX(-50%) translateY(0px));}
-		100% {@include transform(translateX(-50%) translateY(3px));}
 	}
 	.DAmenu3dBA{
 		color:#fff;
@@ -844,11 +842,11 @@ $DAborderRadius:5px;
 		height:36px;
 		background:rgba(0,0,0,.2);
 		box-shadow:0 1px 4px rgba(0,0,0,.6);
-		@include transition(transform .2s);
-		@include transform(perspective(240px) translateZ(-18px));
-		@include transform-style(preserve-3d);
+		transition:transform .2s;
+		transform:perspective(240px) translateZ(-18px);
+		transform-style:preserve-3d;
 		&:hover{
-			@include transform(perspective(240px) translateZ(-18px) rotateX(-90deg));
+			transform:perspective(240px) translateZ(-18px) rotateX(-90deg);
 			~ .DAmenuLine{background-color:$dotA粉;}
 		}
 		> em{
@@ -861,12 +859,12 @@ $DAborderRadius:5px;
 			&:first-of-type{
 				text-shadow:0 1px 1px rgba($dotA深深藍綠,.6);
 				background-color:$dotA藍綠;
-				@include transform(rotateX(0deg) translateZ(18px));
+				transform:rotateX(0deg) translateZ(18px);
 			}
 			&:last-of-type{
 				text-shadow:0 1px 1px rgba($dotA深深粉,.6);
 				background-color:$dotA粉;
-				@include transform(rotateX(90deg) translateZ(18px));
+				transform:rotateX(90deg) translateZ(18px);
 			}
 		}
 	}
@@ -874,18 +872,18 @@ $DAborderRadius:5px;
 		position:absolute;
 		background-color:$dotA藍綠;
 		transform:translate(0, 0);
-		@include transition(background-color .3s, transform .5s);
+		transition:background-color .3s, transform .5s;
 	}
 
 //	DAedm + DAgifBanner + DAvideo
 	#DAedm, #DAgifBanner, #DAvideo{
-		@include 背景圖重複設定("divBg1.jpg");
+		@include bg_repeat("divBg1.jpg");
 		padding:15px 10px;
 		margin-top:50px;
 	}
 	.DAedmBox, .DAvideoWrap{
 		text-align:center;
-		@include 背景圖重複設定("divBg2.jpg");
+		@include bg_repeat("divBg2.jpg");
 		border-radius:$DAborderRadius;
 		box-shadow:0 1px 6px rgba(0,0,0,0.5);
 		padding:1px 10px;
@@ -895,7 +893,7 @@ $DAborderRadius:5px;
 		}
 	}
 	#DAedmMenu{
-		@include 背景圖重複設定("divBg2.jpg");
+		@include bg_repeat("divBg2.jpg");
 		width:100%;
 		height:100%;
 		overflow:auto;
@@ -906,12 +904,12 @@ $DAborderRadius:5px;
 		top:0;
 		left:0;
 		z-index:index($z-index, DAedmMenu);
-		@include transition(transform .4s);
-		@include transform(translateY(-100%));
+		transition:transform .4s;
+		transform:translateY(-100%);
 	}
 	#edmMenuCtrl:checked + #DAedmMenu{
 		box-shadow:0 2px 4px rgba(0,0,0,.6);
-		@include transform(translateY(0%));
+		transform:translateY(0%);
 	}
 	.DAedmMenuWrap{
 		@include container($DAedmMaxW);
@@ -956,7 +954,7 @@ $DAborderRadius:5px;
 		right:10px;
 		bottom:10px;
 		z-index:index($z-index, DAedmBurgerMenu);
-		@include transition(transform .4s);
+		transition:transform .4s;
 		&:before, &:after{
 			content:"";
 			@extend %edmBurgerMenuBar;
@@ -970,14 +968,14 @@ $DAborderRadius:5px;
 		display:block;
 		border-radius:2px;
 		margin:7px auto;
-		@include transition(transform .3s, width .3s);
+		transition:transform .3s, width .3s;
 	}
 	#edmMenuCtrl:checked ~ .DAedmBurgerMenu{
 		box-shadow:0 0 0 $dotA淡淡粉 inset, 0 0 4px rgba(0,0,0,.6);
-		@include transform(rotate(180deg));
+		transform:rotate(180deg);
 		>span{background: transparent;}
-		&:before{@include transform(translateY(11px) rotate(-45deg));}
-		&:after{@include transform(translateY(-11px) rotate(45deg));}
+		&:before{transform:translateY(11px) rotate(-45deg):}
+		&:after{transform:translateY(-11px) rotate(45deg):}
 		&:before, &:after{width:34px;}
 	}
 	.DAedmBox{
@@ -1008,7 +1006,7 @@ $DAborderRadius:5px;
 			background-color:rgba(0,0,0,0);
 			display:inline-block;
 			padding:0 10px;
-			@include transition(width .2s, height .2s, background-color .2s);
+			transition:width .2s, height .2s, background-color .2s;
 			&:hover{
 				background-color:rgba(0,0,0,.35);
 				> img{box-shadow:0 1px 24px 2px rgba(0,0,0,.2);}
@@ -1016,7 +1014,7 @@ $DAborderRadius:5px;
 			> img{
 				width:100%;
 				box-shadow:0 0 0 0 rgba(0,0,0,0);
-				@include transition(box-shadow .5s);
+				transition:box-shadow .5s;
 				margin:16% 0;
 			}
 			&:nth-of-type(-n+2){
@@ -1034,7 +1032,7 @@ $DAborderRadius:5px;
 			right:0;
 			bottom:0;
 			z-index:index($z-index, gifCtrlChecked);
-			@include transition(width .5s, height .5s, background-color .5s);
+			transition:width .5s, height .5s, background-color .5s;
 			> img{
 				box-shadow:0 1px 24px 2px #000;
 				margin:auto;
@@ -1069,7 +1067,7 @@ $DAborderRadius:5px;
 		> h2{
 			color:$dotA藍綠;
 			font-size:24px;
-			@include transform(skew(-5deg));
+			transform:skew(-5deg);
 		}
 		> .DAvideoBox, > .DAplanBox{
 			max-width:800px;
@@ -1155,7 +1153,7 @@ $DAborderRadius:5px;
 				@include 偽元素三角形css設定(12px 0 12px 20px,transparent transparent transparent rgba(255,255,255,.4));
 				box-shadow:0 0 0 rgba(255,255,255,0);
 				margin-right:0;
-				@include transition(border-color .4s, border-width .4s, box-shadow .4s, margin-right .4s);
+				transition:border-color .4s, border-width .4s, box-shadow .4s, margin-right .4s;
 			}
 		}
 	}
@@ -1189,7 +1187,7 @@ $DAborderRadius:5px;
 				@include background-image(linear-gradient(145deg, $dotA粉 5%, $dotA藍綠 95%));
 				position:absolute;
 				margin-bottom:5px;
-				@include transition(top .5s .2s,left .5s .2s);
+				transition:top .5s .2s,left .5s .2s;
 			}
 	}
 	.DAitem{
@@ -1465,9 +1463,9 @@ $DAborderRadius:5px;
 			a{
 				padding:0 18px;
 				position:relative;
-				@include transition(transform .2s);
-				@include transform(perspective(300px) translateZ(-25px));
-				@include transform-style(preserve-3d);
+				transition:transform .2s;
+				transform:perspective(300px) translateZ(-25px);
+				transform-style:preserve-3d;
 				&:before, &:after{
 					content:attr(data-name);
 					width:100%;
@@ -1478,14 +1476,14 @@ $DAborderRadius:5px;
 				}
 				&:before{
 					background-image:image-url("HFbg.jpg");
-					@include transform(rotateX(0deg) translateZ(25px));
+					transform:rotateX(0deg) translateZ(25px);
 				}
 				&:after{
 					text-shadow:0 1px 1px rgba($dotA深深藍綠,.6);
 					background-color:$dotA藍綠;
-					@include transform(rotateX(90deg) translateZ(25px));
+					transform:rotateX(90deg) translateZ(25px);
 				}
-				&:hover{@include transform(perspective(260px) translateZ(-25px) rotateX(-90deg));}
+				&:hover{transform:perspective(260px) translateZ(-25px) rotateX(-90deg);}
 				&.now{
 					&:before{
 						text-shadow:0 1px 1px rgba($dotA深深藍綠,.6);
@@ -1530,8 +1528,8 @@ $DAborderRadius:5px;
 			}
 		}
 		#DAmenu:checked ~ ul{
-			@include transition-duration(0s);
-			@include transform(none);
+			transition-duration:0s;
+			transform:none;
 		}
 	}
 	#DAlang{
@@ -1544,7 +1542,7 @@ $DAborderRadius:5px;
 			&:after{
 				border-width:0 8px 8px 8px;
 				border-color:transparent transparent #fff transparent;
-				@include transition(transform .3s, border-color .3s);
+				transition:transform .3s, border-color .3s;
 				right:41px;
 				bottom:0;
 			}
@@ -1555,7 +1553,7 @@ $DAborderRadius:5px;
 				text-shadow:1px 1px 1px rgba($dotA深深藍綠, .6);
 				&:after{
 					border-bottom-color:$dotA藍綠;
-					@include transform(rotate(-180deg) translateY(-7px));
+					transform:rotate(-180deg) translateY(-7px);
 				}
 			}
 			>ul{box-shadow:0 0 4px rgba(0,0,0,0.6);}
@@ -1611,10 +1609,10 @@ $DAborderRadius:5px;
 	.DAvideoBox{
 		> .mediaCtrl{
 			background-color:rgba(0,0,0,.25);
-			@include transition(background-color .4s);
+			transition:background-color .4s;
 			&:before{
 				background-color:rgba(33,33,33,.9);
-				@include transition(background-color .4s);
+				transition:background-color .4s;
 			}
 			&:hover{
 				background-color:rgba(0,0,0,.15);
