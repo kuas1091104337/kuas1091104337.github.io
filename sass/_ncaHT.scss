@@ -16,7 +16,7 @@
 			width:100%;
 			height:100%;
 			position: relative;
-			> input{@extend %控制用的input推出畫面;}
+			> input{@extend %Ctrl_Iput_out;}
 		}
 	}
 	#NC_logo{
@@ -122,7 +122,7 @@
 			right:50px;
 			z-index:1;
 			&:after{
-				@include 偽元素三角形css設定(10px,transparent transparent $NCA_藍 transparent){
+				@include arrow_css_setup(10px,transparent transparent $NCA_藍 transparent){
 					@extend %pos_a;
 				};
 				left:17px;
@@ -299,7 +299,7 @@
 				vertical-align:sub;
 			}
 			&:after{
-				@include 偽元素三角形css設定(10px 10px 10px 0,transparent #fff transparent transparent){
+				@include arrow_css_setup(10px 10px 10px 0,transparent #fff transparent transparent){
 					@extend %pos_a;
 				};
 				right:20px;
@@ -369,7 +369,7 @@
 			}
 			.owl-stage{
 				position: relative;
-				-ms-touch-action: pan-Y;
+				// -ms-touch-action: pan-Y;
 				//fix firefox animation glitch
 				@include backface-visibility(hidden);
 				&:after{
@@ -569,13 +569,13 @@
 		.facebookIcon{
 			&:before{
 				@include 偽元素icon-font設定("\ea90","nc3Icomoon");
-				background-color:$facebook藍;
+				background-color:$facebook_blue;
 			}
 		}
 		.twitterIcon{
 			&:before{
 				@include 偽元素icon-font設定("\ea96","nc3Icomoon");
-				background-color:$twitter藍;
+				background-color:$twitter_blue;
 			}
 		}
 		li.facebookIcon, li.twitterIcon{

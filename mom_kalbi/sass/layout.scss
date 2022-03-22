@@ -76,7 +76,7 @@ html, body{
 	border-style:$borderStyle;
 	position:$position;
 }
-@mixin 偽元素三角形CSS設定預設值($borderWidth:5px,$borderColor:black,$content:"",$width:0,$height:0,$borderStyle:solid,$position:absolute){
+@mixin arrow_css_setup預設值($borderWidth:5px,$borderColor:black,$content:"",$width:0,$height:0,$borderStyle:solid,$position:absolute){
 	border-width:$borderWidth;
 	border-color:$borderColor;
 	content:$content;

@@ -8,7 +8,7 @@
 }
 %偽元素三角形pos_a{position: absolute;}
 %icon-font基本設定{
-	speak:none;
+	// speak:none;
 	font-family:"icomoon";
 	font-style:normal;
 	font-weight:normal;
@@ -70,11 +70,11 @@
 	clear:both;
 }
 %桌機版最大寬度設定{
-	max-width:$桌機版_最大寬度設定;
+	max-width:$desktop_max_w;
 	margin:0 auto;
 }
 %最大寬度設定{margin:0 auto;}
-%控制用的input推出畫面{
+%Ctrl_Iput_out{
 	position:absolute;
 	top:-20px;
 	left:-20px;
@@ -125,14 +125,14 @@
 	&:-ms-input-placeholder{@content;}
 	&::-webkit-input-placeholder{@content;}
 }
-@mixin 偽元素三角形css設定($borderWidth, $borderColor){
+@mixin arrow_css_setup($borderWidth, $borderColor){
 	@extend %arrow_setup;
 	border-width:$borderWidth;
 	border-color:$borderColor;
 	@content;
 }
-// @include 偽元素三角形css設定(8px,transparent transparent $網頁_深藍 $網頁_深藍);
-// @include 偽元素三角形css設定(10px,transparent transparent $NC_藍 transparent){
+// @include arrow_css_setup(8px,transparent transparent $網頁_深藍 $網頁_深藍);
+// @include arrow_css_setup(10px,transparent transparent $NC_藍 transparent){
 // 	@extend %偽元素三角形pos_a;
 // };
 @mixin owl套件左右箭頭icon偽元素設定($borderWidth, $borderColor){

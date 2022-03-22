@@ -1,5 +1,5 @@
 //	2014台灣國際旅遊展設計參數
-	$dotA藍綠:#7cbfb4;
+	$dotA_BG:#7cbfb4;
 	$tite_洋紅:#e3007f;
 	$tite_綠:#44af35;
 	$tite_黃:#f7aa00;
@@ -101,7 +101,7 @@
 		background-color:$tite_藍綠;
 		overflow:hidden;
 		>input{
-			@extend %控制用的input推出畫面;
+			@extend %Ctrl_Iput_out;
 		}
 	}
 	#tite2014SlideBox{
@@ -118,7 +118,7 @@
 			float:left;
 			position:relative;
 			>input{
-				@extend %控制用的input推出畫面;
+				@extend %Ctrl_Iput_out;
 			}
 		}
 	}
@@ -285,7 +285,7 @@
 		display:none;
 		left:33.3334%;
 		h4{
-			color:$dotA藍綠;
+			color:$dotA_BG;
 			font-size:28px;
 			font-weight: 100;
 			line-height:2;
@@ -298,7 +298,7 @@
 			text-shadow:none;
 			line-height:42px;
 			width:100%;
-			background-color:$dotA藍綠;
+			background-color:$dotA_BG;
 			margin:0;
 			position:absolute;
 			left:0;
@@ -309,7 +309,7 @@
 	.dotALightBoxClose{
 		width:44px;
 		height:44px;
-		background-color:$dotA藍綠;
+		background-color:$dotA_BG;
 		border-radius:5px;
 		position:absolute;
 		top:10px;
@@ -448,7 +448,7 @@
 				@include filter(blur(4px));
 			}
 			&:before{
-				@include 偽元素三角形css設定(11px 16px 11px 0,transparent #784f30 transparent transparent);
+				@include arrow_css_setup(11px 16px 11px 0,transparent #784f30 transparent transparent);
 			}
 			&:after{
 				@extend %回首頁箭頭的尾;
@@ -464,7 +464,7 @@
 				z-index:2;
 				&:before, &:after{@extend %回首頁箭頭共用;}
 				&:before{
-					@include 偽元素三角形css設定(11px 16px 11px 0,transparent #fff transparent transparent);
+					@include arrow_css_setup(11px 16px 11px 0,transparent #fff transparent transparent);
 				}
 				&:after{
 					@extend %回首頁箭頭的尾;

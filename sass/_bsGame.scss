@@ -21,7 +21,7 @@ $BsGameWrap_最大寬度設定:768px;
 	overflow:hidden;
 	position:relative;
 	>input{
-		@extend %控制用的input推出畫面;
+		@extend %Ctrl_Iput_out;
 	}
 }
 #gameNav{
@@ -92,7 +92,7 @@ $BsGameWrap_最大寬度設定:768px;
 		float:left;
 		position:relative;
 		>input{
-			@extend %控制用的input推出畫面;
+			@extend %Ctrl_Iput_out;
 		}
 	}
 }
@@ -1050,7 +1050,7 @@ $BsGameWrap_最大寬度設定:768px;
 		display:none;
 		border-width:10px 8px 12px 8px;
 		border-style:solid;
-		border-color:$透明黑;
+		border-color:$rgba_b;
 		border-radius:$BsGame_圓角中;
 		box-sizing:content-box;
 		position:absolute;
@@ -1063,10 +1063,10 @@ $BsGameWrap_最大寬度設定:768px;
 			display:block;
 		}
 		&:before{
-			border-color:transparent $透明黑 transparent $透明黑;
+			border-color:transparent $rgba_b transparent $rgba_b;
 		}
 		&:after{
-			border-color:transparent  transparent $透明黑 transparent;
+			border-color:transparent  transparent $rgba_b transparent;
 		}
 	}
 

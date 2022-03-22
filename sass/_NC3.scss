@@ -40,7 +40,7 @@ $nc3Z-index:nc3HD, nc3GoTop, lightBox; //最後面最大
 					0 17px 2px -6px rgba(0, 0, 0, 0.2),
 					0 2px 4px 0 rgba(0, 0, 0, 0.2),
 					0 18px 36px 0 rgba(0, 0, 0, 0.1);
-		input{@extend %控制用的input推出畫面;}
+		input{@extend %Ctrl_Iput_out;}
 		.IPBNprev, .IPBNnext{
 			@include banner上下張箭頭icon外框設定(32px, 50px, $NC_灰);
 		}
@@ -251,7 +251,7 @@ $nc3Z-index:nc3HD, nc3GoTop, lightBox; //最後面最大
 		overflow:hidden;
 		margin-top:40px;
 		position: relative;
-		>input{@extend %控制用的input推出畫面;}
+		>input{@extend %Ctrl_Iput_out;}
 	}
 	#nc3ListZone{
 		width:140px;
@@ -306,7 +306,7 @@ $nc3Z-index:nc3HD, nc3GoTop, lightBox; //最後面最大
 	@for $i from 1 through 7{
 		#nc3Zone#{$i}Content{
 			@extend %nc3ZoneIcontent;
-			>input{@extend %控制用的input推出畫面;}
+			>input{@extend %Ctrl_Iput_out;}
 		}
 		#nc3Zone#{$i}Type{
 			@extend %nc3ZoneItype;
@@ -625,7 +625,7 @@ $nc3Z-index:nc3HD, nc3GoTop, lightBox; //最後面最大
 		p{color:$NC_深灰;}
 	}
 //	lightBox 登入+loading
-	#nc3lightBoxClose, #nc3lightBoxOpen{@extend %控制用的input推出畫面;}
+	#nc3lightBoxClose, #nc3lightBoxOpen{@extend %Ctrl_Iput_out;}
 	#nc3lightBoxClose:checked ~ #nc3memberLogIn{display: none;}
 	#nc3lightBoxOpen:checked ~ #nc3memberLogIn{display: block;}
 	#nc3memberLogIn{

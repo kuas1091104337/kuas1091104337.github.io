@@ -42,7 +42,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 }
 .ncaBg.EN{font-size:16px;}
 .ncaBg{
-	> input{@extend %控制用的input推出畫面;}
+	> input{@extend %Ctrl_Iput_out;}
 	button, label{cursor: pointer;}
 }
 //	首頁banner區 (首頁banner區、最新優惠活動區、bannerFrame共用區)
@@ -330,7 +330,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 			right:0;
 			@include animation(slideTips 1.4s infinite both);
 			&:after{
-				@include 偽元素三角形css設定(10px 0 10px 20px, transparent transparent transparent $NCA_藍);
+				@include arrow_css_setup(10px 0 10px 20px, transparent transparent transparent $NCA_藍);
 			}
 		}
 	}
@@ -366,7 +366,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 //	域名目錄選單區 + 域名目錄全部內容區，共用區
 	.domainsListBox{
 		position:relative;
-		> input{@extend %控制用的input推出畫面;}
+		> input{@extend %Ctrl_Iput_out;}
 	}
 	%zoneIcontent{
 		overflow-x:hidden;
@@ -413,7 +413,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 		#zone#{$i}Content{
 			@extend .domainsListBox;
 			@extend %zoneIcontent;
-			> input{@extend %控制用的input推出畫面;}
+			> input{@extend %Ctrl_Iput_out;}
 		}
 		#zone#{$i}Type{
 			@extend %zoneItype;
@@ -854,7 +854,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 		@extend %桌機版最大寬度設定;
 		padding:15px 15px 0;		
 		>input{
-			@extend %控制用的input推出畫面;
+			@extend %Ctrl_Iput_out;
 		}
 	}
 	#ncaNewsListZone{
@@ -871,7 +871,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 			left:0;
 			@include transition(transform .5s);
 			&:before{
-				@include 偽元素三角形css設定(10px, $NCA_藍 transparent transparent transparent){
+				@include arrow_css_setup(10px, $NCA_藍 transparent transparent transparent){
 					@extend %pos_a;
 				};
 				bottom:-22px;
@@ -959,7 +959,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 				float:right;
 				position:relative;
 				&:before{
-					@include 偽元素三角形css設定(14px 8px 14px, transparent $NCA_藍 $NCA_藍 transparent){
+					@include arrow_css_setup(14px 8px 14px, transparent $NCA_藍 $NCA_藍 transparent){
 						@extend %pos_a;
 					};
 					bottom:0;
@@ -1539,7 +1539,7 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 		&:after{@include transform(skewY(8deg));}
 	}	
 	.searchReady > #domainSearchBar{
-		max-width:$桌機版_最大寬度設定;
+		max-width:$desktop_max_w;
 		margin-left:-600px;
 		left:50%;
 	}

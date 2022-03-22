@@ -29,7 +29,8 @@
 	top:50%;
 	@include transform(translateY(-50%));
 }
-%絕對定位水平垂直置中設定{
+// 絕對定位水平垂直置中設定
+%posA_horVerCen_set{
 	@extend %pos_a;
 	top:50%;
 	left:50%;
@@ -37,7 +38,7 @@
 }
 // iconFont基本設定
 %iconFont_setup{
-	speak:none;
+	// speak:none;
 	font-style:normal;
 	font-weight:normal;
 	font-variant:normal;
@@ -47,7 +48,7 @@
 	-moz-osx-font-smoothing:grayscale;
 }
 %icomooniconFont_setup{
-	speak:none;
+	// speak:none;
 	font-family:"icomoon";
 	font-style:normal;
 	font-weight:normal;
@@ -104,10 +105,11 @@
 }
 %最大寬度基本設定{margin:0 auto;}
 %桌機版最大寬度設定{
-	max-width:$桌機版_最大寬度設定;
+	max-width:$desktop_max_w;
 	margin:0 auto;
 }
-%控制用的input推出畫面{
+// 控制用的input推出畫面
+%Ctrl_Iput_out{
 	position:absolute;
 	top:-20px;
 	left:-20px;
@@ -243,14 +245,15 @@
 // 	color:$NCA_input灰;
 // 	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
 // }
-@mixin 偽元素三角形css設定($borderWidth, $borderColor){
+// 偽元素三角形css設定
+@mixin arrow_css_setup($borderWidth, $borderColor){
 	@extend %arrow_setup;
 	border-width:$borderWidth;
 	border-color:$borderColor;
 	@content;
 }
-//	@include 偽元素三角形css設定(8px,transparent transparent $網頁_深藍 $網頁_深藍);
-//	@include 偽元素三角形css設定(10px,transparent transparent $NC_藍 transparent){
+//	@include arrow_css_setup(8px,transparent transparent $網頁_深藍 $網頁_深藍);
+//	@include arrow_css_setup(10px,transparent transparent $NC_藍 transparent){
 //		@extend %pos_a;
 //	};
 //	1.banner上下張箭頭icon內部偽元素摟空設計
@@ -302,7 +305,7 @@
 //	@include owl套件上下張箭頭icon外框設定(30px, 40px, $NC_灰){box-shadow:0 0 1px rgba(0,0,0,.3);};
 @mixin owl套件上下張箭頭icon偽元素設定($borderWidth, $borderColor){
 	@extend %arrow_setup;
-	@extend %絕對定位水平垂直置中設定;
+	@extend %posA_horVerCen_set;
 	border-width:$borderWidth;
 	border-color:$borderColor;
 	@content;
@@ -337,7 +340,7 @@
 }
 @mixin banner上下張箭頭icon偽元素設定($borderWidth, $borderColor){
 	@extend %arrow_setup;
-	@extend %絕對定位水平垂直置中設定;
+	@extend %posA_horVerCen_set;
 	border-width:$borderWidth;
 	border-color:$borderColor;
 	@content;
