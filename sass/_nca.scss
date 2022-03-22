@@ -163,7 +163,8 @@ $ncaZ-index:bannerContainerBefore, newsListZone, searchResult, domainsList, doma
 		position:absolute;
 		top:9%;
 		left:0;
-		@include transform(skewY(-10deg));
+		// @include transform(skewY(-10deg));
+		transform:skewY(-10deg);
 		@include transform-origin(100%, 0%);
 		&:after{
 			content:"";
