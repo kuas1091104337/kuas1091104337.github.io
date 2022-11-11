@@ -1,6 +1,6 @@
 $(function(){
     $.ajax({
-        url:'common.html',
+        url:'common.html', 
         dataType:'html'
     }).done(function(data) {
         $("#DArightMenu").html($("<div>"+data+"</div>").find('#DArightMenu').html());

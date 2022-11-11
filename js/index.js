@@ -145,87 +145,87 @@ $(function(){
         DAVfirstMaxNumber = $('#DAvideoFirstImg > img').length,
         timerTime = 250;
 
-    function DAplanDo(){
-        DAplanWillNumber = (DAplanWillNumber + DAplanMaxNumber) % DAplanMaxNumber;
-        $('.DAplanImg > img').eq(DAplanNowNumber).hide().end().eq(DAplanWillNumber).show()
-        DAplanNowNumber = DAplanWillNumber
-    }
-    $('.DAplanCtrl > .next').click(function(){
-        DAplanWillNumber = DAplanNowNumber + 1
-        DAplanDo()
-    });
-    $('.DAplanCtrl > .prev').click(function(){
-        DAplanWillNumber = DAplanNowNumber - 1
-        DAplanDo()
-    });
-    function DAvideoFinalNext(){
-        DAVfinalWillNumber = DAVfinalNowNumber + 1
-        DAvideoFinalGo()
-    }
-    function DAvideoFinalPrev(){
-        DAVfinalWillNumber = DAVfinalNowNumber - 1
-        DAvideoFinalGo()
-    }
-    function DAvideoFinalGo(){
-        DAVfinalWillNumber = (DAVfinalWillNumber + DAVfinalMaxNumber) % DAVfinalMaxNumber;
-        $('#DAvideoFinalImg > img').eq(DAVfinalNowNumber).hide().end().eq(DAVfinalWillNumber).show()
-        DAVfinalNowNumber = DAVfinalWillNumber
-    }
-    function DAvideoThirdNext(){
-        DAVthirdWillNumber = DAVthirdNowNumber + 1
-        DAvideoThirdGo()
-    }
-    function DAvideoThirdPrev(){
-        DAVthirdWillNumber = DAVthirdNowNumber - 1
-        DAvideoThirdGo()
-    }
-    function DAvideoThirdGo(){
-        DAVthirdWillNumber = (DAVthirdWillNumber + DAVthirdMaxNumber) % DAVthirdMaxNumber;
-        $('#DAvideoThirdImg > img').eq(DAVthirdNowNumber).hide().end().eq(DAVthirdWillNumber).show()
-        DAVthirdNowNumber = DAVthirdWillNumber
-    }
-    function DAvideoSecondNext(){
-        DAVsecondWillNumber = DAVsecondNowNumber + 1
-        DAvideoSecondGo()
-    }
-    function DAvideoSecondPrev(){
-        DAVsecondWillNumber = DAVsecondNowNumber - 1
-        DAvideoSecondGo()
-    }
-    function DAvideoSecondGo(){
-        DAVsecondWillNumber = (DAVsecondWillNumber + DAVsecondMaxNumber) % DAVsecondMaxNumber;
-        $('#DAvideoSecondImg > img').eq(DAVsecondNowNumber).hide().end().eq(DAVsecondWillNumber).show()
-        DAVsecondNowNumber = DAVsecondWillNumber
-    }
-    function DAvideoFirstNext(){
-        DAVfirstWillNumber = DAVfirstNowNumber + 1
-        DAvideoFirstGo()
-    }
-    function DAvideoFirstPrev(){
-        DAVfirstWillNumber = DAVfirstNowNumber - 1
-        DAvideoFirstGo()
-    }
-    function DAvideoFirstGo(){
-        DAVfirstWillNumber = (DAVfirstWillNumber + DAVfirstMaxNumber) % DAVfirstMaxNumber;
-        $('#DAvideoFirstImg > img').eq(DAVfirstNowNumber).hide().end().eq(DAVfirstWillNumber).show()
-        DAVfirstNowNumber = DAVfirstWillNumber
-    }
-    $('.DAvideoBox > .mediaCtrl').click(function(){
-        $(this).hide().prev('div').addClass('play')
-        switch($(this).parent().attr('id')) {
-            case 'DAvideoFinal' :
-                DAvideoFinalTimer = setInterval(DAvideoFinalNext,timerTime);
-                break;
-            case 'DAvideoThird' :
-                DAvideoThirdTimer = setInterval(DAvideoThirdNext,timerTime);
-                break;
-            case 'DAvideoSecond' :
-                DAvideoSecondTimer = setInterval(DAvideoSecondNext,timerTime);
-                break;
-            default :
-                DAvideoFirstTimer = setInterval(DAvideoFirstNext,timerTime);
-        }
-    });
+    // function DAplanDo(){
+    //     DAplanWillNumber = (DAplanWillNumber + DAplanMaxNumber) % DAplanMaxNumber;
+    //     $('.DAplanImg > img').eq(DAplanNowNumber).hide().end().eq(DAplanWillNumber).show()
+    //     DAplanNowNumber = DAplanWillNumber
+    // }
+    // $('.DAplanCtrl > .next').click(function(){
+    //     DAplanWillNumber = DAplanNowNumber + 1
+    //     DAplanDo()
+    // });
+    // $('.DAplanCtrl > .prev').click(function(){
+    //     DAplanWillNumber = DAplanNowNumber - 1
+    //     DAplanDo()
+    // });
+    // function DAvideoFinalNext(){
+    //     DAVfinalWillNumber = DAVfinalNowNumber + 1
+    //     DAvideoFinalGo()
+    // }
+    // function DAvideoFinalPrev(){
+    //     DAVfinalWillNumber = DAVfinalNowNumber - 1
+    //     DAvideoFinalGo()
+    // }
+    // function DAvideoFinalGo(){
+    //     DAVfinalWillNumber = (DAVfinalWillNumber + DAVfinalMaxNumber) % DAVfinalMaxNumber;
+    //     $('#DAvideoFinalImg > img').eq(DAVfinalNowNumber).hide().end().eq(DAVfinalWillNumber).show()
+    //     DAVfinalNowNumber = DAVfinalWillNumber
+    // }
+    // function DAvideoThirdNext(){
+    //     DAVthirdWillNumber = DAVthirdNowNumber + 1
+    //     DAvideoThirdGo()
+    // }
+    // function DAvideoThirdPrev(){
+    //     DAVthirdWillNumber = DAVthirdNowNumber - 1
+    //     DAvideoThirdGo()
+    // }
+    // function DAvideoThirdGo(){
+    //     DAVthirdWillNumber = (DAVthirdWillNumber + DAVthirdMaxNumber) % DAVthirdMaxNumber;
+    //     $('#DAvideoThirdImg > img').eq(DAVthirdNowNumber).hide().end().eq(DAVthirdWillNumber).show()
+    //     DAVthirdNowNumber = DAVthirdWillNumber
+    // }
+    // function DAvideoSecondNext(){
+    //     DAVsecondWillNumber = DAVsecondNowNumber + 1
+    //     DAvideoSecondGo()
+    // }
+    // function DAvideoSecondPrev(){
+    //     DAVsecondWillNumber = DAVsecondNowNumber - 1
+    //     DAvideoSecondGo()
+    // }
+    // function DAvideoSecondGo(){
+    //     DAVsecondWillNumber = (DAVsecondWillNumber + DAVsecondMaxNumber) % DAVsecondMaxNumber;
+    //     $('#DAvideoSecondImg > img').eq(DAVsecondNowNumber).hide().end().eq(DAVsecondWillNumber).show()
+    //     DAVsecondNowNumber = DAVsecondWillNumber
+    // }
+    // function DAvideoFirstNext(){
+    //     DAVfirstWillNumber = DAVfirstNowNumber + 1
+    //     DAvideoFirstGo()
+    // }
+    // function DAvideoFirstPrev(){
+    //     DAVfirstWillNumber = DAVfirstNowNumber - 1
+    //     DAvideoFirstGo()
+    // }
+    // function DAvideoFirstGo(){
+    //     DAVfirstWillNumber = (DAVfirstWillNumber + DAVfirstMaxNumber) % DAVfirstMaxNumber;
+    //     $('#DAvideoFirstImg > img').eq(DAVfirstNowNumber).hide().end().eq(DAVfirstWillNumber).show()
+    //     DAVfirstNowNumber = DAVfirstWillNumber
+    // }
+    // $('.DAvideoBox > .mediaCtrl').click(function(){
+    //     $(this).hide().prev('div').addClass('play')
+    //     switch($(this).parent().attr('id')) {
+    //         case 'DAvideoFinal' :
+    //             DAvideoFinalTimer = setInterval(DAvideoFinalNext,timerTime);
+    //             break;
+    //         case 'DAvideoThird' :
+    //             DAvideoThirdTimer = setInterval(DAvideoThirdNext,timerTime);
+    //             break;
+    //         case 'DAvideoSecond' :
+    //             DAvideoSecondTimer = setInterval(DAvideoSecondNext,timerTime);
+    //             break;
+    //         default :
+    //             DAvideoFirstTimer = setInterval(DAvideoFirstNext,timerTime);
+    //     }
+    // });
 
     // var DAvideoFinalTimer = 0,
     //     DAvideoFinalNext = 1,
@@ -239,107 +239,107 @@ $(function(){
     //     DAvideoFirstTimer = 9,
     //     DAvideoFirstNext = 10,
     //     DAvideoFirstPrev = 11,
-        var obj = {}
+    //     var obj = {}
 
-        obj['DAvideoFinalTimer'] = DAvideoFinalTimer
-        obj['DAvideoFinalTimer'] = DAvideoFinalTimer
-        obj['DAvideoFinalNext'] = DAvideoFinalNext
-        obj['DAvideoFinalPrev'] = DAvideoFinalPrev
-        obj['DAvideoThirdTimer'] = DAvideoThirdTimer
-        obj['DAvideoThirdNext'] = DAvideoThirdNext
-        obj['DAvideoThirdPrev'] = DAvideoThirdPrev
-        obj['DAvideoSecondTimer'] = DAvideoSecondTimer
-        obj['DAvideoSecondNext'] = DAvideoSecondNext
-        obj['DAvideoSecondPrev'] = DAvideoSecondPrev
-        obj['DAvideoFirstTimer'] = DAvideoFirstTimer
-        obj['DAvideoFirstNext'] = DAvideoFirstNext
-        obj['DAvideoFirstPrev'] = DAvideoFirstPrev
+    //     obj['DAvideoFinalTimer'] = DAvideoFinalTimer
+    //     obj['DAvideoFinalTimer'] = DAvideoFinalTimer
+    //     obj['DAvideoFinalNext'] = DAvideoFinalNext
+    //     obj['DAvideoFinalPrev'] = DAvideoFinalPrev
+    //     obj['DAvideoThirdTimer'] = DAvideoThirdTimer
+    //     obj['DAvideoThirdNext'] = DAvideoThirdNext
+    //     obj['DAvideoThirdPrev'] = DAvideoThirdPrev
+    //     obj['DAvideoSecondTimer'] = DAvideoSecondTimer
+    //     obj['DAvideoSecondNext'] = DAvideoSecondNext
+    //     obj['DAvideoSecondPrev'] = DAvideoSecondPrev
+    //     obj['DAvideoFirstTimer'] = DAvideoFirstTimer
+    //     obj['DAvideoFirstNext'] = DAvideoFirstNext
+    //     obj['DAvideoFirstPrev'] = DAvideoFirstPrev
 
-        // obj[DAvideoFinalTimer] = 'DAvideoFinalTimer'
-        // obj[DAvideoFinalTimer] = 'DAvideoFinalTimer'
-        // obj[DAvideoFinalNext] = 'DAvideoFinalNext'
-        // obj[DAvideoFinalPrev] = 'DAvideoFinalPrev'
-        // obj[DAvideoThirdTimer] = 'DAvideoThirdTimer'
-        // obj[DAvideoThirdNext] = 'DAvideoThirdNext'
-        // obj[DAvideoThirdPrev] = 'DAvideoThirdPrev'
-        // obj[DAvideoSecondTimer] = 'DAvideoSecondTimer'
-        // obj[DAvideoSecondNext] = 'DAvideoSecondNext'
-        // obj[DAvideoSecondPrev] = 'DAvideoSecondPrev'
-        // obj[DAvideoFirstTimer] = 'DAvideoFirstTimer'
-        // obj[DAvideoFirstNext] = 'DAvideoFirstNext'
-        // obj[DAvideoFirstPrev] = 'DAvideoFirstPrev'
+    //     // obj[DAvideoFinalTimer] = 'DAvideoFinalTimer'
+    //     // obj[DAvideoFinalTimer] = 'DAvideoFinalTimer'
+    //     // obj[DAvideoFinalNext] = 'DAvideoFinalNext'
+    //     // obj[DAvideoFinalPrev] = 'DAvideoFinalPrev'
+    //     // obj[DAvideoThirdTimer] = 'DAvideoThirdTimer'
+    //     // obj[DAvideoThirdNext] = 'DAvideoThirdNext'
+    //     // obj[DAvideoThirdPrev] = 'DAvideoThirdPrev'
+    //     // obj[DAvideoSecondTimer] = 'DAvideoSecondTimer'
+    //     // obj[DAvideoSecondNext] = 'DAvideoSecondNext'
+    //     // obj[DAvideoSecondPrev] = 'DAvideoSecondPrev'
+    //     // obj[DAvideoFirstTimer] = 'DAvideoFirstTimer'
+    //     // obj[DAvideoFirstNext] = 'DAvideoFirstNext'
+    //     // obj[DAvideoFirstPrev] = 'DAvideoFirstPrev'
 
-    $('.DAvideoCtrl > .switch').click(function(){
-        var $videoCtrl = $(this).parent('div'),
-            videoId = $(this).parent('div').parent('div').attr('id'),//
+    // $('.DAvideoCtrl > .switch').click(function(){
+    //     var $videoCtrl = $(this).parent('div'),
+    //         videoId = $(this).parent('div').parent('div').attr('id'),//
 
-            timerName = obj[videoId + 'Timer'],
-            DAvideoNext = obj[videoId + 'Next'],
-            DAvideoPrev = obj[videoId + 'Prev']
-            console.log(videoId);//DAvideoFinal
-            console.log(timerName);
-            console.log(DAvideoNext);
-            console.log(DAvideoPrev);
+    //         timerName = obj[videoId + 'Timer'],
+    //         DAvideoNext = obj[videoId + 'Next'],
+    //         DAvideoPrev = obj[videoId + 'Prev']
+    //         console.log(videoId);//DAvideoFinal
+    //         console.log(timerName);
+    //         console.log(DAvideoNext);
+    //         console.log(DAvideoPrev);
 
-        if($videoCtrl.hasClass('play')){
-            $videoCtrl.removeClass('play').addClass('pause')
+    //     if($videoCtrl.hasClass('play')){
+    //         $videoCtrl.removeClass('play').addClass('pause')
 
-            clearInterval(timerName)
-            $(this).siblings('.next').on('click', DAvideoNext);
-            $(this).siblings('.prev').on('click', DAvideoPrev);
+    //         clearInterval(timerName)
+    //         $(this).siblings('.next').on('click', DAvideoNext);
+    //         $(this).siblings('.prev').on('click', DAvideoPrev);
 
-            // switch(videoId) {
-            //     case 'DAvideoFinal' :
-            //         clearInterval(DAvideoFinalTimer)
-            //         $(this).siblings('.next').on('click', DAvideoFinalNext);
-            //         $(this).siblings('.prev').on('click', DAvideoFinalPrev);
-            //         break;
-            //     case 'DAvideoThird' :
-            //         clearInterval(DAvideoThirdTimer)
-            //         $(this).siblings('.next').on('click', DAvideoThirdNext);
-            //         $(this).siblings('.prev').on('click', DAvideoThirdPrev);
-            //         break;
-            //     case 'DAvideoSecond' :
-            //         clearInterval(DAvideoSecondTimer)
-            //         $(this).siblings('.next').on('click', DAvideoSecondNext);
-            //         $(this).siblings('.prev').on('click', DAvideoSecondPrev);
-            //         break;
-            //     default :
-            //         clearInterval(DAvideoFirstTimer)
-            //         $(this).siblings('.next').on('click', DAvideoFirstNext);
-            //         $(this).siblings('.prev').on('click', DAvideoFirstPrev);
-            // }
+    //         // switch(videoId) {
+    //         //     case 'DAvideoFinal' :
+    //         //         clearInterval(DAvideoFinalTimer)
+    //         //         $(this).siblings('.next').on('click', DAvideoFinalNext);
+    //         //         $(this).siblings('.prev').on('click', DAvideoFinalPrev);
+    //         //         break;
+    //         //     case 'DAvideoThird' :
+    //         //         clearInterval(DAvideoThirdTimer)
+    //         //         $(this).siblings('.next').on('click', DAvideoThirdNext);
+    //         //         $(this).siblings('.prev').on('click', DAvideoThirdPrev);
+    //         //         break;
+    //         //     case 'DAvideoSecond' :
+    //         //         clearInterval(DAvideoSecondTimer)
+    //         //         $(this).siblings('.next').on('click', DAvideoSecondNext);
+    //         //         $(this).siblings('.prev').on('click', DAvideoSecondPrev);
+    //         //         break;
+    //         //     default :
+    //         //         clearInterval(DAvideoFirstTimer)
+    //         //         $(this).siblings('.next').on('click', DAvideoFirstNext);
+    //         //         $(this).siblings('.prev').on('click', DAvideoFirstPrev);
+    //         // }
 
-        }else{
-            $videoCtrl.removeClass('pause').addClass('play')
+    //     }else{
+    //         $videoCtrl.removeClass('pause').addClass('play')
 
-            timerName = setInterval(DAvideoNext,timerTime);
-            $(this).siblings('.next').off('click', DAvideoNext);
-            $(this).siblings('.prev').off('click', DAvideoPrev);
+    //         timerName = setInterval(DAvideoNext,timerTime);
+    //         $(this).siblings('.next').off('click', DAvideoNext);
+    //         $(this).siblings('.prev').off('click', DAvideoPrev);
 
-            // switch(videoId) {
-            //     case 'DAvideoFinal' :
-            //         DAvideoFinalTimer = setInterval(DAvideoFinalNext,timerTime);
-            //         $(this).siblings('.next').off('click', DAvideoFinalNext);
-            //         $(this).siblings('.prev').off('click', DAvideoFinalPrev);
-            //         break;
-            //     case 'DAvideoThird' :
-            //         DAvideoThirdTimer = setInterval(DAvideoThirdNext,timerTime);
-            //         $(this).siblings('.next').off('click', DAvideoThirdNext);
-            //         $(this).siblings('.prev').off('click', DAvideoThirdPrev);
-            //         break;
-            //     case 'DAvideoSecond' :
-            //         DAvideoSecondTimer = setInterval(DAvideoSecondNext,timerTime);
-            //         $(this).siblings('.next').off('click', DAvideoSecondNext);
-            //         $(this).siblings('.prev').off('click', DAvideoSecondPrev);
-            //         break;
-            //     default :
-            //         DAvideoFirstTimer = setInterval(DAvideoFirstNext,timerTime);
-            //         $(this).siblings('.next').off('click', DAvideoFirstNext);
-            //         $(this).siblings('.prev').off('click', DAvideoFirstPrev);
-            // }
-        };
-    });
+    //         // switch(videoId) {
+    //         //     case 'DAvideoFinal' :
+    //         //         DAvideoFinalTimer = setInterval(DAvideoFinalNext,timerTime);
+    //         //         $(this).siblings('.next').off('click', DAvideoFinalNext);
+    //         //         $(this).siblings('.prev').off('click', DAvideoFinalPrev);
+    //         //         break;
+    //         //     case 'DAvideoThird' :
+    //         //         DAvideoThirdTimer = setInterval(DAvideoThirdNext,timerTime);
+    //         //         $(this).siblings('.next').off('click', DAvideoThirdNext);
+    //         //         $(this).siblings('.prev').off('click', DAvideoThirdPrev);
+    //         //         break;
+    //         //     case 'DAvideoSecond' :
+    //         //         DAvideoSecondTimer = setInterval(DAvideoSecondNext,timerTime);
+    //         //         $(this).siblings('.next').off('click', DAvideoSecondNext);
+    //         //         $(this).siblings('.prev').off('click', DAvideoSecondPrev);
+    //         //         break;
+    //         //     default :
+    //         //         DAvideoFirstTimer = setInterval(DAvideoFirstNext,timerTime);
+    //         //         $(this).siblings('.next').off('click', DAvideoFirstNext);
+    //         //         $(this).siblings('.prev').off('click', DAvideoFirstPrev);
+    //         // }
+    //     };
+    // });
 
 //  DAbanner
     var DAcolumnAmount,
@@ -356,15 +356,18 @@ $(function(){
     // if($('body').hasClass('DAbanner')){
     if($('body').attr('id') == 'DAbanner'){
         $window.on('resize', function(){
-            DAcolumnAmount = Math.ceil($window.width() / DAcolumnMaxWidth)
-            DAcolumnWidth = $window.width() / DAcolumnAmount
+            DAcolumnAmount = Math.ceil($window.width() / DAcolumnMaxWidth) // 3
+            DAcolumnWidth = $window.width() / DAcolumnAmount // 300
             DAoffsetY_Array = []
             $('.DAitem').each(function(){
                 var HWratio = $(this).data('height') / $(this).data('width'),
                     //i是計算第一行有那幾個，之後就是DAcolumnAmount最短的那個
                     i = DAoffsetY_Array.length < DAcolumnAmount ? DAoffsetY_Array.length : DAoffsetY_Array.indexOf(Math.min.apply(Math, DAoffsetY_Array)),
                     DAitemHeight = (DAcolumnWidth - BNgutter * 2) * HWratio;//算出每個.item的實際高度(px)
+                console.log(i);
+                console.log(Math.min.apply(Math, DAoffsetY_Array));
                 if(DAoffsetY_Array.length == i) DAoffsetY_Array.push(BNgutter)//給DAoffsetY_Array[]一個5的值
+                console.log(DAoffsetY_Array);
                 $(this).css({
                     width:DAcolumnWidth - BNgutter * 2,
                     height:DAitemHeight,
@@ -372,6 +375,7 @@ $(function(){
                     left:DAcolumnWidth * i + BNgutter
                 });
                 DAoffsetY_Array[i] += DAitemHeight + BNgutter * 2//因為if(DAoffsetY_Array.length == i)已經push一個5的值了，
+                console.log(DAoffsetY_Array[i]);
             });
         }).resize();
     }

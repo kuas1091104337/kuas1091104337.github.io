@@ -12,7 +12,7 @@
 			line-height:1.6;
 			padding:8px;
 		}
-	}
+	} 
 	.rwdThead{display: none;}
 	.rwdTbody{
 		td{
@@ -311,7 +311,6 @@
 	.rwdDivTable{
 		> .tbodyTr{
 			&:nth-child(2n+1) > div:first-of-type{background: #acc7f2;}
-
 		}
 		> .tbodyTr:nth-child(n+3) > div:first-of-type{border-top: 1px solid #dae3f2;}
 	}
