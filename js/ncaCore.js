@@ -11,7 +11,7 @@
 //手刻區
 $(function(){
 //  navbar JQ    
-    $.ajax({
+    $.ajax({ 
         url:'ncaCommon.html',
         dataType:'html'
     }).done(function(data) {

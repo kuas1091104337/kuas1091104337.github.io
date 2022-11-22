@@ -342,12 +342,7 @@ $(function(){
     // });
 
 //  DAbanner
-    var DAcolumnAmount,
-        DAcolumnWidth,
-        DAoffsetY_Array,
-        BNgutter = 5,
-        $window = $(window),
-        DAcolumnMaxWidth = 300,
+    var $window = $(window),
         imgNumberShow,
         $DAcolumnItem = $('.DAcolumn > .DAitem'),
         $DAcolumnItemMaxNumber = $DAcolumnItem.length,
@@ -356,13 +351,17 @@ $(function(){
     // if($('body').hasClass('DAbanner')){
     if($('body').attr('id') == 'DAbanner'){
         $window.on('resize', function(){
-            DAcolumnAmount = Math.ceil($window.width() / DAcolumnMaxWidth) // 3
-            DAcolumnWidth = $window.width() / DAcolumnAmount // 300
-            DAoffsetY_Array = []
+            var BNgutter = 5,
+                DAcolumnMaxWidth = 300,
+                DAcolumnAmount = Math.ceil($window.width() / DAcolumnMaxWidth), // 3
+                DAcolumnWidth = $window.width() / DAcolumnAmount, // 300
+                DAoffsetY_Array = [];
             $('.DAitem').each(function(){
                 var HWratio = $(this).data('height') / $(this).data('width'),
                     //i是計算第一行有那幾個，之後就是DAcolumnAmount最短的那個
-                    i = DAoffsetY_Array.length < DAcolumnAmount ? DAoffsetY_Array.length : DAoffsetY_Array.indexOf(Math.min.apply(Math, DAoffsetY_Array)),
+                    i = DAoffsetY_Array.length < DAcolumnAmount ? DAoffsetY_Array.length : DAoffsetY_Array.indexOf(Math.min(...DAoffsetY_Array)),
+                    // i = DAoffsetY_Array.length < DAcolumnAmount ? DAoffsetY_Array.length : DAoffsetY_Array.indexOf(Math.min.apply(null, DAoffsetY_Array)),
+                    // i = DAoffsetY_Array.length < DAcolumnAmount ? DAoffsetY_Array.length : DAoffsetY_Array.indexOf(Math.min.apply(Math, DAoffsetY_Array)),
                     DAitemHeight = (DAcolumnWidth - BNgutter * 2) * HWratio;//算出每個.item的實際高度(px)
                 console.log(i);
                 console.log(Math.min.apply(Math, DAoffsetY_Array));
