@@ -1,0 +1,12 @@
+@keyframes brandBtnStar{
+  0%{transform:rotate(45deg); opacity:0;}
+  9.375%{transform:rotate(79deg); opacity:1;}
+  28.125%{transform:rotate(146deg); opacity:1;}
+  37.5%{transform:rotate(180deg); opacity:0;}
+  100%{transform:rotate(180deg); opacity:0;}
+}
+@keyframes brandBtnFlash{
+  0%{left:-80%;}
+  18.75%{left: 108%;}
+  100%{left: 108%;}
+}

@@ -1,0 +1,74 @@
+{
+  "tagImg":[
+    {
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/NCsslSmall.jpg",
+      "alt":"網中SSL免費送EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2015M2R-2-Small.jpg",
+      "alt":"M2R 第二波EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2015M2R-1-Small.jpg",
+      "alt":"M2R 第一波EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2014TiteSmall.jpg",
+      "alt":"台灣國際旅遊展EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2014FiveFurnitureSmall.gif",
+      "alt":"五股家具家飾展EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2014TaichungFurnitureSmall.gif",
+      "alt":"台中家具家飾展EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2014TaipeiFurnitureSmall.gif",
+      "alt":"台北家具家飾展EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2014MusicSmall.jpg",
+      "alt":"台北國際樂具展EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2014VegetarianHealthSmall.jpg",
+      "alt":"台北素食養生展EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/GrapessBrandSmall.jpg",
+      "alt":"紅葡萄汁商品作圖"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/PrincessBrandSmall.jpg",
+      "alt":"公主童襪品牌故事"
+    }
+  ],
+  "edmImg":[
+    {
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/NCsslBig.jpg",
+      "alt":"網中SSL免費送EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2015M2R-2-Big.jpg",
+      "alt":"M2R 第二波EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2015M2R-1-Big.jpg",
+      "alt":"M2R 第一波EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2014TiteBig.jpg",
+      "alt":"台灣國際旅遊展EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2014FiveFurnitureBig.jpg",
+      "alt":"五股家具家飾展EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2014TaichungFurnitureBig.jpg",
+      "alt":"台中家具家飾展EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2014TaipeiFurnitureBig.jpg",
+      "alt":"台北家具家飾展EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2014MusicBig.jpg",
+      "alt":"台北國際樂具展EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/2014VegetarianHealthBig.jpg",
+      "alt":"台北素食養生展EDM"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/GrapessBrandBig.jpg",
+      "alt":"紅葡萄汁商品作圖"
+    },{
+      "src":"https://kuas1091104337.github.io/DotA_img/edm/PrincessBrandBig.jpg",
+      "alt":"公主童襪品牌故事作圖"
+    }
+  ]
+}

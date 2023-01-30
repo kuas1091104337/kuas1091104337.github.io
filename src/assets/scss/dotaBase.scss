@@ -1,0 +1,137 @@
+
+@keyframes Box3Dlogo{
+  0% {transform:translate3d(-50%,0,0);}
+  100% {transform:translate3d(-50%,25%,0);}
+}
+@keyframes SsizeBox3dRotate{
+  0% {transform:translate3d(0,0,$SmallBox3Dsize*-0.5) rotate3d(1,1,1,0deg);}
+  25% {transform:translate3d(0,0,$SmallBox3Dsize*-0.5) rotate3d(1,1,1,90deg);}
+  50% {transform:translate3d(0,0,$SmallBox3Dsize*-0.5) rotate3d(1,1,1,180deg);}
+  75% {transform:translate3d(0,0,$SmallBox3Dsize*-0.5) rotate3d(1,1,1,270deg);}
+  100% {transform:translate3d(0,0,$SmallBox3Dsize*-0.5) rotate3d(1,1,1,360deg);}
+}
+@keyframes MsizeBox3dRotate{
+  0% {transform:translate3d(0,0,$MiddleBox3Dsize*-0.5) rotate3d(1,1,1,0deg);}
+  25% {transform:translate3d(0,0,$MiddleBox3Dsize*-0.5) rotate3d(1,1,1,90deg);}
+  50% {transform:translate3d(0,0,$MiddleBox3Dsize*-0.5) rotate3d(1,1,1,180deg);}
+  75% {transform:translate3d(0,0,$MiddleBox3Dsize*-0.5) rotate3d(1,1,1,270deg);}
+  100% {transform:translate3d(0,0,$MiddleBox3Dsize*-0.5) rotate3d(1,1,1,360deg);}
+}
+@keyframes ballScroll{
+	0%{transform:rotate3d(1,0,0,360deg);}
+  50%{transform:rotate3d(1,0,0,180deg);}
+  100%{transform:rotate3d(1,0,0,0deg);}
+}
+@keyframes wTxtLoading{
+  0%, 33.33%{text-shadow: 0 0 #fff;}
+  66.66%{text-shadow: 5px 0 #fff;}
+  100%{text-shadow: 5px 0 #fff, 10px 0 #fff;}
+}
+@keyframes bTxtLoading{
+  0%, 33.33%{text-shadow: 0 0 $dGrayColor;}
+  66.66%{text-shadow: 5px 0 $dGrayColor;}
+  100%{text-shadow: 5px 0 $dGrayColor, 10px 0 $dGrayColor;}
+}
+
+.Box3D{
+  position:relative;
+  &_space, &__side{@extend %wh100pPosaT0L0}
+  &_space{transform-style:preserve-3d}
+  &_logo{
+    font-family:Arial;
+    font-weight:bold;
+    text-align:center;
+    user-select:none;
+    position:absolute;
+    top:10%;
+    left:10%;
+    // z-index:10;
+    // transform:scale(1);
+    &:before{
+      content:"";
+      display:block;
+      border-radius:50%;
+      position:absolute;
+      top:2%;
+      left:50%;
+      transform: translate3d(-50%,0,0);
+      .active &{
+        animation:Box3Dlogo .5s cubic-bezier(0.5, -0.75, 0.5, 1.75) infinite alternate;
+      }
+    }
+  }
+}
+.mBox3D{
+  width:$MiddleBox3Dsize;
+  height:$MiddleBox3Dsize;
+  margin:50px auto;
+  perspective:$MiddleBox3Dsize*2;
+  &_space{transform:translate3d(0,0,$MiddleBox3Dsize*-0.5) rotateY(45deg) rotateX(45deg)}
+  &__front{transform:rotateY(0deg) translate3d(0,0,$MiddleBox3Dsize*0.5);}
+  &__back{transform:rotateY(180deg) translate3d(0,0,$MiddleBox3Dsize*0.5);}
+  &__up{transform:rotateX(90deg) translate3d(0,0,$MiddleBox3Dsize*0.5);}
+  &__down{transform:rotateX(270deg) translate3d(0,0,$MiddleBox3Dsize*0.5);}
+  &__left{transform:rotateY(270deg) translate3d(0,0,$MiddleBox3Dsize*0.5);}
+  &__right{transform:rotateY(90deg) translate3d(0,0,$MiddleBox3Dsize*0.5);}
+  &_logo{transform:translate3d(0,0,$MiddleBox3Dsize*0.5) scale3d(.75,.75,1);} // 解safari bug
+}
+.sBox3D{
+  width:$SmallBox3Dsize;
+  height:$SmallBox3Dsize;
+  perspective:$SmallBox3Dsize*2;
+  &_space{transform:translate3d(0,0,$SmallBox3Dsize*-0.5) rotateY(45deg) rotateX(45deg)}
+  &__front{transform:rotateY(0deg) translate3d(0,0,$SmallBox3Dsize*0.5);}
+  &__back{transform:rotateY(180deg) translate3d(0,0,$SmallBox3Dsize*0.5);}
+  &__up{transform:rotateX(90deg) translate3d(0,0,$SmallBox3Dsize*0.5);}
+  &__down{transform:rotateX(270deg) translate3d(0,0,$SmallBox3Dsize*0.5);}
+  &__left{transform:rotateY(270deg) translate3d(0,0,$SmallBox3Dsize*0.5);}
+  &__right{transform:rotateY(90deg) translate3d(0,0,$SmallBox3Dsize*0.5);}
+  &_logo{transform:translate3d(0,0,$SmallBox3Dsize*0.5) scale3d(.75,.75,1);} // 解safari bug
+}
+
+.DAfoot-normal{
+  background-image: url("@/assets/img/index/HFbg.jpg");
+  &_link:hover{color:$BGcolor;}
+  .mBox3D_logo{ 
+    color:$GrayColor;
+    &:before{background-color:$GrayColor;}
+  }
+}
+.DAwrap{
+  background-image:url("@/assets/img/index/divBg1.jpg");
+  border:$DAborderW solid #fff;
+  flex-grow: 1;
+  padding:15px;
+  margin-top: 44px;
+  &_box{
+    background-image:url("@/assets/img/index/divBg2.jpg");
+    border-radius:$DAborderW;
+		box-shadow:0 1px 6px rgba(0,0,0,0.5);
+		padding:10px;
+  }
+}
+
+.DAtxtLoad{
+  font-size:16px;
+  text-align:left;
+  text-shadow:1px 1px rgba(#f0f,.6), -1px -1px rgba(#0ff,.6);
+  width:64px;
+  margin:0 auto;
+  transform:skew(-8deg);
+}
+.LoadBox3D{
+  &.posCenter{@extend %maPosaT0L0R0B0;}
+  &_space{animation:MsizeBox3dRotate 5s linear infinite;}
+  &_load{
+    font-size: 16px;
+    line-height:$MiddleBox3Dsize*0.8;
+    width:$MiddleBox3Dsize*0.8;
+    height:$MiddleBox3Dsize*0.8;
+    position:absolute;
+    top:10%;
+    left:10%;
+    text-shadow:1px 1px rgba(#f0f,.6), -1px -1px rgba(#0ff,.6);
+    transform:translate3d(0,0,40px) scale3d(.75,.75,1) skew(-8deg); // 解safari bug
+    &_ing .DAwhite &{animation: bTxtLoading 1.2s step-start infinite;}
+  }
+}
