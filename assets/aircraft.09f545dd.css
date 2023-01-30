@@ -1,0 +1,1 @@
+@keyframes aircraft{0%{opacity:1}33.33%,66.66%{opacity:0}}.aircraft_wrap_img{animation:aircraft 3s step-start infinite}.aircraft_wrap_img+.aircraft_wrap_img{animation-delay:1s}.aircraft_wrap_img+.aircraft_wrap_img+.aircraft_wrap_img{animation-delay:2s}

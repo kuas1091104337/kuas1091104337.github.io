@@ -1,0 +1,1 @@
+@keyframes racing{0%{opacity:1}50%{opacity:0}}.racing_wrap_img{animation:racing 2s step-start infinite}.racing_wrap_img+.racing_wrap_img{animation-delay:1s}

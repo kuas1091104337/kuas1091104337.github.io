@@ -39,11 +39,7 @@ const {numTimes, numTimesAdd} = useMinNumDigit(1,3),
       audioPlay = () => yeekeeMusic.value.play();
 onMounted(() => {
   yeekee.nowData = dayjs().format('YYYYMMDD')
-  console.log(yeekeeMusic.value);
   resetLottery();
-  // audioPlay();
-  // nextTick(() => { yeekeeMusic.value.play() });
-  // setTimeout(() => { yeekeeMusic.value.play() },5000);
 });
 onUnmounted(() => {
   clearInterval(timer);
@@ -51,15 +47,6 @@ onUnmounted(() => {
 </script>
 
 <template>
-<!-- <source src="@/assets/img/lotteryAT/yeekee/yeekee.mp3"/> autoPlay -->
-<audio
-  ref="yeekeeMusic"
-  :src="yeekeeMp3"
-  muted="true"
-  autoPlay
-/>
-<!-- @canplay="getDuration" @play="play" -->
-<!-- <audio ref="yeekeeMusic" loop autoPlay> <source :src="yeekeeMp3"/> </audio> -->
 <div :class="['yeekee',{'yeekee-ready':yeekee.isReady},{'yeekee-lottery':yeekee.isLottery},{'yeekee-result':yeekee.isResult}]">
   <div class="yeekee_wrap">
     <div class="yeekee__table">
