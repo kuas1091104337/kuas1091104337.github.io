@@ -17,7 +17,6 @@ const props = defineProps({
 </template>
 
 <style lang="scss">
-@import"@/assets/scss/rouletteVariables.scss";
 .roulette_rule{
   padding:0 20px 70px;
   &_wrap{

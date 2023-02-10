@@ -54,7 +54,6 @@ const props = defineProps({
 </template>
 
 <style lang="scss">
-@import"@/assets/scss/rouletteVariables.scss";
 .roulette_main___winner{
   height: 0;
   background-size:cover;

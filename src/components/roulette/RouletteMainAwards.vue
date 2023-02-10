@@ -28,7 +28,6 @@ const props = defineProps({
 </template>
 
 <style lang="scss">
-@import"@/assets/scss/rouletteVariables.scss";
 @keyframes rouletteSpecialAward-mob{
   0%{box-shadow:0 0 0 0 $pink, 0 0 0 $pink, 0 0 1px $pink inset}
   100%{

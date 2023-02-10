@@ -31,7 +31,6 @@ const props = defineProps({
 </template>
 
 <style lang="scss">
-@import"@/assets/scss/rouletteVariables.scss";
 .roulette_popup{
   @extend %wh100pPosfT0L0;
   max-width:568px;

@@ -13,7 +13,6 @@ const lottoNum = [...Array(6)];
 </template>
 
 <style lang="scss">
-@import"@/assets/scss/rouletteVariables.scss";
 @keyframes rouletteBoxCoin{
 	0%{
 		opacity:.5;

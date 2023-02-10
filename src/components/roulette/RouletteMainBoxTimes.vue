@@ -17,7 +17,6 @@ const props = defineProps({
 </template>
 
 <style lang="scss">
-@import"@/assets/scss/rouletteVariables.scss";
 @keyframes rouletteNumberTimes{
   0%{box-shadow:0 0 0 0 rgba(#fcff00,.6), 0 0 1px rgba(#fcff00,.6) inset;}
   100%{box-shadow:0 0 24px 2px rgba(#fcff00,.6), 0 0 1px rgba(#fcff00,.6) inset;}

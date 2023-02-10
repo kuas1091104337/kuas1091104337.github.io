@@ -115,5 +115,4 @@ onUnmounted(() => {
 
 <style lang="scss" src="@/assets/scss/brand.scss"></style>
 <style lang="scss">
-@import"@/assets/scss/gg9Variables.scss";
 </style>

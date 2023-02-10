@@ -28,7 +28,6 @@ const props = defineProps({
 </template>
 
 <style lang="scss">
-@import"@/assets/scss/rouletteVariables.scss";
 @keyframes rouletteRotate{
   0%{transform:rotate3d(0,0,1,0deg);}
   50%{transform:rotate3d(0,0,1,180deg);}
@@ -145,84 +144,6 @@ const props = defineProps({
     }
   }
 }
-// 變版區
-.normal, .newYear, .xmas{
-  .roulette_main___box_wrap > .roulette_main___box__part > .roulette_main___box__part_list-prize0 > span.roulette_main___box__part__color{
-    &:before, &:after{background-image:none}
-  }
-}
-%rouletteLotteryPrizeName-red{
-  .roulette_main___box__part__prizeName_txt-1{
-    -webkit-text-stroke:3px $Dpink;
-  }
-}
-.normal .roulette_main___box__part{
-  background-color:#c27af0;
-  &_list{
-    &-prize0 > .roulette_main___box__part__color{
-      &:before, &:after{background-color:#ff4d88}
-    }
-  }
-  &__awards-{
-    &:before, &:after{
-      // content: "\e9e0"; //開心笑
-      // content: "\e9e2"; //笑
-      // content: "\e9e6"; //不開心
-      // content: "\e9f2"; //哇
-      // content:"\e9fc"; //...
-      content: "\e9e9"; //笑臉
-    }
-  }
-}
-%rouletteLotteryPrizeName-CNY{
-  .roulette_main___box__part__prizeName_txt-1{
-    -webkit-text-stroke:3px $CNYtextFrame;
-  }
-}
-.newYear .roulette_main___box{
-  &_wrap{
-    &-P9, &-P8, &-P7, &-P6{
-      @for $i from 0 through 8{
-        // &-N0~8 .roulette_main___box__part_list-num0~8
-        &-N#{$i} .roulette_main___box__part_list-num#{$i}{
-          @extend %rouletteLotteryPrizeName-CNY;
-        }
-      }
-    }
-  }
-  &__part{
-    background-color:$xmasBottomColor_2;
-    &_list{
-      &:before{
-        background-image:linear-gradient(
-          0deg,#8a542c 0%,#b7854b 25%,#fff 55%,#fff 65%,#e8a569 95%
-        );
-      }
-      &-prize0 > .roulette_main___box__part__color{
-        &:before, &:after{background-color:#eca95e}
-      }
-    }
-    &__awards{
-      &:before{-webkit-text-stroke:size_pxToVw(6,$rouletteGameMobW) $CNYtextFrame;}
-      &-{
-        &:before, &:after{
-          content: "\e9e4";//吐舌頭
-        }
-      }
-    }
-  }
-}
-.xmas .roulette_main___box__part{
-  background-color:$xmasTopColor_1;
-  &_list-prize0 > .roulette_main___box__part__color{
-    &:before, &:after{background-color:$redSpecialColor}
-  }
-  &__awards-{
-    &:before, &:after{
-      content: "\e9f0"; //小惡魔笑
-    }
-  }
-}
 @media screen and (min-width: 568px){
   %rouletteLotteryBeforeMobPig{
     &:before{animation-name:listYellowBorder-mobPigSize;}
@@ -254,24 +175,6 @@ const props = defineProps({
         }
       }
     }
-  }
-  %rouletteLotteryPrizeNameMobPig-red{
-    .roulette_main___box__part__prizeName_txt-1{
-      -webkit-text-stroke:4px $Dpink;
-    }
-  }
-  .normal, .xmas{
-    .roulette_main___box{
-      &__part__awards:before{-webkit-text-stroke:9px $Dpink}
-    }
-  }
-  %rouletteLotteryPrizeNameMobPig-CNY{
-    .roulette_main___box__part__prizeName_txt-1{
-      -webkit-text-stroke:4px $CNYtextFrame;
-    }
-  }
-  .newYear .roulette_main___box{
-    &__part__awards:before{-webkit-text-stroke:9px $CNYtextFrame}
   }
 }
 </style>

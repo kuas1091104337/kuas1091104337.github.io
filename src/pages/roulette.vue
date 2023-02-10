@@ -135,7 +135,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-@import"@/assets/scss/rouletteVariables.scss";
 @keyframes rouletteDecoShake{
   0%{transform:rotate3d(0,0,1,5deg)}
   33.33%{transform:rotate3d(0,0,1,-7.5deg)}
@@ -304,26 +303,6 @@ onMounted(() => {
     }
   }
 }
-// 變版區
-.normal, .xmas{
-  .roulette_main{
-    &__nav{background-color:#190023;}
-    &__content{padding-top:calc($rouletteGameMobH/$rouletteGameMobW)*100%;}
-    &___box{
-      padding-bottom:calc($rouletteGameMobH/$rouletteGameMobW)*100%;
-      &_wrap{
-        height:calc(355/$rouletteGameMobH)*100%;
-        top:calc(38/$rouletteGameMobH)*100%;
-        &:after {
-          @extend %wh100pPosaT0L0;
-          background-size:200% 100%;
-          animation: rouletteNeonLight 1s steps(1) infinite;
-        }
-      }
-      &__btn{background-image:url("@/assets/img/roulette/normal/rouletteBtn.png");}
-    }
-  }
-}
 @media screen and (min-width: 568px){
   .roulette{
     box-shadow:230px 0 0 #190023, -230px 0 0 #190023;
@@ -446,23 +425,6 @@ onMounted(() => {
     }
     + .DAfoot-normal{padding-bottom:0;}
   }
-  .normal, .newYear, .xmas{
-    .roulette_main{
-      &__nav{background-color:transparent;}
-      &__content{padding:0;}
-      &___box{
-        background-image:none;
-        &:before, &:after{background-image:none;}
-        &_wrap{
-          height:100%;
-          top:0;
-        }
-      }
-    }
-  }
-}
-@media screen and (min-width: 1200px){
-  .xmas .roulette_main__nav{margin-bottom:6%;}
 }
 @media screen and (min-width: 1440px){
   .roulette_main{
@@ -481,9 +443,6 @@ onMounted(() => {
       &:after{left:100%}
     }
     &__content > .roulette_main___box{padding-bottom:600px;}
-  }
-  .normal, .newYear{
-    .roulette_main{padding-bottom:$rouletteGameH + px;}
   }
 }
 </style>
