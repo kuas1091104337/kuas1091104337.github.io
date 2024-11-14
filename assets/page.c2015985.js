@@ -1,1 +1,0 @@
-const a={__name:"page",props:{total:{type:[Number,String],default:0},pageNum:{type:[Number,String],default:1},pageSize:{type:[Number,String],default:()=>10},sizesList:{type:Array,default:()=>[10,20,50,100]}},setup(e){return(t,r)=>null}};export{a as default};
