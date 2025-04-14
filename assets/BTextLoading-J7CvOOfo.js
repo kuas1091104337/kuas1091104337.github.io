@@ -1,0 +1,1 @@
+import{_ as t,e as o,o as s,s as a,f as n}from"./index-CNwOqUnJ.js";const c={},_={class:"DAtxtLoad DAtxtLoad-black"};function r(d,e){return s(),o("p",_,e[0]||(e[0]=[a(" Loading"),n("span",{class:"DAtxtLoad_ing-black"},".",-1)]))}const p=t(c,[["render",r]]);export{p as _};

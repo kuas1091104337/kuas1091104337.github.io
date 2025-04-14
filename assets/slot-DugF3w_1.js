@@ -1,0 +1,1 @@
+import{_ as e,e as o,o as a,f as s}from"./index-CNwOqUnJ.js";const c="/assets/slot-QV8YK0Kp.jpg",n={},r={class:"ATtest"};function l(_,t){return a(),o("div",r,t[0]||(t[0]=[s("h3",{class:"ATtest_text"},[s("span",null,"slot coming soon")],-1),s("div",{class:"ATtest_wrap"},[s("img",{class:"ATtest_wrap_img",src:c,alt:"slot"})],-1)]))}const p=e(n,[["render",l]]);export{p as default};
